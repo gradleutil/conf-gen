@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions" : {
+    "Ref" : {
+      "type" : "number"
+    }
+  },
+  "properties": {
+    "prop": {
+      "$ref" : "#/definitions/Ref"
+    }
+  }
+}

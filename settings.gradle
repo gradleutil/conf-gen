@@ -1,0 +1,12 @@
+rootProject.name = 'conf-gen'
+include('template')
+/*
+def isIncludedBuild = gradle.parent != null
+if (!isIncludedBuild && file('../conf').exists()) {
+    includeBuild(file('../conf')) {
+        dependencySubstitution {
+            substitute module('gradleutil:conf') with project(':')
+        }
+    }
+}
+*/

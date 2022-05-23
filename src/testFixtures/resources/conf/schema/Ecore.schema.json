@@ -1,0 +1,529 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "EStringToStringMapEntry": {
+      "type": "object",
+      "properties": {
+        "key": {"type": "string"},
+        "value": {"type": "string"}
+      }
+    },
+    "EAnnotation": {
+          "type": "object",
+          "properties": {
+            "details": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EStringToStringMapEntry"},
+              "minItems": 0
+            },
+            "contents": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            },
+            "source": {"type": "string"},
+            "references": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+    "EModelElement": {
+      "type": "object",
+      "properties": {
+        "eAnnotations": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/EAnnotation"},
+          "minItems": 0
+        }
+      }
+    },
+    "ENamedElement": {
+      "allOf": [
+        {"$ref": "#/definitions/EModelElement"},
+        {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EGenericType": {
+      "type": "object",
+      "properties": {
+        "eUpperBound": {"$ref": "#/definitions/EGenericType"},
+        "eTypeArguments": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/EGenericType"},
+          "minItems": 0
+        },
+        "eLowerBound": {"$ref": "#/definitions/EGenericType"},
+        "eRawType": {
+          "type": "string",
+          "format": "uri"
+        },
+        "eTypeParameter": {"type": "string"},
+        "eClassifier": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "ETypeParameter": {
+      "allOf": [
+        {"$ref": "#/definitions/ENamedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "eBounds": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EGenericType"},
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "EClassifier": {
+      "allOf": [
+        {"$ref": "#/definitions/ENamedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "eTypeParameters": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/ETypeParameter"},
+              "minItems": 0
+            },
+            "instanceClassName": {"type": "string"},
+            "instanceClass": {"type": "string"},
+            "defaultValue": {"type": "string"},
+            "instanceTypeName": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EDataType": {
+      "allOf": [
+        {"$ref": "#/definitions/EClassifier"},
+        {
+          "type": "object",
+          "properties": {
+            "serializable": {
+              "type": "string",
+              "default": "true"
+            }
+          }
+        }
+      ]
+    },
+    "ETypedElement": {
+      "allOf": [
+        {"$ref": "#/definitions/ENamedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "eGenericType": {"$ref": "#/definitions/EGenericType"},
+            "ordered": {
+              "type": "string",
+              "default": "true"
+            },
+            "unique": {
+              "type": "string",
+              "default": "true"
+            },
+            "lowerBound": {"type": "string"},
+            "upperBound": {
+              "type": "string",
+              "default": "1"
+            },
+            "many": {"type": "string"},
+            "required": {"type": "string"},
+            "eType": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      ]
+    },
+    "EStructuralFeature": {
+      "allOf": [
+        {"$ref": "#/definitions/ETypedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "changeable": {
+              "type": "string",
+              "default": "true"
+            },
+            "_volatile": {"type": "string"},
+            "_transient": {"type": "string"},
+            "defaultValueLiteral": {"type": "string"},
+            "defaultValue": {"type": "string"},
+            "unsettable": {"type": "string"},
+            "derived": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EEnumLiteral": {
+      "allOf": [
+        {"$ref": "#/definitions/ENamedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "value": {"type": "string"},
+            "instance": {"type": "string"},
+            "literal": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EEnum": {
+      "allOf": [
+        {"$ref": "#/definitions/EDataType"},
+        {
+          "type": "object",
+          "properties": {
+            "eLiterals": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EEnumLiteral"},
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "EPackage": {
+      "allOf": [
+        {"$ref": "#/definitions/ENamedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "eClassifiers": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EClassifier"},
+              "minItems": 0
+            },
+            "eSubpackages": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EPackage"},
+              "minItems": 0
+            },
+            "nsURI": {"type": "string"},
+            "nsPrefix": {"type": "string"},
+            "eFactoryInstance": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EFactory": {
+      "allOf": [
+        {"$ref": "#/definitions/EModelElement"},
+        {
+          "type": "object",
+          "properties": {
+            "ePackage": {"type": "string"}
+          }
+        }
+      ]
+    },
+    "EAttribute": {
+      "allOf": [
+        {"$ref": "#/definitions/EStructuralFeature"},
+        {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string"},
+            "eAttributeType": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        }
+      ]
+    },
+    "EParameter": {
+      "allOf": [
+        {"$ref": "#/definitions/ETypedElement"},
+        {
+          "type": "object",
+          "properties": {}
+        }
+      ]
+    },
+    "EOperation": {
+      "allOf": [
+        {"$ref": "#/definitions/ETypedElement"},
+        {
+          "type": "object",
+          "properties": {
+            "eTypeParameters": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/ETypeParameter"},
+              "minItems": 0
+            },
+            "eParameters": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EParameter"},
+              "minItems": 0
+            },
+            "eGenericExceptions": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EGenericType"},
+              "minItems": 0
+            },
+            "eExceptions": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      ]
+    },
+    "EClass": {
+      "allOf": [
+        {"$ref": "#/definitions/EClassifier"},
+        {
+          "type": "object",
+          "properties": {
+            "eOperations": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EOperation"},
+              "minItems": 0
+            },
+            "eStructuralFeatures": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EStructuralFeature"},
+              "minItems": 0
+            },
+            "eGenericSuperTypes": {
+              "type": "array",
+              "items": {"$ref": "#/definitions/EGenericType"},
+              "minItems": 0
+            },
+            "_abstract": {"type": "string"},
+            "_interface": {"type": "string"},
+            "eSuperTypes": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllAttributes": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllReferences": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eReferences": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAttributes": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllContainments": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllOperations": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllStructuralFeatures": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eAllSuperTypes": {
+              "type": "array",
+              "items": {"type": "string"}
+            },
+            "eidAttribute": {"type": "string"},
+            "eAllGenericSuperTypes": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      ]
+    },
+    "EReference": {
+      "allOf": [
+        {"$ref": "#/definitions/EStructuralFeature"},
+        {
+          "type": "object",
+          "properties": {
+            "containment": {"type": "string"},
+            "container": {"type": "string"},
+            "resolveProxies": {
+              "type": "string",
+              "default": "true"
+            },
+            "eOpposite": {
+              "type": "string",
+              "format": "uri"
+            },
+            "eReferenceType": {
+              "type": "string",
+              "format": "uri"
+            },
+            "eKeys": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        }
+      ]
+    },
+    "EObject": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "EDataType": {"$ref": "#/definitions/EDataType"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "ENamedElement": {"$ref": "#/definitions/ENamedElement"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EStructuralFeature": {"$ref": "#/definitions/EStructuralFeature"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EClassifier": {"$ref": "#/definitions/EClassifier"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EEnum": {"$ref": "#/definitions/EEnum"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EModelElement": {"$ref": "#/definitions/EModelElement"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EPackage": {"$ref": "#/definitions/EPackage"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EAnnotation": {"$ref": "#/definitions/EAnnotation"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EFactory": {"$ref": "#/definitions/EFactory"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "ETypedElement": {"$ref": "#/definitions/ETypedElement"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EAttribute": {"$ref": "#/definitions/EAttribute"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EClass": {"$ref": "#/definitions/EClass"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EObject": {
+          "type": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "null",
+            "object",
+            "array"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EParameter": {"$ref": "#/definitions/EParameter"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EStringToStringMapEntry": {"$ref": "#/definitions/EStringToStringMapEntry"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EGenericType": {"$ref": "#/definitions/EGenericType"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EEnumLiteral": {"$ref": "#/definitions/EEnumLiteral"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EOperation": {"$ref": "#/definitions/EOperation"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "EReference": {"$ref": "#/definitions/EReference"}
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "ETypeParameter": {"$ref": "#/definitions/ETypeParameter"}
+      }
+    }
+  ]
+}

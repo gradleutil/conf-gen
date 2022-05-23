@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://www.eclipse.org/emf/2002/Ecore#",
+    "$ref": "#/definitions/AllOfTest",
+    "definitions": {
+      "AllOfTest": {
+        "allOf": [
+          {"$ref": "#/definitions/EModelElement"},
+          {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"}
+            }
+          }
+        ]
+      },
+        "EModelElement": {
+            "type": "object",
+            "properties": {
+              "key": {"type": "string"},
+              "value": {"type": "string"}
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+plugin  = {
+
+  description = "myplugin"
+  id = "net.gradleutil.gradle-conf"
+  implementationClass = "net.gradleutil.config.ConfPlugin"
+
+  tasks = [
+    {
+      Task {
+        name = "mytask"
+        type = "MyTask"
+      }
+    }
+
+  ]
+
+  pluginProperties = [ 
+    {
+      PluginProperty {
+        name = "myProperty"
+        type = "mypropType"
+      }
+    }
+  ]
+
+
+}

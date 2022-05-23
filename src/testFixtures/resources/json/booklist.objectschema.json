@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "books": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "longDescription": {"type": "string"},
+                    "pageCount": {"type": "number"},
+                    "isbn": {"type": "string"},
+                    "shortDescription": {"type": "string"},
+                    "categories": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    },
+                    "title": {"type": "string"},
+                    "thumbnailUrl": {"type": "string"},
+                    "status": {"type": "string"},
+                    "authors": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                    }
+                }
+            }
+        },
+        "name": {"type": "string"}
+    }
+}

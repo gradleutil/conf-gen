@@ -1,0 +1,164 @@
+import gg.jte.ContentType
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+plugins {
+    id 'groovy'
+    id 'java-library'
+    id 'java-test-fixtures'
+    id 'maven-publish'
+    id "gg.jte.gradle" version "2.0.3"
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+def confVersion = '1.1.0'
+
+group = 'net.gradleutil'
+version = confVersion
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://repository.jboss.org/nexus/content/repositories/releases/" }
+    maven { url "https://jitpack.io" }
+}
+
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:3.0.10'
+    implementation 'gg.jte:jte:2.0.3'
+    implementation project(":template")
+    implementation 'com.github.gradleutil:conf:' + confVersion
+    testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
+    testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+jte {
+    generate()
+    setContentType(ContentType.Plain)
+}
+
+jar {
+    archiveClassifier.set('core')
+}
+
+shadowJar {
+    mergeServiceFiles()
+    mergeGroovyExtensionModules()
+    minimize()
+    archiveClassifier.set('')
+    dependencies {
+        exclude(dependency('org.codehaus.groovy:.*'))
+        exclude(dependency('org.spockframework:.*'))
+        exclude(dependency('org.junit.jupiter:.*'))
+        exclude(dependency('org.junit.platform:.*'))
+        exclude(dependency('org.junit:.*'))
+    }
+    doLast {
+        def jarFile = outputs.files.first() as File
+        def formatStr = "%,10.2f"
+        logger.lifecycle("Shadow jar:" + jarFile + "${String.format(formatStr, jarFile.length() / 1024)} Mb")
+    }
+}
+
+
+task deleteGeneratedTestData(type: Delete) {
+    def tempDir = sourceSets.getByName('test').allSource.files.
+            findAll { it.path.contains('/temp/') }
+    delete tempDir
+    outputs.upToDateWhen { !tempDir }
+}
+tasks.withType(AbstractCompile)*.dependsOn(deleteGeneratedTestData)
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+javadoc {
+    exclude 'gg/jte/generated/**'
+}
+sourcesJar.dependsOn(':generateJte')
+
+publishing {
+    publications {
+        shadow(MavenPublication) { publication ->
+            project.shadow.component(publication)
+            artifact sourcesJar
+            artifact javadocJar
+            artifact testFixturesJar
+        }
+    }
+}
+
+allprojects {
+    plugins.withType(BasePlugin) {
+        project.afterEvaluate {
+            def deleteTasks = tasks.withType(Delete) + project.tasks.findByPath('clean')
+            def otherTasks = tasks - deleteTasks
+            otherTasks*.mustRunAfter deleteTasks
+        }
+    }
+}
+
+tasks.withType(AbstractPublishToMaven) { publishTask ->
+    doLast {
+        if (publishTask instanceof PublishToMavenRepository) {
+            logger.lifecycle("Published ${project.group}.${project.name}:${version} to ${publishTask.repository.url}")
+        } else if (publishTask instanceof PublishToMavenLocal) {
+            String repoPath = repositories.mavenLocal().url.toURL().getFile()
+            publication.with { p ->
+                def sb = new StringBuilder()
+                p.artifacts.each {
+                    String artifactPath = p.groupId.replace(".", "/") + "/" + p.artifactId + "/" + p.version + "/" + p.artifactId + "-" + p.version
+                    sb.append('\n  ' + repoPath).append(artifactPath)
+                            .append(it.classifier ? '-' + it.classifier : '').append('.' + it.extension)
+                }
+                logger.lifecycle("Published ${p.groupId}:${p.artifactId}:${p.version}${sb.toString()}")
+            }
+        } else {
+            logger.lifecycle("Published ${project.group}:${project.name}:${version}")
+        }
+    }
+}
+
+tasks.withType(Test) {
+    testLogging {
+        // set options for log level LIFECYCLE
+        events TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED,
+                TestLogEvent.STANDARD_OUT
+        exceptionFormat TestExceptionFormat.FULL
+        showExceptions true
+        showCauses true
+        showStackTraces true
+
+        // set options for log level DEBUG and INFO
+        debug {
+            events TestLogEvent.STARTED,
+                    TestLogEvent.FAILED,
+                    TestLogEvent.PASSED,
+                    TestLogEvent.SKIPPED,
+                    TestLogEvent.STANDARD_ERROR,
+                    TestLogEvent.STANDARD_OUT
+            exceptionFormat TestExceptionFormat.FULL
+        }
+        info.events = debug.events
+        info.exceptionFormat = debug.exceptionFormat
+
+        afterSuite { desc, result ->
+            if (!desc.parent) {
+                // will match the outermost suite
+                def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+                def startItem = '|  ', endItem = '  |'
+                def repeatLength = startItem.length() + output.length() + endItem.length()
+                println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+            }
+        }
+    }
+}

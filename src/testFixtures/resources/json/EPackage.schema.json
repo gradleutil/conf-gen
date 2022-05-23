@@ -1,0 +1,404 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://www.eclipse.org/emf/2002/Ecore#",
+    "$ref": "#/definitions/EPackage",
+    "definitions": {
+        "EStringToStringMapEntry": {
+            "type": "object",
+            "properties": {
+                "key": {"type": "string"},
+                "value": {"type": "string"}
+            }
+        },
+        "EAnnotation": {
+            "allOf": [
+                {"$ref": "#/definitions/EModelElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "details": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EStringToStringMapEntry"},
+                            "minItems": 0
+                        },
+                        "contents": {
+                            "type": "array",
+                            "items": {
+                                "type": [
+                                    "string",
+                                    "number",
+                                    "integer",
+                                    "boolean",
+                                    "null",
+                                    "object",
+                                    "array"
+                                ]
+                            },
+                            "minItems": 0
+                        },
+                        "source": {"type": "string"},
+                        "references": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    }
+                }
+            ]
+        },
+        "EModelElement": {
+            "type": "object",
+            "properties": {
+                "eAnnotations": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/EAnnotation"},
+                    "minItems": 0
+                }
+            }
+        },
+        "ENamedElement": {
+            "allOf": [
+                {"$ref": "#/definitions/EModelElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EGenericType": {
+            "type": "object",
+            "properties": {
+                "eUpperBound": {"$ref": "#/definitions/EGenericType"},
+                "eTypeArguments": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/EGenericType"},
+                    "minItems": 0
+                },
+                "eLowerBound": {"$ref": "#/definitions/EGenericType"},
+                "eRawType": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "eTypeParameter": {"type": "string"},
+                "eClassifier": {
+                    "type": "string",
+                    "format": "uri"
+                }
+            }
+        },
+        "ETypeParameter": {
+            "allOf": [
+                {"$ref": "#/definitions/ENamedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eBounds": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EGenericType"},
+                            "minItems": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "EClassifier": {
+            "allOf": [
+                {"$ref": "#/definitions/ENamedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eTypeParameters": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/ETypeParameter"},
+                            "minItems": 0
+                        },
+                        "instanceClassName": {"type": "string"},
+                        "instanceClass": {"type": "string"},
+                        "defaultValue": {"type": "string"},
+                        "instanceTypeName": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EDataType": {
+            "allOf": [
+                {"$ref": "#/definitions/EClassifier"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "serializable": {
+                            "type": "string",
+                            "default": "true"
+                        }
+                    }
+                }
+            ]
+        },
+        "ETypedElement": {
+            "allOf": [
+                {"$ref": "#/definitions/ENamedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eGenericType": {"$ref": "#/definitions/EGenericType"},
+                        "ordered": {
+                            "type": "string",
+                            "default": "true"
+                        },
+                        "unique": {
+                            "type": "string",
+                            "default": "true"
+                        },
+                        "lowerBound": {"type": "string"},
+                        "upperBound": {
+                            "type": "string",
+                            "default": "1"
+                        },
+                        "many": {"type": "string"},
+                        "required": {"type": "string"},
+                        "eType": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                }
+            ]
+        },
+        "EStructuralFeature": {
+            "allOf": [
+                {"$ref": "#/definitions/ETypedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "changeable": {
+                            "type": "string",
+                            "default": "true"
+                        },
+                        "_volatile": {"type": "string"},
+                        "_transient": {"type": "string"},
+                        "defaultValueLiteral": {"type": "string"},
+                        "defaultValue": {"type": "string"},
+                        "unsettable": {"type": "string"},
+                        "derived": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EEnumLiteral": {
+            "allOf": [
+                {"$ref": "#/definitions/ENamedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "value": {"type": "string"},
+                        "instance": {"type": "string"},
+                        "literal": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EEnum": {
+            "allOf": [
+                {"$ref": "#/definitions/EDataType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eLiterals": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EEnumLiteral"},
+                            "minItems": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "EPackage": {
+            "allOf": [
+                {"$ref": "#/definitions/ENamedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eClassifiers": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EClassifier"},
+                            "minItems": 0
+                        },
+                        "eSubpackages": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EPackage"},
+                            "minItems": 0
+                        },
+                        "nsURI": {"type": "string"},
+                        "nsPrefix": {"type": "string"},
+                        "eFactoryInstance": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EFactory": {
+            "allOf": [
+                {"$ref": "#/definitions/EModelElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "ePackage": {"type": "string"}
+                    }
+                }
+            ]
+        },
+        "EAttribute": {
+            "allOf": [
+                {"$ref": "#/definitions/EStructuralFeature"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {"type": "string"},
+                        "eAttributeType": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                }
+            ]
+        },
+        "EParameter": {
+            "allOf": [
+                {"$ref": "#/definitions/ETypedElement"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "EOperation": {
+            "allOf": [
+                {"$ref": "#/definitions/ETypedElement"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eTypeParameters": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/ETypeParameter"},
+                            "minItems": 0
+                        },
+                        "eParameters": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EParameter"},
+                            "minItems": 0
+                        },
+                        "eGenericExceptions": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EGenericType"},
+                            "minItems": 0
+                        },
+                        "eExceptions": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    }
+                }
+            ]
+        },
+        "EClass": {
+            "allOf": [
+                {"$ref": "#/definitions/EClassifier"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "eOperations": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EOperation"},
+                            "minItems": 0
+                        },
+                        "eStructuralFeatures": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EStructuralFeature"},
+                            "minItems": 0
+                        },
+                        "eGenericSuperTypes": {
+                            "type": "array",
+                            "items": {"$ref": "#/definitions/EGenericType"},
+                            "minItems": 0
+                        },
+                        "_abstract": {"type": "string"},
+                        "_interface": {"type": "string"},
+                        "eSuperTypes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllAttributes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllReferences": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eReferences": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAttributes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllContainments": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllOperations": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllStructuralFeatures": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eAllSuperTypes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        },
+                        "eidAttribute": {"type": "string"},
+                        "eAllGenericSuperTypes": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    }
+                }
+            ]
+        },
+        "EReference": {
+            "allOf": [
+                {"$ref": "#/definitions/EStructuralFeature"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "containment": {"type": "string"},
+                        "container": {"type": "string"},
+                        "resolveProxies": {
+                            "type": "string",
+                            "default": "true"
+                        },
+                        "eOpposite": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "eReferenceType": {
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "eKeys": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    }
+                }
+            ]
+        },
+        "EObject": {
+            "type": "object",
+            "properties": {}
+        }
+    }
+}

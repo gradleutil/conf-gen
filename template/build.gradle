@@ -1,0 +1,22 @@
+import gg.jte.ContentType
+
+import java.nio.file.Paths
+
+plugins {
+    id 'groovy'
+    id 'java-library'
+    id 'java-test-fixtures'
+}
+
+
+group = 'net.gradleutil'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    // Use the latest Groovy version for building this library
+    implementation 'org.codehaus.groovy:groovy-all:3.0.10'
+}

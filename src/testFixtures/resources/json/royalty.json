@@ -1,0 +1,26 @@
+{
+  "royalty": {
+    "name": "Elizabeth",
+    "children": [
+      {
+        "name": "Charles",
+        "children": [
+          {
+            "name": "William",
+            "children": [
+              {
+                "name": "George"
+              },
+              {
+                "name": "Charlotte"
+              }
+            ]
+          },
+          {
+            "name": "Harry"
+          }
+        ]
+      }
+    ]
+  }
+}
