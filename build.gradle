@@ -11,7 +11,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
-def confVersion = '1.1.4'
+def confVersion = '1.1.5'
 
 group = 'net.gradleutil'
 version = confVersion
@@ -51,7 +51,7 @@ shadowJar {
     includeEmptyDirs false
     minimize()
     archiveClassifier.set('')
-    relocate 'gg', 'net.gradleutil.conf'
+    relocate 'gg.', 'net.gradleutil.conf.'
     exclude 'META-INF/resources/'
     exclude 'META-INF/versions/'
     exclude 'META-INF/native/'
