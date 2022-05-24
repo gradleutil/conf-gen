@@ -3,7 +3,7 @@ package net.gradleutil.conf
 import net.gradleutil.conf.transform.groovy.GroovyConfig
 import net.gradleutil.conf.transform.json.JsonToSchema
 import groovy.util.logging.Log
-import net.gradleutil.conf.dna.common.text.Inflector
+import net.gradleutil.conf.util.Inflector
 
 @Log
 class GroovyConfigTest extends AbstractTest {

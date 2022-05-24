@@ -3,7 +3,7 @@ package net.gradleutil.conf
 
 import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
 import net.gradleutil.conf.util.ConfUtil
-import net.gradleutil.conf.dna.common.text.Inflector
+import net.gradleutil.conf.util.Inflector
 import net.gradleutil.conf.util.GenUtil
 
 class LoaderTest extends AbstractTest {

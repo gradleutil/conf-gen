@@ -11,7 +11,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
-def confVersion = '1.1.0'
+def confVersion = '1.1.4'
 
 group = 'net.gradleutil'
 version = confVersion
@@ -19,7 +19,6 @@ version = confVersion
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://repository.jboss.org/nexus/content/repositories/releases/" }
     maven { url "https://jitpack.io" }
 }
 
@@ -28,7 +27,7 @@ dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.10'
     implementation 'gg.jte:jte:2.0.3'
     implementation project(":template")
-    implementation 'com.github.gradleutil:conf:' + confVersion
+    implementation 'net.gradleutil:conf:' + confVersion
     testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
     testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')
 }
@@ -49,14 +48,26 @@ jar {
 shadowJar {
     mergeServiceFiles()
     mergeGroovyExtensionModules()
+    includeEmptyDirs false
     minimize()
     archiveClassifier.set('')
+    relocate 'gg', 'net.gradleutil.conf'
+    exclude 'META-INF/resources/'
+    exclude 'META-INF/versions/'
+    exclude 'META-INF/native/'
+    exclude 'META-INF/maven/'
+    exclude 'META-INF/LICENSE'
+    exclude 'LICENSE.txt'
     dependencies {
         exclude(dependency('org.codehaus.groovy:.*'))
         exclude(dependency('org.spockframework:.*'))
         exclude(dependency('org.junit.jupiter:.*'))
         exclude(dependency('org.junit.platform:.*'))
         exclude(dependency('org.junit:.*'))
+        exclude(dependency('junit:.*'))
+        exclude(dependency('org.testng:.*'))
+        exclude(dependency('org.apache.ant:.*'))
+        exclude(dependency('org.opentest4j:.*'))
     }
     doLast {
         def jarFile = outputs.files.first() as File

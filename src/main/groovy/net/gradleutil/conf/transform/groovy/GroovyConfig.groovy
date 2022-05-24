@@ -1,6 +1,5 @@
 package net.gradleutil.conf.transform.groovy
 
-import net.gradleutil.conf.config.ConfigObject
 import net.gradleutil.conf.json.schema.Schema
 
 class GroovyConfig {

@@ -3,7 +3,7 @@ package net.gradleutil.conf.transform.groovy
 import net.gradleutil.conf.AbstractTest
 import net.gradleutil.conf.Loader
 import net.gradleutil.conf.LoaderTest
-import net.gradleutil.conf.dna.common.text.Inflector
+import net.gradleutil.conf.util.Inflector
 import net.gradleutil.conf.util.GenUtil
 
 class GroovyTransformerTest extends AbstractTest {

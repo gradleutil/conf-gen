@@ -3,12 +3,10 @@ package net.gradleutil.conf.util
 import net.gradleutil.conf.Loader
 import net.gradleutil.conf.json.schema.ReferenceSchema
 import net.gradleutil.conf.json.schema.Schema
-import net.gradleutil.conf.dna.common.text.Inflector
 import net.gradleutil.conf.json.JSONObject
 import net.gradleutil.conf.transform.hocon.HoconToSchema
 import net.gradleutil.conf.transform.schema.SchemaToReferenceSchema
 
-import java.util.regex.Pattern
 
 class GenUtil {
 
