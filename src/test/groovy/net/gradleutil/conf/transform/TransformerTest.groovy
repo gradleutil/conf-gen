@@ -6,6 +6,7 @@ import net.gradleutil.conf.LoaderTest
 import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
 import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.GenUtil
+import net.gradleutil.conf.util.Inflector
 
 class TransformerTest extends AbstractTest {
 
@@ -98,7 +99,7 @@ class TransformerTest extends AbstractTest {
 
     def "test create all"() {
         setup:
-        def inflector = ConfUtil.inflector
+        def inflector = Inflector.instance
         def refName = inflector.upperCamelCase(data.name.replace('.json', ''), '-_ '.chars)
         def jsonSchema = GenUtil.configFileToReferenceSchemaJson(data, refName)
 

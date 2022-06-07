@@ -34,12 +34,10 @@ class SchemaToGroovyClass extends Transformer {
         }
         schemaDirectory.listFiles().each {
             String jsonSchema = it.text
-            println "file://${it.absolutePath}"
             String rootClassName = it.name.replace('.schema', '').replace('.json', '')
             def outputPackageDir = new File(outputDirectory.path + '/' + rootClassName.toLowerCase()).tap { it.mkdir() }
             def outputFile = new File(outputPackageDir, rootClassName + '.groovy')
             schemaToSimpleGroovyClass(jsonSchema, packageName, rootClassName, outputFile)
-            println ""
         }
         return generatedFiles
     }

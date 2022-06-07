@@ -2,6 +2,7 @@ package net.gradleutil.gen
 
 import gg.jte.ContentType
 import gg.jte.TemplateEngine
+import gg.jte.compiler.TemplateCompiler
 import gg.jte.html.HtmlPolicy
 import gg.jte.resolve.DirectoryCodeResolver
 import groovy.transform.builder.Builder
@@ -25,7 +26,6 @@ class Generator {
     }
 
     static ClassLoader getLoader(Path path) {
-        def jarPath = getJarPath(Generator)
         ClassLoader classLoader = classLoaders.find { it.key == path }?.value
         if (!classLoader) {
             logger.info("Creating classloader for ${path}")
@@ -39,12 +39,14 @@ class Generator {
     }
 
     static TemplateEngine getTemplateEngine(GeneratorOptions options = defaultOptions()) {
-        TemplateEngine.createPrecompiled(null, ContentType.Plain, options.classLoader).
+        logger.info('loading templates with default options: ' + options.dump() )
+        TemplateEngine.createPrecompiled(getJarPath(Generator), ContentType.Plain, options.classLoader, options.packageName).
                 tap { setTrimControlStructures(true) }
     }
 
     static TemplateEngine getTemplateEngine(Path zipPath) {
-        TemplateEngine.createPrecompiled(zipPath, ContentType.Plain, getLoader(zipPath)).
+        logger.info('loading templates from ' + zipPath)
+        TemplateEngine.createPrecompiled(zipPath, ContentType.Plain, getLoader(zipPath), defaultOptions().packageName).
                 tap { setTrimControlStructures(true) }
     }
 
@@ -69,7 +71,7 @@ class Generator {
     static GeneratorOptions defaultOptions() {
         new GeneratorOptions().contentType(ContentType.Plain)
                 .classLoader(Generator.classLoader)
-                .packageName('gg.jte.generated.precompiled')
+                .packageName('net.gradleutil.conf.jte')
                 .tempDirectory(File.createTempDir('gen', 'files'))
     }
 

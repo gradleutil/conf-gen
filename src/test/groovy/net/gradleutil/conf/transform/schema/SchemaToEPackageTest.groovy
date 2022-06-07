@@ -3,7 +3,6 @@ package net.gradleutil.conf.transform.schema
 import groovy.util.logging.Log
 import net.gradleutil.conf.AbstractTest
 import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
-import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.GenUtil
 import net.gradleutil.gen.groovyclass.GroovyClassTemplate
 
@@ -21,7 +20,7 @@ class SchemaToEPackageTest extends AbstractTest {
 
         when:
         def ePackage = getEPackage(getSchema(jsonSchema), rootClassName, packageName, convertToCamelCase)
-        String source = GroovyClassTemplate.render( ePackage)
+        String source = GroovyClassTemplate.render(ePackage)
         def modelFile = new File(base + rootClassName + '.groovy').tap { text = source }
         println "file://${modelFile.absolutePath}"
 
