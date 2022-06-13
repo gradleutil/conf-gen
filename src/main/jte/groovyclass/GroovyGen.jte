@@ -7,6 +7,7 @@ import groovy.transform.AnnotationCollector
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import static net.gradleutil.conf.util.ConfUtil.setBeanFromConfigFile
+import static net.gradleutil.conf.util.ConfUtil.setBeanFromConf
 
 @ToString(includeNames = true, includePackage = false)
 @EqualsAndHashCode

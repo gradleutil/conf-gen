@@ -48,7 +48,12 @@ class HoconToSchema {
                 return new StringSchema()
                 break
             case ConfigValueType.LIST:
-                return ArraySchema.builder().allItemSchema(toSchema((configValue as List<ConfigValue>).first())).build()
+                def listVals = (configValue as List<ConfigValue>)
+                if(listVals){
+                    return ArraySchema.builder().allItemSchema(toSchema(listVals.first())).build()
+                } else {
+                    return ArraySchema.builder().build()
+                }
                 break
             case ConfigValueType.NUMBER:
                 return new NumberSchema()

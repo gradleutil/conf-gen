@@ -73,7 +73,7 @@ class SchemaToReferenceSchema {
                 def refSchema = toReferenceSchema(propertySchema as ObjectSchema, key)
                 objectBuilder.addPropertySchema(key, refSchema)
             } else if (propertySchema instanceof ArraySchema) {
-                def firstItem = propertySchema.allItemSchema ?: propertySchema.itemSchemas.first()
+                def firstItem = propertySchema.allItemSchema ?: propertySchema.itemSchemas?.first()
                 if(firstItem instanceof ObjectSchema){
                     def firstProp = firstItem.propertySchemas.entrySet().first()
                     if(firstItem.propertySchemas.size() == 1  && firstProp.value instanceof ObjectSchema){

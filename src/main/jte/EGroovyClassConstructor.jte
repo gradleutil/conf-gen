@@ -10,5 +10,9 @@
     ${ eClass.name }(File conf, File confOverride){
         setBeanFromConfigFile(this, conf, confOverride)
     }
+
+    ${ eClass.name }(String conf, Boolean ignoreMissingProperties = false){
+        setBeanFromConf(this, conf, ignoreMissingProperties)
+    }
 @endif
 

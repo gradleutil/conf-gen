@@ -107,7 +107,7 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     @Override
     void visitArraySchema(ArraySchema arraySchema) {
         def propertyName = popPropertyNameStack()
-        def itemSchema = arraySchema.allItemSchema ?: arraySchema.itemSchemas.first()
+        def itemSchema = arraySchema.allItemSchema ?: arraySchema.itemSchemas?.first()
         if (itemSchema instanceof ReferenceSchema) {
             EReference eRef = eReference(propertyName, getEClassName(itemSchema))
             eRef.upperBound = -1

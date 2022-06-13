@@ -1,8 +1,6 @@
 package net.gradleutil.conf
 
-
 import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
-import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.GenUtil
 
 class BeanConfigLoaderTest extends AbstractTest {
@@ -58,7 +56,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def gcl = new GroovyClassLoader(BeanConfigLoaderTest.classLoader)
         def classLoader = gcl.parseClass(modelFile).classLoader
-        def funk = BeanConfigLoader.get(Loader.load(confFile), packageName + '.Produce',  classLoader)
+        def funk = BeanConfigLoader.get(Loader.load(confFile), packageName + '.Produce', classLoader)
         println funk
         def method = funk.invokeMethod('getVegetables', null)
 
@@ -100,7 +98,5 @@ class BeanConfigLoaderTest extends AbstractTest {
         def task = list.get(0)
         task.toString() == 'Task(name:mytask, type:MyTask)'
     }
-
-    
 
 }
