@@ -6,8 +6,8 @@ import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
 import net.gradleutil.conf.util.GenUtil
 import net.gradleutil.gen.groovyclass.GroovyClassTemplate
 
-import static net.gradleutil.conf.transform.json.JsonToSchema.getSchema
 import static SchemaToEPackage.getEPackage
+import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
 @Log
 class SchemaToEPackageTest extends AbstractTest {

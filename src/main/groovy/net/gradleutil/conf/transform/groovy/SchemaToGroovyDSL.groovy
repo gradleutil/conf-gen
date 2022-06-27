@@ -7,7 +7,7 @@ import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.transform.schema.SchemaToEPackage
 import net.gradleutil.gen.groovydsl.GroovyDSLTemplate
 
-import static net.gradleutil.conf.transform.json.JsonToSchema.getSchema
+import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
 class SchemaToGroovyDSL extends Transformer {
 

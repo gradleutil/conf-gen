@@ -1,20 +1,20 @@
 package net.gradleutil.conf
 
 import net.gradleutil.conf.transform.groovy.GroovyConfig
-import net.gradleutil.conf.transform.json.JsonToSchema
 import groovy.util.logging.Log
 import net.gradleutil.conf.util.Inflector
+import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
 @Log
 class GroovyConfigTest extends AbstractTest {
 
     def "minecraft schema to groovyDSL"() {
         setup:
-        def jsonSchema = getResourceText('json/multiple/MinecraftConfig.schema.json')
+        def jsonSchema = getResourceText('json/MinecraftConfig.schema.json')
 
         when:
         def modelFile = new File(base + 'Minecraft.groovy')
-        def result = GroovyConfig.toGroovyDsl(JsonToSchema.getSchema(jsonSchema, true), 'MinecraftConfig', packageName)
+        def result = GroovyConfig.toGroovyDsl(getSchema(jsonSchema, true), 'MinecraftConfig', packageName)
         modelFile.text = result
         println "file://${modelFile.absolutePath}"
 
@@ -36,7 +36,7 @@ class GroovyConfigTest extends AbstractTest {
             def name = inflector.upperCamelCase(jsonSchema.name.replace('.schema.json', ''), '. -_'.chars)
             def modelFile = new File(base + "/${name.toLowerCase()}/" + name + '.groovy')
             def pack = packageName + '.' + name.toLowerCase()
-            def result = GroovyConfig.toGroovyDsl(JsonToSchema.getSchema(jsonSchema.text, true, name), name, pack)
+            def result = GroovyConfig.toGroovyDsl(getSchema(jsonSchema.text, true, name), name, pack)
             modelFile.parentFile.mkdirs()
             modelFile.text = result
             println "file://${modelFile.absolutePath}"

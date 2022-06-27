@@ -29,8 +29,7 @@ class Generator {
         ClassLoader classLoader = classLoaders.find { it.key == path }?.value
         if (!classLoader) {
             logger.info("Creating classloader for ${path}")
-            def loader = new GroovyClassLoader(Generator.class.classLoader)
-            loader.addURL(path.toUri().toURL())
+            def loader = new URLClassLoader(path.toUri().toURL() as URL[], Generator.class.classLoader)
             classLoaders.put(path, loader)
             return loader
         }
@@ -97,13 +96,34 @@ class Generator {
 
     static ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
         long start = System.nanoTime()
-        targetDirectory.toFile().deleteDir()
-        if (!targetDirectory.toFile().mkdirs()) {
-            throw new RuntimeException("could not create target directory")
+        logger.info("Pre-compiling jte templates found in " + sourceDirectory)
+        TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
+        int numberCompiled
+        try {
+            templateEngine.cleanAll()
+            List<String> compilePathFiles = getCompileFilePath(options, targetDirectory.toFile())
+            numberCompiled = templateEngine.precompileAll(compilePathFiles).size()
+        } catch (Exception e) {
+            logger.severe("Failed to precompile templates.")
+            throw e
         }
 
-        logger.info("Pre-compiling jte templates found in " + sourceDirectory)
+        long end = System.nanoTime()
+        long duration = TimeUnit.NANOSECONDS.toSeconds(end - start)
+        logger.info("Successfully precompiled " + numberCompiled + " jte file" + (numberCompiled == 1 ? "" : "s") + " in " + duration + "s to " + targetDirectory)
+        options.classLoader
+    }
 
+    static ClassLoader generate(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
+        logger.info("generating jte templates found in " + sourceDirectory)
+        TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
+        templateEngine.cleanAll()
+        int numberGenerated = templateEngine.generateAll().size()
+        logger.info("Successfully generated " + numberGenerated + " jte file" + (numberGenerated == 1 ? "" : "s") + " to " + targetDirectory)
+        options.classLoader
+    }
+
+    static TemplateEngine getTemplateEngine(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
         def classLoader = new GroovyClassLoader(options.classLoader, new CompilerConfiguration(targetDirectory: targetDirectory.toFile()))
         options.compilePath.each {
             classLoader.addClasspath(it.absolutePath)
@@ -122,27 +142,14 @@ class Generator {
         templateEngine.setHtmlCommentsPreserved(Boolean.TRUE == options.htmlCommentsPreserved)
         templateEngine.setBinaryStaticContent(Boolean.TRUE == options.binaryStaticContent)
         templateEngine.setCompileArgs(options.compileArgs)
-
-        int numberCompiled
-        try {
-            templateEngine.cleanAll()
-            List<String> compilePathFiles = getCompileFilePath(options, classLoader, targetDirectory.toFile())
-            numberCompiled = templateEngine.precompileAll(compilePathFiles).size()
-        } catch (Exception e) {
-            logger.severe("Failed to precompile templates.")
-            throw e
-        }
-
-        long end = System.nanoTime()
-        long duration = TimeUnit.NANOSECONDS.toSeconds(end - start)
-        logger.info("Successfully precompiled " + numberCompiled + " jte file" + (numberCompiled == 1 ? "" : "s") + " in " + duration + "s to " + targetDirectory)
-        classLoader
+        options.classLoader = classLoader
+        templateEngine
     }
 
-    static List<String> getCompileFilePath(GeneratorOptions options, ClassLoader classLoader, File targetDirectory) {
+    static List<String> getCompileFilePath(GeneratorOptions options, File targetDirectory) {
         List<String> compilePathFiles = options.compilePath.collect { it.absolutePath }
         def loader
-        loader = classLoader
+        loader = options.classLoader
         while (loader) {
             if (loader instanceof URLClassLoader) {
                 loader.getURLs().each { compilePathFiles.add(it.file) }

@@ -1,0 +1,37 @@
+{
+  "$schema": "MinecraftConfig.schema.json",
+  "publishing": [
+    {
+      "type": "file",
+      "path": "et voluptate laboris anim consectetur"
+    }
+  ],
+  "git": {
+    "dir": "commodo",
+    "repoUri": "ut"
+  },
+  "name": "ex",
+  "minecraft": {
+    "version": "1.6"
+  },
+  "type": "paper",
+  "mods": [
+    {
+      "name": "do sit",
+      "slug": "ullamco laboris in",
+      "id": "qui",
+      "description": "sunt Ut",
+      "artifacts": [
+        {
+          "name": "name",
+          "version": "234",
+          "fileId": "234",
+          "downloadUrl": "",
+          "minecraftVersion": {
+            "version": "1.15.2"
+          }
+        }
+      ]
+    }
+  ]
+}

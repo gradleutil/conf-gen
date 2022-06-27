@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$ref": "#/definitions/MinecraftConfig",
+  "definitions": {
+    "MinecraftConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "title": "Schema",
+          "description": "Pointer to the schema against which this document should be validated."
+        },
+        "minecraft": {
+          "$ref": "#/definitions/Minecraft"
+        },
+        "mods": {
+          "type": "array",
+          "title": "Mods",
+          "items": {
+            "$ref": "#/definitions/Mod"
+          }
+        },
+        "git": {
+          "$ref": "#/definitions/Git"
+        }
+      },
+      "required": [
+      ],
+      "title": "MinecraftConfig"
+    },
+    "Minecraft": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "enum": [
+            "1.6",
+            "1.8",
+            "1.9",
+            "1.10",
+            "1.12",
+            "1.12.2",
+            "1.13",
+            "1.14",
+            "1.14.4",
+            "1.15.2"
+          ]
+        }
+      }
+    },
+    "Mod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "title": "Artifacts",
+          "items": {
+            "$ref": "#/definitions/ModArtifact"
+          }
+        }
+      },
+      "required": [
+      ],
+      "title": "Mod"
+    },
+    "ModArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "minecraftVersion": {
+          "$ref": "#/definitions/Minecraft"
+        },
+        "dependencies": {
+          "type": "array",
+          "title": "dependencies",
+          "items": {
+            "$ref": "#/definitions/ModArtifact"
+          }
+        }
+      },
+      "required": [
+      ],
+      "title": "Mod Artifact"
+    },
+    "Git": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dir": {
+          "type": "string",
+          "default": "'~/minecraft'"
+        },
+        "repoUri": {
+          "type": "string",
+          "default": "'https://github.com/minecraft'"
+        }
+      },
+      "required": [
+        "dir",
+        "repoUri"
+      ],
+      "title": "Git"
+    }
+  }
+}

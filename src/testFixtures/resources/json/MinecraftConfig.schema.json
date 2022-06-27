@@ -115,7 +115,7 @@
         "hash": {
           "type": "string"
         },
-        "minecraft": {
+        "minecraftVersion": {
           "$ref": "#/definitions/Minecraft"
         },
         "dependencies": {
@@ -131,7 +131,7 @@
       },
       "required": [
         "version",
-        "minecraft"
+        "minecraftVersion"
       ],
       "title": "Mod Artifact"
     },
@@ -141,6 +141,7 @@
       "properties": {
         "type": {
           "enum": [
+            "file",
             "maven",
             "scp",
             "git"
@@ -206,11 +207,11 @@
       "properties": {
         "dir": {
           "type": "string",
-          "default": "~/minecraft"
+          "default": "'~/minecraft'"
         },
         "repoUri": {
           "type": "string",
-          "default": "https://github.com/minecraft"
+          "default": "'https://github.com/minecraft'"
         }
       },
       "required": [
