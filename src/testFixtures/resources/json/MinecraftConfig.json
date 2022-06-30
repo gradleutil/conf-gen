@@ -27,7 +27,7 @@
           "version": "234",
           "fileId": "234",
           "downloadUrl": "",
-          "minecraftVersion": {
+          "minecraft": {
             "version": "1.15.2"
           }
         }

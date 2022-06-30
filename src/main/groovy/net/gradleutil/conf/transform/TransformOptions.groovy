@@ -9,9 +9,9 @@ class TransformOptions {
     Schema schema
     String packageName
     String rootClassName
+    File jteDirectory
     File outputFile
     String jsonSchema
     Boolean convertToCamelCase
     ClassLoader classLoader = TransformOptions.classLoader
 }
-

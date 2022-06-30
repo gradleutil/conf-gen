@@ -1,14 +1,14 @@
 package net.gradleutil.conf.transform.schema
 
-import net.gradleutil.conf.json.schema.GeneratorVisitor
 import net.gradleutil.conf.json.schema.*
 import net.gradleutil.conf.template.*
 import net.gradleutil.conf.util.ConfUtil
-import net.gradleutil.conf.util.GenUtil
 
 class SchemaToEPackageVisitor extends GeneratorVisitor {
     final EPackage ePackage
     final Boolean singularizeClassNames
+
+    private Boolean silent = true
 
     SchemaToEPackageVisitor(String packageName, String nsURI = 'http://emfjson/dynamic/model', String nsPrefix = '', Boolean singularizeClassNames = true) {
         ePackage = EPackage.eINSTANCE.createEPackage()
@@ -35,22 +35,18 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
         if (!visited.contains(schema) && isReference) {
             visited.add(schema)
             super.visit(schema)
-        }
-        if (!visited.contains(schema)) {
+        } else if (!visited.contains(schema)) {
             super.visit(schema)
-        }
-        if (visited.contains(schema) && propertyNameStack.size()) {
-            if(schema.class.simpleName == 'ReferenceSchema'){
-                def eClass = getOrCreateEClass(schema as ReferenceSchema)
-                EReference eRef = eReference(popPropertyNameStack(), eClass.name)
-                eRef.upperBound = 1
-                addStructuralFeature eRef
-            } else if(schema.class.simpleName == 'ArraySchema'){
-                EAttribute eAttr = eAttribute(popPropertyNameStack(), 'String')
-                eAttr.upperBound = -1
-                eAttr.lowerBound = 0
-                eAttr.setEType(EPackage.eINSTANCE.ecorePackage.getEString())
-                addStructuralFeature eAttr
+        } else {
+            if (visited.contains(schema) && propertyNameStack.size()) {
+                if (schema.class.simpleName == 'ReferenceSchema') {
+                    def eClass = getOrCreateEClass(schema as ReferenceSchema)
+                    EReference eRef = eReference(popPropertyNameStack(), eClass.name)
+                    eRef.upperBound = 1
+                    addStructuralFeature eRef
+                } else if (schema.class.simpleName == 'ArraySchema') {
+                    visitArraySchema(schema as ArraySchema)
+                }
             }
         }
     }
@@ -59,7 +55,6 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     void visitReferenceSchema(ReferenceSchema schema) {
         def eClass = getOrCreateEClass(schema)
         if (propertyNameStack.size() && eClassStack.size()) {
-            // println "1. propertyNameStack.size() && eClassStack.size()"
             EReference eRef = eReference(popPropertyNameStack(), eClass.name)
             eRef.upperBound = 1
             addStructuralFeature eRef
@@ -70,7 +65,7 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
                 eClass.seteSuperTypes([getEClassName((schema.referredSchema as CombinedSchema).subschemas.first() as ReferenceSchema)])
             }
         }
-        super.visitReferenceSchema(schema)
+        visit(schema.referredSchema)
         popRefStack()
     }
 
@@ -110,7 +105,6 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
         objectSchemaStack.push objectSchema
         super.visitObjectSchema(objectSchema)
         if (propertyNameStack.size() && eClassStack.size()) {
-            //println "2. propertyNameStack.size() && eClassStack.size()"
             EReference eRef = eReference(popPropertyNameStack(), eClass.name)
             eRef.upperBound = 1
             eRef.lowerBound = requiredContains(eRef.name)
@@ -192,18 +186,23 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
         def propertyName = popPropertyNameStack()
         EAttribute eAttr = eAttribute(propertyName, 'enum')
         eAttr.setEType('enum')
+        eAttr.valueList = enumSchema.possibleValuesAsList
         addStructuralFeature eAttr
     }
 
     private EAttribute eAttribute(String name, String eType) {
-        EPackage.eINSTANCE.createEAttribute().tap { it.name = name; it.eType = eType
-            it.lowerBound = requiredContains(name) }
+        EPackage.eINSTANCE.createEAttribute().tap {
+            it.name = name; it.eType = eType
+            it.lowerBound = requiredContains(name)
+        }
     }
 
     private EReference eReference(String name, String eType) {
-//        println("adding ref: ${name} ${eType}")
-        EPackage.eINSTANCE.createEReference().tap { it.name = name; it.eType = eType
-            it.lowerBound = requiredContains(name) }
+        //        println("adding ref: ${name} ${eType}")
+        EPackage.eINSTANCE.createEReference().tap {
+            it.name = name; it.eType = eType
+            it.lowerBound = requiredContains(name)
+        }
     }
 
     private static EDataType eBoolean() {
@@ -250,7 +249,11 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     }
 
     void pushRefStack(ReferenceSchema referenceSchema) {
-        pushStack(refStack, referenceSchema)
+        if (refStack.contains(referenceSchema)) {
+            System.err.println('already added this reference schema!')
+        } else {
+            pushStack(refStack, referenceSchema)
+        }
     }
 
     ReferenceSchema popRefStack() {
@@ -262,9 +265,6 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     }
 
     void pushPropertyNameStack(String name) {
-        if(name == 'minecraftVersion'){
-            println 'err'
-        }
         pushStack(propertyNameStack, name)
     }
 
@@ -277,30 +277,39 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     }
 
 
-    def indent = ''
-
     void pushStack(Stack stack, Object object) {
-        def pref = indent + '->'
         stack.push(object)
-        printStackItem(pref, object)
-        indent += '  '
+        printStackItem(true, object)
     }
 
     def <T> T popStack(Stack<T> stack) {
-        indent = indent.take(indent.length() - 2)
-        def pref = indent + '<-'
         def object = stack.pop()
-        printStackItem(pref, object)
+        printStackItem(false, object)
         object as T
     }
 
-    void printStackItem(String pref, Object object) {
-        if (object instanceof ReferenceSchema) {
-            println pref + "R🔵 ️" + getEClassName(object) + "[${propertyNameStack.reverse().collect { '🔸' + it }.join(' ')}]"
-        } else if (object instanceof EClass) {
-            println pref + "C🟢 " + object.name + ' [ ' + eClassStack.reverse().name.join(', ') + ']'
+    def indent = ''
+
+    void printStackItem(Boolean isPush, Object object) {
+        def line, pref
+        if (isPush) {
+            pref = indent + '->'
         } else {
-            println pref + "🔸 " + object + ' ' + "[${propertyNameStack.reverse().collect { '🔸' + it }.join(' ')}]"
+            indent = indent.take(indent.length() - 2)
+            pref = indent + '<-'
+        }
+        if (object instanceof ReferenceSchema) {
+            line = pref + "R🔵 ️" + getEClassName(object) + "[${propertyNameStack.reverse().collect { '🔸' + it }.join(' ')}]"
+        } else if (object instanceof EClass) {
+            line = pref + "C🟢 " + object.name + ' [ ' + eClassStack.reverse().name.join(', ') + ']'
+        } else {
+            line = pref + "🔸 " + object + ' ' + "[${propertyNameStack.reverse().collect { '🔸' + it }.join(' ')}]"
+        }
+        if (!silent) {
+            println(line)
+            if (isPush) {
+                indent += '  '
+            }
         }
     }
 

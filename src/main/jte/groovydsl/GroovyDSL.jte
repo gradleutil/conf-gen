@@ -84,5 +84,5 @@ class Block {
 
 
 @for (EClassifier configClass : javaClassTemplate.eClassifiers)
-    @@template.GroovyDSLClass(eClass=(EClass)configClass)
+    @@template.groovydsl.GroovyDSLClass(eClass=(EClass)configClass)
 @endfor

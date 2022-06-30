@@ -8,6 +8,7 @@ import gg.jte.resolve.DirectoryCodeResolver
 import groovy.transform.builder.Builder
 import groovy.transform.builder.SimpleStrategy
 import groovy.util.logging.Log
+import net.gradleutil.conf.util.ChildFirstClassLoader
 import org.codehaus.groovy.control.CompilerConfiguration
 
 import java.nio.file.*
@@ -79,7 +80,7 @@ class Generator {
         def zipped = 0
         new ZipOutputStream(new FileOutputStream(zipPath.toFile())).withCloseable { zipFile ->
             new File(options.tempDirectory.path).eachFileRecurse { file ->
-                if (file.isFile()) {
+                if (file.isFile() && !file.name.endsWith('.java')) {
                     def path = file.absolutePath.replace(options.tempDirectory.absolutePath + '/', '')
                     zipFile.putNextEntry(new ZipEntry(path))
                     def buffer = new byte[file.size()]
@@ -90,13 +91,15 @@ class Generator {
             }
         }
         logger.info("zipped ${zipped} files")
-        classLoaders.put(zipPath, classLoader)
+        ChildFirstClassLoader childFirstClassLoader = new ChildFirstClassLoader([zipPath.toUri().toURL()] as URL[], classLoader)
+        logger.info("Using child loader for ${zipPath.toAbsolutePath()}")
+        classLoaders.put(zipPath, childFirstClassLoader)
         classLoader
     }
 
     static ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
         long start = System.nanoTime()
-        logger.info("Pre-compiling jte templates found in " + sourceDirectory)
+        logger.info("Compiling jte templates found in " + sourceDirectory)
         TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
         int numberCompiled
         try {
@@ -104,13 +107,13 @@ class Generator {
             List<String> compilePathFiles = getCompileFilePath(options, targetDirectory.toFile())
             numberCompiled = templateEngine.precompileAll(compilePathFiles).size()
         } catch (Exception e) {
-            logger.severe("Failed to precompile templates.")
+            logger.severe("Failed to compile templates.")
             throw e
         }
 
         long end = System.nanoTime()
         long duration = TimeUnit.NANOSECONDS.toSeconds(end - start)
-        logger.info("Successfully precompiled " + numberCompiled + " jte file" + (numberCompiled == 1 ? "" : "s") + " in " + duration + "s to " + targetDirectory)
+        logger.info("Successfully compiled " + numberCompiled + " jte file" + (numberCompiled == 1 ? "" : "s") + " in " + duration + "s to " + targetDirectory)
         options.classLoader
     }
 
@@ -174,9 +177,8 @@ class Generator {
 
             @Override
             FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
-                println file
                 if (file.toFile().path.endsWith('.groovy') || file.toFile().path.endsWith('.java')) {
-                    println(file.toFile())
+                    println('adding file to classloader for some reason ' + file.toFile())
                     classLoader.parseClass(file.toFile())
                 }
                 return FileVisitResult.CONTINUE

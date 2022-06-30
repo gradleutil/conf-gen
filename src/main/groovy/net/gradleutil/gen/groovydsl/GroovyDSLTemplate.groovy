@@ -3,7 +3,7 @@ package net.gradleutil.gen.groovydsl
 
 import gg.jte.TemplateOutput
 import gg.jte.output.StringOutput
-import net.gradleutil.conf.template.ECore
+import net.gradleutil.conf.template.ECorePackage
 import net.gradleutil.conf.template.EPackage
 import net.gradleutil.gen.Generator
 

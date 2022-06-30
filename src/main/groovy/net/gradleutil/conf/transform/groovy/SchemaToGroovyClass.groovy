@@ -14,7 +14,12 @@ class SchemaToGroovyClass extends Transformer {
 
         EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
 
-        String source = GroovyClassTemplate.render(ePackage)
+        String source
+        if (options.jteDirectory) {
+            source = GroovyClassTemplate.render(options.jteDirectory, ePackage, options)
+        } else {
+            source = GroovyClassTemplate.render(ePackage, options)
+        }
 
         FileWriter fileWriter = new FileWriter(options.outputFile)
         fileWriter.write(source)

@@ -130,13 +130,13 @@ class EStructuralFeature extends ETypedElement {
 
     EStructuralFeature() {}
 
-    def enums = valueList.collect { "${toEnumValue(it as String)}(\"${it}\")" }.join(',')
 
     String asEnum() {
+        def enums = valueList.collect { "${toEnumValue(it as String)}(\"${it}\")" }.join(',')
         return '{' + enums + """
             private final String name;
         
-            private ${name}(String s) {
+            private ${name.capitalize()}(String s) {
                 name = s;
             }
         
@@ -150,17 +150,18 @@ class EStructuralFeature extends ETypedElement {
         }
         """
     }
-}
 
-static String toEnumValue(String string) {
-    string.replaceAll("[^A-Za-z0-9]+", '_').toUpperCase().with {
-        if (Character.isDigit(string.charAt(0))) {
-            'V' + it
-        } else {
-            it
+    static String toEnumValue(String string) {
+        string.replaceAll("[^A-Za-z0-9]+", '_').toUpperCase().with {
+            if (Character.isDigit(string.charAt(0))) {
+                'V' + it
+            } else {
+                it
+            }
         }
     }
 }
+
 
 @SimpleStringAnnotation
 class ETypedElement extends ENamedElement {
@@ -222,7 +223,7 @@ class EPackage extends ENamedElement {
 
     public List<EClassifier> eClassifiers = [] as List<EClassifier>
 
-    public List<ECore> eSubpackages
+    public List<EPackage> eSubpackages
 
     public String eFactoryInstance
 

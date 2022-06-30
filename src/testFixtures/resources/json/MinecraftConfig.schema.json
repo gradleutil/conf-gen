@@ -33,14 +33,14 @@
           }
         },
         "git": {
-          "$ref": "#/definitions/Git"
+          "$ref": "#/definitions/Git",
         },
         "publishing": {
-            "type": "array",
-            "title": "Publishing",
-            "items": {
-              "$ref": "#/definitions/Repository"
-            }
+          "type": "array",
+          "title": "Publishing",
+          "items": {
+            "$ref": "#/definitions/Repository"
+          }
         }
       },
       "required": [
@@ -115,7 +115,7 @@
         "hash": {
           "type": "string"
         },
-        "minecraftVersion": {
+        "minecraft": {
           "$ref": "#/definitions/Minecraft"
         },
         "dependencies": {
@@ -131,7 +131,7 @@
       },
       "required": [
         "version",
-        "minecraftVersion"
+        "minecraft"
       ],
       "title": "Mod Artifact"
     },

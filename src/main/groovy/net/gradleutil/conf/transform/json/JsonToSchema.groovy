@@ -1,8 +1,9 @@
 package net.gradleutil.conf.transform.json
 
+import net.gradleutil.conf.annotation.ToStringIncludeNames
 
-import net.gradleutil.conf.transform.json.JsonObject as JSONObject
 
+@ToStringIncludeNames
 class JsonToSchema {
 
     static sanitize(Map originalMap) {
@@ -29,16 +30,6 @@ class JsonToSchema {
             }
         }
         map
-    }
-
-
-    /**
-     * Pretty println JSON
-     * @param config
-     * @param namespace limit by dotted object path, e.g. `object.subObject' for only object.subObject keys/values
-     */
-    static void jsonPrint(Object config, String namespace = '') {
-        System.out.println(new JSONObject(config).toString())
     }
 
 }

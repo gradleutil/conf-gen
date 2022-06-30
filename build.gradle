@@ -1,6 +1,9 @@
 import gg.jte.ContentType
+import gg.jte.gradle.*
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+import java.nio.file.Paths
 
 plugins {
     id 'groovy'
@@ -30,6 +33,7 @@ dependencies {
     implementation 'gg.jte:jte-runtime:2.0.3'
     implementation project(":template")
     implementation 'net.gradleutil:conf:1.1.8-SNAPSHOT'
+
     testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
     testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')
 }
@@ -38,11 +42,16 @@ tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
 
+// -> JTE
 jte {
     generate()
     setPackageName('net.gradleutil.conf.jte')
     setContentType(ContentType.Plain)
 }
+compileJava.enabled = false
+jar.dependsOn precompileJte
+sourceSets.main.groovy.srcDirs += ['src/main/java', generateJte.targetDirectory]
+// <- JTE
 
 jar {
     archiveClassifier.set('core')
@@ -54,6 +63,7 @@ shadowJar {
     includeEmptyDirs false
     minimize {
         exclude(dependency('gg.jte:.*:.*'))
+        exclude(dependency('net.gradleutil:conf.*:.*'))
     }
     archiveClassifier.set('')
     exclude 'META-INF/resources/'
@@ -94,10 +104,9 @@ java {
     withSourcesJar()
 }
 
-javadoc {
-    exclude 'gg/jte/generated/**'
+sourcesJar.doFirst{
+    delete generateJte.targetDirectory
 }
-sourcesJar.dependsOn(':generateJte')
 
 publishing {
     publications {

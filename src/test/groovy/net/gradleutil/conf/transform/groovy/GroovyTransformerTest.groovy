@@ -3,9 +3,12 @@ package net.gradleutil.conf.transform.groovy
 import net.gradleutil.conf.AbstractTest
 import net.gradleutil.conf.Loader
 import net.gradleutil.conf.LoaderTest
+import net.gradleutil.conf.config.Config
 import net.gradleutil.conf.json.schema.SchemaUtil
 import net.gradleutil.conf.template.EClass
+import net.gradleutil.conf.template.EStructuralFeature
 import net.gradleutil.conf.transform.schema.SchemaToEPackage
+import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.Inflector
 import net.gradleutil.conf.util.GenUtil
 
@@ -123,18 +126,35 @@ class GroovyTransformerTest extends AbstractTest {
         def jsonSchema = getResourceText('json/MCConfig.schema.json')
 
         when:
-        def modelFile = new File(base + 'MinecraftConfig.groovy')
-        SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, 'MinecraftConfig', modelFile)
-        println "file://${modelFile.absolutePath}"
-
         def lib = SchemaToEPackage.getEPackage(SchemaUtil.getSchema(jsonSchema), "MCConfig", "net.gradle", false)
-        def mod = (lib.eClassifiers.find { it.name == 'ModArtifact' } as EClass).eStructuralFeatures.find { it.name == 'minecraftVersion' }
-        def mcv = (lib.eClassifiers.find { it.name == 'MinecraftConfig' } as EClass).eStructuralFeatures.find { it.name == 'minecraftVersion' }
+        def mod = (lib.eClassifiers.find { it.name == 'ModArtifact' } as EClass).eStructuralFeatures.find { it.name == 'minecraft' }
 
         then:
         mod != null
-        mcv == null
+        (mod as EStructuralFeature).eType == 'Minecraft'
     }
+
+    def "minecraft create"() {
+        setup:
+        def data = new File('src/testFixtures/resources/json/MinecraftConfig.json')
+        def inflector = new Inflector()
+        def refName = inflector.upperCamelCase(data.name.replace('.json', ''), '-_ '.chars)
+        def jsonSchema = getResourceText('json/MinecraftConfig.schema.json')
+
+        when:
+        def modelFile = new File(base + refName + '.groovy')
+        println('json file:///' + data.absolutePath)
+        println('parsing file:///' + modelFile.absolutePath)
+        SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName.capitalize(), modelFile)
+        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
+        def funk = Loader.create(data.text, modelClass, Loader.defaultOptions().silent(false).allowUnresolved(true).useSystemProperties(false))
+
+        then:
+        println funk.toString()
+        //println ConfUtil.configToJsonObject(funk as Config).toString()
+    }
+
 
     def "test create all"() {
         setup:
