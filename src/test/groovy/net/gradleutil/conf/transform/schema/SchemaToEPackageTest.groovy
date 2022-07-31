@@ -2,12 +2,15 @@ package net.gradleutil.conf.transform.schema
 
 import groovy.util.logging.Log
 import net.gradleutil.conf.AbstractTest
+import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
 import net.gradleutil.conf.util.GenUtil
+import net.gradleutil.gen.groovyclass.EPackageTemplate
 import net.gradleutil.gen.groovyclass.GroovyClassTemplate
 
 import static SchemaToEPackage.getEPackage
 import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
+import static net.gradleutil.conf.transform.groovy.EPackageRenderer.schemaToEPackageRender
 
 @Log
 class SchemaToEPackageTest extends AbstractTest {
@@ -47,6 +50,49 @@ class SchemaToEPackageTest extends AbstractTest {
 
     }
 
+    def "epackage allOf"() {
+        setup:
+        def jteDir = new File('src/testFixtures/resources/jte/epackage')
+        def jsonSchema = getResourceText('json/AllOfTest.schema.json')
+        def rootClassName = 'Booklist'
+
+        when:
+        def ePackage = getEPackage(getSchema(jsonSchema), rootClassName, packageName, true)
+        def options = Transformer.defaultOptions()
+                .ePackage(ePackage)
+                .jteDirectory(jteDir)
+                .jsonSchema(jsonSchema)
+                .rootClassName(rootClassName)
+                .outputFile(new File(base))
+        def source = EPackageTemplate.render(options)
+        println source
+
+        then:
+        ePackage.getEClassifiers().size() == 2
+        ePackage.getEClassifiers()*.name.intersect(['AllOfTest', 'EModelElement']).size() == 2
+
+    }
+
+    def "epackage rendered"() {
+        setup:
+        def jteDir = new File('src/testFixtures/resources/jte/epackage')
+        def jsonSchema = getResourceText('json/AllOfTest.schema.json')
+        def rootClassName = 'Booklist'
+        def renderDir = new File(base, 'render').tap { it.mkdirs() }
+
+        when:
+        def options = Transformer.defaultOptions()
+                .jteDirectory(jteDir)
+                .jsonSchema(jsonSchema)
+                .rootClassName(rootClassName)
+                .outputFile(renderDir)
+        def ePackage = schemaToEPackageRender(options)
+
+        then:
+        ePackage
+    }
+
+
     def "ecore"() {
         setup:
         def jsonSchema = new File('template/src/main/groovy/net/gradleutil/conf/schema/Ecore.schema.json')
@@ -62,7 +108,7 @@ class SchemaToEPackageTest extends AbstractTest {
 
         then:
         ePackage.getEClassifiers().size() == 20
-//        ePackage.getEClassifiers()*.name.intersect(['Booklist','Books']).size() == 2
+        //        ePackage.getEClassifiers()*.name.intersect(['Booklist','Books']).size() == 2
 
     }
 

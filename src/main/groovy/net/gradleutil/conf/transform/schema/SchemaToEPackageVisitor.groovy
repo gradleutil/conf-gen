@@ -74,6 +74,7 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
         if (schema.criterion.toString() == 'allOf') {
             schema.subschemas.each { visit(it) }
         } else {
+            // 'anyOf'
             if (schema.subschemas.every { it instanceof ObjectSchema }) {
                 schema.subschemas.each {
                     def os = it as ObjectSchema
@@ -85,11 +86,18 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
                 }
 
             } else {
-                def refSchema = SchemaToReferenceSchema.toReferenceSchema(schema, 'object', null)
-                refSchema.unprocessedProperties = schema.unprocessedProperties
-                //refStack.push(refSchema)
-                visit(refSchema)
-                //schema.subschemas.each {visit(it)}
+                if(schema.subschemas.size() == 2 && schema.subschemas.find{it instanceof NullSchema}){
+                    // we can only map some 'anyOf', for now just handling a type plus null
+                    def subschema = schema.subschemas.find{!(it instanceof NullSchema) }
+                    visit subschema
+                    visited.remove(schema) // these are basically properties so always visit them
+                } else {
+                    def refSchema = SchemaToReferenceSchema.toReferenceSchema(schema, 'object', null)
+                    refSchema.unprocessedProperties = schema.unprocessedProperties
+                    //refStack.push(refSchema)
+                    visit(refSchema)
+                    //schema.subschemas.each {visit(it)}
+                }
             }
         }
     }
@@ -110,8 +118,8 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
             eRef.lowerBound = requiredContains(eRef.name)
             addStructuralFeature eRef
         }
-        objectSchemaStack.pop()
         popEClassStack()
+        objectSchemaStack.pop()
     }
 
     @Override
@@ -225,6 +233,9 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
 
     void addStructuralFeature(EStructuralFeature feature) {
         def features = eClassStack.peek().getEStructuralFeatures()
+        if(feature.name == 'gameVersionTypeId' && feature.eType == 'SortableGameVersion'){
+            println "fart"
+        }
         if (!features.find { it.name == feature.name }) {
             features.add feature
         }

@@ -1,0 +1,3385 @@
+{
+ "pagination": {
+  "resultCount": 11,
+  "index": 0,
+  "pageSize": 50,
+  "totalCount": 11
+ },
+ "data": [
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [
+    {
+     "description": "",
+     "id": 11876,
+     "title": "635506987806339301.png",
+     "modId": 225341,
+     "url": "https://media.forgecdn.net/avatars/11/876/635506987806339301.png",
+     "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/11/876/256/256/635506987806339301.png"
+    },
+    {
+     "description": "",
+     "id": 11861,
+     "title": "635506313937277145.png",
+     "modId": 225341,
+     "url": "https://media.forgecdn.net/avatars/11/861/635506313937277145.png",
+     "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/11/861/256/256/635506313937277145.png"
+    }
+   ],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.17.1",
+     "gameVersionTypeId": 73242,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.3",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.13.1",
+     "gameVersionTypeId": 55023,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.1",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14.4",
+     "gameVersionTypeId": 64806,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14.1",
+     "gameVersionTypeId": 64806,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14.3",
+     "gameVersionTypeId": 64806,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.15",
+     "gameVersionTypeId": 68722,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.13",
+     "gameVersionTypeId": 55023,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.15.2",
+     "gameVersionTypeId": 68722,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14",
+     "gameVersionTypeId": 64806,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.4",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14.2",
+     "gameVersionTypeId": 64806,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.2",
+     "gameVersionTypeId": 70886,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.13.2",
+     "gameVersionTypeId": 55023,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneymapServer_Bukkit_MC-1.16.jar",
+     "releaseType": 1,
+     "gameVersion": "1.15.1",
+     "gameVersionTypeId": 68722,
+     "modLoader": null,
+     "fileId": 3214620
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9.4",
+     "gameVersionTypeId": 552,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9.2",
+     "gameVersionTypeId": 552,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.1",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.10.2",
+     "gameVersionTypeId": 572,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11",
+     "gameVersionTypeId": 599,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.10",
+     "gameVersionTypeId": 572,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.7.10",
+     "gameVersionTypeId": 5,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11.1",
+     "gameVersionTypeId": 599,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11.2",
+     "gameVersionTypeId": 599,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.01_Bukkit_MC1.9.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.2",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2292232
+    },
+    {
+     "filename": "JourneyMapServer1.0.5_MC1.7.10.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8.8",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2232619
+    },
+    {
+     "filename": "JourneyMapServer1.0.5_MC1.7.10.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2232619
+    },
+    {
+     "filename": "JourneyMapServer1.0.5_MC1.7.10.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8.9",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2232619
+    }
+   ],
+   "dateCreated": "2014-11-03T23:05:50.087Z",
+   "logo": {
+    "description": "",
+    "id": 12648,
+    "title": "635536329102473349.png",
+    "modId": 225341,
+    "url": "https://media.forgecdn.net/avatars/12/648/635536329102473349.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/12/648/256/256/635536329102473349.png"
+   },
+   "links": {
+    "sourceUrl": null,
+    "issuesUrl": "https://bitbucket.org/TeamJM/journeymap/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-server",
+    "wikiUrl": "http://journeymap.info"
+   },
+   "dateReleased": "2021-02-23T18:54:31.793Z",
+   "id": 225341,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Server Utility",
+     "dateModified": "2014-05-08T17:44:55.057Z",
+     "parentCategoryId": 6,
+     "id": 435,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/48/635351498950580836.png",
+     "slug": "server-utility",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/server-utility"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymap-server",
+   "gameId": 432,
+   "summary": "Server Plugin to assist and administer features in the JourneyMap Client Mod",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "JourneymapServer_Bukkit_MC-1.16.jar",
+    "gameVersions": [
+     "1.17.1",
+     "1.16.3",
+     "1.13.1",
+     "1.16.1",
+     "1.18.1",
+     "1.14.4",
+     "1.14.1",
+     "1.14.3",
+     "1.15",
+     "1.16",
+     "1.13",
+     "1.16.5",
+     "1.18.2",
+     "1.15.2",
+     "1.14",
+     "1.16.4",
+     "1.14.2",
+     "1.16.2",
+     "1.13.2",
+     "1.15.1"
+    ],
+    "displayName": "JourneyMapServer Spigot/Bukkit MC1.13-1.18.2",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0000000001.0000000017.0000000001",
+      "gameVersion": "1.17.1",
+      "gameVersionReleaseDate": "2021-07-06T14:16:03.97Z",
+      "gameVersionName": "1.17.1",
+      "gameVersionTypeId": 73242
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016.0000000003",
+      "gameVersion": "1.16.3",
+      "gameVersionReleaseDate": "2020-09-10T14:44:20.443Z",
+      "gameVersionName": "1.16.3",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000013.0000000001",
+      "gameVersion": "1.13.1",
+      "gameVersionReleaseDate": "2018-08-22T00:00:00Z",
+      "gameVersionName": "1.13.1",
+      "gameVersionTypeId": 55023
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016.0000000001",
+      "gameVersion": "1.16.1",
+      "gameVersionReleaseDate": "2020-06-24T12:41:11.823Z",
+      "gameVersionName": "1.16.1",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000018.0000000001",
+      "gameVersion": "1.18.1",
+      "gameVersionReleaseDate": "2021-12-10T10:37:38.06Z",
+      "gameVersionName": "1.18.1",
+      "gameVersionTypeId": 73250
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000014.0000000004",
+      "gameVersion": "1.14.4",
+      "gameVersionReleaseDate": "2019-07-19T00:00:00Z",
+      "gameVersionName": "1.14.4",
+      "gameVersionTypeId": 64806
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000014.0000000001",
+      "gameVersion": "1.14.1",
+      "gameVersionReleaseDate": "2019-05-13T00:00:00Z",
+      "gameVersionName": "1.14.1",
+      "gameVersionTypeId": 64806
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000014.0000000003",
+      "gameVersion": "1.14.3",
+      "gameVersionReleaseDate": "2019-06-24T00:00:00Z",
+      "gameVersionName": "1.14.3",
+      "gameVersionTypeId": 64806
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000015",
+      "gameVersion": "1.15",
+      "gameVersionReleaseDate": "2019-12-10T15:26:51.027Z",
+      "gameVersionName": "1.15",
+      "gameVersionTypeId": 68722
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016",
+      "gameVersion": "1.16",
+      "gameVersionReleaseDate": "2020-06-23T13:41:08.75Z",
+      "gameVersionName": "1.16",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000013",
+      "gameVersion": "1.13",
+      "gameVersionReleaseDate": "2018-07-18T00:00:00Z",
+      "gameVersionName": "1.13",
+      "gameVersionTypeId": 55023
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016.0000000005",
+      "gameVersion": "1.16.5",
+      "gameVersionReleaseDate": "2021-01-15T14:14:48.91Z",
+      "gameVersionName": "1.16.5",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000018.0000000002",
+      "gameVersion": "1.18.2",
+      "gameVersionReleaseDate": "2022-02-28T14:23:37.723Z",
+      "gameVersionName": "1.18.2",
+      "gameVersionTypeId": 73250
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000015.0000000002",
+      "gameVersion": "1.15.2",
+      "gameVersionReleaseDate": "2020-01-22T00:00:00Z",
+      "gameVersionName": "1.15.2",
+      "gameVersionTypeId": 68722
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000014",
+      "gameVersion": "1.14",
+      "gameVersionReleaseDate": "2019-04-23T00:00:00Z",
+      "gameVersionName": "1.14",
+      "gameVersionTypeId": 64806
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016.0000000004",
+      "gameVersion": "1.16.4",
+      "gameVersionReleaseDate": "2020-11-02T18:40:51.49Z",
+      "gameVersionName": "1.16.4",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000014.0000000002",
+      "gameVersion": "1.14.2",
+      "gameVersionReleaseDate": "2019-05-27T00:00:00Z",
+      "gameVersionName": "1.14.2",
+      "gameVersionTypeId": 64806
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000016.0000000002",
+      "gameVersion": "1.16.2",
+      "gameVersionReleaseDate": "2020-08-11T16:42:21.863Z",
+      "gameVersionName": "1.16.2",
+      "gameVersionTypeId": 70886
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000013.0000000002",
+      "gameVersion": "1.13.2",
+      "gameVersionReleaseDate": "2018-10-22T00:00:00Z",
+      "gameVersionName": "1.13.2",
+      "gameVersionTypeId": 55023
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000015.0000000001",
+      "gameVersion": "1.15.1",
+      "gameVersionReleaseDate": "2019-12-17T00:00:00Z",
+      "gameVersionName": "1.15.1",
+      "gameVersionTypeId": 68722
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/3214/620/JourneymapServer_Bukkit_MC-1.16.jar",
+    "fileDate": "2021-02-23T18:54:31.793Z",
+    "modId": 225341,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 2464251221
+     },
+     {
+      "name": "journeymapserver",
+      "fingerprint": 654677967
+     },
+     {
+      "name": "config.yml",
+      "fingerprint": 575966285
+     },
+     {
+      "name": "plugin.yml",
+      "fingerprint": 1186831127
+     }
+    ],
+     "dependencies": [
+       {
+         "relationType": 2,
+         "modId": 245755
+       },
+       {
+         "relationType": 3,
+         "modId": 32274
+       },
+       {
+         "relationType": 2,
+         "modId": 314906
+       }
+     ],
+    "fileFingerprint": 971196941,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 1,
+    "hashes": [
+     {
+      "value": "e1da43ceed2e8b883478d8e98135629f37edc0bb",
+      "algo": 1
+     },
+     {
+      "value": "96f4f626372b3f93f3d26778829cf9b7",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 3214620,
+    "fileLength": 25981,
+    "downloadCount": 10961
+   }],
+   "dateModified": "2022-03-20T14:55:11.827Z",
+   "gamePopularityRank": 5905,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap Server",
+   "mainFileId": 3214620,
+   "primaryCategoryId": 435,
+   "downloadCount": 138709,
+   "status": 4,
+   "authors": [
+    {
+     "name": "techbrew",
+     "id": 17222,
+     "url": "https://www.curseforge.com/members/7577665-techbrew?username=techbrew"
+    },
+    {
+     "name": "Mysticdrew",
+     "id": 17236,
+     "url": "https://www.curseforge.com/members/9422784-mysticdrew?username=mysticdrew"
+    }
+   ]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "jmi-forge-1.19-0.12-10.jar",
+     "releaseType": 2,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 1,
+     "fileId": 3850006
+    },
+    {
+     "filename": "jmi-fabric-1.19-0.12-10.jar",
+     "releaseType": 2,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 4,
+     "fileId": 3850005
+    },
+    {
+     "filename": "jmi-fabric-1.19-0.12-10.jar",
+     "releaseType": 2,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 5,
+     "fileId": 3850005
+    },
+    {
+     "filename": "jmi-fabric-1.18.2-0.11-75.jar",
+     "releaseType": 2,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": 4,
+     "fileId": 3811446
+    },
+    {
+     "filename": "jmi-forge-1.18.2-0.11-75.jar",
+     "releaseType": 2,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3811445
+    },
+    {
+     "filename": "jmi-1.18.2-0.9-49.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3734478
+    },
+    {
+     "filename": "jmi-1.18.1-0.8.1-48.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3696674
+    },
+    {
+     "filename": "jmi-1.16.5-0.8.1-47.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3696645
+    },
+    {
+     "filename": "jmi-1.16.5-0.8-45.jar",
+     "releaseType": 2,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3636143
+    },
+    {
+     "filename": "jmi-1.18.1-0.8-44.jar",
+     "releaseType": 2,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3636138
+    },
+    {
+     "filename": "jmi-1.16.5-0.8-41.jar",
+     "releaseType": 3,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3630719
+    },
+    {
+     "filename": "jmi-1.18.1-0.8-40.jar",
+     "releaseType": 3,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3630609
+    }
+   ],
+   "dateCreated": "2021-09-07T12:57:49.173Z",
+   "logo": {
+    "description": "",
+    "id": 431167,
+    "title": "637666162691913254.png",
+    "modId": 525447,
+    "url": "https://media.forgecdn.net/avatars/431/167/637666162691913254.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/431/167/256/256/637666162691913254.png"
+   },
+   "links": {
+    "sourceUrl": "https://github.com/frank89722/JourneyMapIntegration",
+    "issuesUrl": "https://github.com/frank89722/JourneyMapIntegration/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-integration",
+    "wikiUrl": ""
+   },
+   "dateReleased": "2022-06-27T12:23:34.113Z",
+   "id": 525447,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Addons",
+     "dateModified": "2014-05-08T17:09:48.63Z",
+     "parentCategoryId": 6,
+     "id": 426,
+     "iconUrl": "https://media.forgecdn.net/avatars/5/998/635351477886290676.png",
+     "slug": "mc-addons",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/mc-addons"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymap-integration",
+   "gameId": 432,
+   "summary": "Adds some mod integrations for our favorite map mod",
+   "latestFiles": [
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "jmi-1.16.5-0.8-41.jar",
+     "gameVersions": [
+      "1.16.5",
+      "Forge"
+     ],
+     "displayName": "jmi-1.16.5-0.8-41.jar",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0000000001.0000000016.0000000005",
+       "gameVersion": "1.16.5",
+       "gameVersionReleaseDate": "2021-01-15T14:14:48.91Z",
+       "gameVersionName": "1.16.5",
+       "gameVersionTypeId": 70886
+      },
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3630/719/jmi-1.16.5-0.8-41.jar",
+     "fileDate": "2022-01-30T19:09:26.127Z",
+     "modId": 525447,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 3009534921
+      },
+      {
+       "name": "frankv",
+       "fingerprint": 1437817778
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 3000352658
+      },
+      {
+       "name": "logo.png",
+       "fingerprint": 3217472394
+      },
+      {
+       "name": "jmi.mixins.json",
+       "fingerprint": 3940362016
+      },
+      {
+       "name": "assets",
+       "fingerprint": 4294476230
+      },
+      {
+       "name": "jmi.refmap.json",
+       "fingerprint": 1493072104
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 2,
+       "modId": 245755
+      },
+      {
+       "relationType": 3,
+       "modId": 32274
+      },
+      {
+       "relationType": 2,
+       "modId": 314906
+      }
+     ],
+     "fileFingerprint": 3635739937,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 3,
+     "hashes": [
+      {
+       "value": "dc843fb8cbc3984b565f1d4aa1cd47af7cec32ed",
+       "algo": 1
+      },
+      {
+       "value": "f14c3f0b79bebc94c1b45d55a8ba750a",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3630719,
+     "fileLength": 43000,
+     "downloadCount": 18
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "jmi-1.18.2-0.9-49.jar",
+     "gameVersions": [
+      "1.18.2",
+      "Forge"
+     ],
+     "displayName": "jmi-1.18.2-0.9-49.jar",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0000000001.0000000018.0000000002",
+       "gameVersion": "1.18.2",
+       "gameVersionReleaseDate": "2022-02-28T14:23:37.723Z",
+       "gameVersionName": "1.18.2",
+       "gameVersionTypeId": 73250
+      },
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3734/478/jmi-1.18.2-0.9-49.jar",
+     "fileDate": "2022-04-03T20:19:55.033Z",
+     "modId": 525447,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 1057421685
+      },
+      {
+       "name": "frankv",
+       "fingerprint": 2099634209
+      },
+      {
+       "name": "assets",
+       "fingerprint": 4294476230
+      },
+      {
+       "name": "jmi.mixins.json",
+       "fingerprint": 356786319
+      },
+      {
+       "name": "logo.png",
+       "fingerprint": 3217472394
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 3512315426
+      },
+      {
+       "name": "jmi.refmap.json",
+       "fingerprint": 1493072104
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 2,
+       "modId": 314906
+      },
+      {
+       "relationType": 3,
+       "modId": 32274
+      },
+      {
+       "relationType": 2,
+       "modId": 245755
+      }
+     ],
+     "fileFingerprint": 2627083920,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 1,
+     "hashes": [
+      {
+       "value": "e3bbccdea49c4fe3421347fbddd92e0d904bdbf5",
+       "algo": 1
+      },
+      {
+       "value": "177a18d0ab3d8a409d3db82914964876",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3734478,
+     "fileLength": 46004,
+     "downloadCount": 0
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "jmi-fabric-1.19-0.12-10.jar",
+     "gameVersions": [
+      "Fabric",
+      "Quilt",
+      "1.19"
+     ],
+     "displayName": "jmi-fabric-1.19-0.12-10.jar",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Fabric",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2022-05-26T00:00:00Z",
+       "gameVersionName": "Quilt",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0000000001.0000000019",
+       "gameVersion": "1.19",
+       "gameVersionReleaseDate": "2022-06-07T15:38:07.377Z",
+       "gameVersionName": "1.19",
+       "gameVersionTypeId": 73407
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3850/5/jmi-fabric-1.19-0.12-10.jar",
+     "fileDate": "2022-06-27T12:23:31.043Z",
+     "modId": 525447,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 3014139413
+      },
+      {
+       "name": "assets",
+       "fingerprint": 3993766794
+      },
+      {
+       "name": "fabric.mod.json",
+       "fingerprint": 892247679
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 1677690403
+      },
+      {
+       "name": "jmi.mixins.json",
+       "fingerprint": 1157482015
+      },
+      {
+       "name": "jmi-fabric-1.19-refmap.json",
+       "fingerprint": 171810018
+      },
+      {
+       "name": "frankv",
+       "fingerprint": 2241040153
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 3,
+       "modId": 32274
+      },
+      {
+       "relationType": 2,
+       "modId": 500087
+      },
+      {
+       "relationType": 2,
+       "modId": 472657
+      },
+      {
+       "relationType": 3,
+       "modId": 306612
+      }
+     ],
+     "fileFingerprint": 1942230153,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 2,
+     "hashes": [
+      {
+       "value": "992017ecf0a810afd7f16b8cb357fdc304251e9f",
+       "algo": 1
+      },
+      {
+       "value": "5816c290f15306c3ac74f087c6db0ab3",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3850005,
+     "fileLength": 71283,
+     "downloadCount": 0
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "jmi-forge-1.19-0.12-10.jar",
+     "gameVersions": [
+      "Forge",
+      "1.19"
+     ],
+     "displayName": "jmi-forge-1.19-0.12-10.jar",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0000000001.0000000019",
+       "gameVersion": "1.19",
+       "gameVersionReleaseDate": "2022-06-07T15:38:07.377Z",
+       "gameVersionName": "1.19",
+       "gameVersionTypeId": 73407
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3850/6/jmi-forge-1.19-0.12-10.jar",
+     "fileDate": "2022-06-27T12:23:34.113Z",
+     "modId": 525447,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 3105793264
+      },
+      {
+       "name": "frankv",
+       "fingerprint": 1097972523
+      },
+      {
+       "name": "jmi.mixins.json",
+       "fingerprint": 1150417605
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 1677690403
+      },
+      {
+       "name": "assets",
+       "fingerprint": 3993766794
+      },
+      {
+       "name": "jmi.refmap.json",
+       "fingerprint": 1493072104
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 2,
+       "modId": 314906
+      },
+      {
+       "relationType": 2,
+       "modId": 245755
+      },
+      {
+       "relationType": 3,
+       "modId": 32274
+      }
+     ],
+     "fileFingerprint": 3708496741,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 2,
+     "hashes": [
+      {
+       "value": "4e222a042555ed553076be56c2221b0d1ddf6a1b",
+       "algo": 1
+      },
+      {
+       "value": "5226a04dde6e19bf1cdec6e988a0d2d9",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3850006,
+     "fileLength": 68716,
+     "downloadCount": 0
+    }
+   ],
+   "dateModified": "2022-06-27T12:26:45.85Z",
+   "gamePopularityRank": 631,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap Integration",
+   "mainFileId": 3734478,
+   "primaryCategoryId": 423,
+   "downloadCount": 2240708,
+   "status": 4,
+   "authors": [{
+    "name": "frankv_",
+    "id": 443352,
+    "url": "https://www.curseforge.com/members/10596142-frankv_?username=frankv_"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "journeymap-additions-1.17.1-0.0.3.jar",
+     "releaseType": 2,
+     "gameVersion": "1.17.1",
+     "gameVersionTypeId": 73242,
+     "modLoader": 1,
+     "fileId": 3579218
+    },
+    {
+     "filename": "journeymap-additions-1.16.5-0.0.3.jar",
+     "releaseType": 2,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3578580
+    },
+    {
+     "filename": "journeymap-additions-1.18.1-0.0.3.jar",
+     "releaseType": 2,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3578338
+    }
+   ],
+   "dateCreated": "2021-12-23T16:40:30.983Z",
+   "logo": {
+    "description": "",
+    "id": 471055,
+    "title": "637758744310939035.png",
+    "modId": 559764,
+    "url": "https://media.forgecdn.net/avatars/471/55/637758744310939035.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/471/55/256/256/637758744310939035.png"
+   },
+   "links": {
+    "sourceUrl": "https://github.com/TeamJM/journeymap-additions",
+    "issuesUrl": "https://github.com/TeamJM/journeymap-additions/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-additions",
+    "wikiUrl": ""
+   },
+   "dateReleased": "2021-12-24T16:56:23.997Z",
+   "id": 559764,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Addons",
+     "dateModified": "2014-05-08T17:09:48.63Z",
+     "parentCategoryId": 6,
+     "id": 426,
+     "iconUrl": "https://media.forgecdn.net/avatars/5/998/635351477886290676.png",
+     "slug": "mc-addons",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/mc-addons"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymap-additions",
+   "gameId": 432,
+   "summary": "A collection of overlays and tools that integrate with Journeymap",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "journeymap-additions-1.17.1-0.0.3.jar",
+    "gameVersions": [
+     "1.17.1",
+     "Forge"
+    ],
+    "displayName": "journeymap-additions-1.17.1-0.0.3",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0000000001.0000000017.0000000001",
+      "gameVersion": "1.17.1",
+      "gameVersionReleaseDate": "2021-07-06T14:16:03.97Z",
+      "gameVersionName": "1.17.1",
+      "gameVersionTypeId": 73242
+     },
+     {
+      "gameVersionPadded": "0",
+      "gameVersion": "",
+      "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+      "gameVersionName": "Forge",
+      "gameVersionTypeId": 68441
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/3579/218/journeymap-additions-1.17.1-0.0.3.jar",
+    "fileDate": "2021-12-24T16:56:23.997Z",
+    "modId": 559764,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 1022757360
+     },
+     {
+      "name": "journeymapadditions",
+      "fingerprint": 3103694999
+     },
+     {
+      "name": "pack.mcmeta",
+      "fingerprint": 471219542
+     }
+    ],
+    "dependencies": [{
+     "relationType": 3,
+     "modId": 32274
+    }],
+    "fileFingerprint": 3968279977,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 2,
+    "hashes": [
+     {
+      "value": "9167bc777b41f6b85a96c0f6aaf6c88e55f2c389",
+      "algo": 1
+     },
+     {
+      "value": "3bd225544a7aa8e15c38887e2f9c85a1",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 3579218,
+    "fileLength": 16239,
+    "downloadCount": 113
+   }],
+   "dateModified": "2021-12-27T08:36:01.643Z",
+   "gamePopularityRank": 110577,
+   "thumbsUpCount": 0,
+   "name": "Journeymap Additions",
+   "mainFileId": 3579218,
+   "primaryCategoryId": 426,
+   "downloadCount": 1444,
+   "status": 4,
+   "authors": [{
+    "name": "Mysticdrew",
+    "id": 480102,
+    "url": "https://www.curseforge.com/members/9422784-mysticdrew?username=mysticdrew"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "journeymap-1.16.5-5.8.5p5.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.5",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3841569
+    },
+    {
+     "filename": "journeymap-1.19-5.8.5rc2-forge.jar",
+     "releaseType": 1,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 1,
+     "fileId": 3834645
+    },
+    {
+     "filename": "journeymap-1.19-5.8.5rc2-fabric.jar",
+     "releaseType": 1,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 4,
+     "fileId": 3830663
+    },
+    {
+     "filename": "journeymap-1.19-5.8.5alpha1-forge.jar",
+     "releaseType": 3,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 1,
+     "fileId": 3821884
+    },
+    {
+     "filename": "journeymap-1.19-5.8.5-fabric.jar",
+     "releaseType": 3,
+     "gameVersion": "1.19",
+     "gameVersionTypeId": 73407,
+     "modLoader": 4,
+     "fileId": 3821710
+    },
+    {
+     "filename": "journeymap-1.18.2-5.8.5-forge.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3820040
+    },
+    {
+     "filename": "journeymap-1.18.2-5.8.5-fabric.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.2",
+     "gameVersionTypeId": 73250,
+     "modLoader": 4,
+     "fileId": 3820038
+    },
+    {
+     "filename": "journeymap-1.18.1-5.8.1-fabric.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 4,
+     "fileId": 3756069
+    },
+    {
+     "filename": "journeymap-1.18.1-5.8.1.jar",
+     "releaseType": 1,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3756052
+    },
+    {
+     "filename": "journeymap-1.17.1-5.8.0.jar",
+     "releaseType": 1,
+     "gameVersion": "1.17.1",
+     "gameVersionTypeId": 73242,
+     "modLoader": 1,
+     "fileId": 3696401
+    },
+    {
+     "filename": "journeymap-1.18-5.8.0alpha9.jar",
+     "releaseType": 3,
+     "gameVersion": "1.18.1",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3556454
+    },
+    {
+     "filename": "journeymap-1.18-5.8.0alpha9.jar",
+     "releaseType": 3,
+     "gameVersion": "1.18",
+     "gameVersionTypeId": 73250,
+     "modLoader": 1,
+     "fileId": 3556454
+    },
+    {
+     "filename": "journeymap-1.16.5-5.7.3.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.3",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3397059
+    },
+    {
+     "filename": "journeymap-1.16.5-5.7.3.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.4",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3397059
+    },
+    {
+     "filename": "journeymap-1.16.5-5.7.3.jar",
+     "releaseType": 1,
+     "gameVersion": "1.16.2",
+     "gameVersionTypeId": 70886,
+     "modLoader": 1,
+     "fileId": 3397059
+    },
+    {
+     "filename": "journeymap-1.14.4-5.7.0.jar",
+     "releaseType": 1,
+     "gameVersion": "1.14.4",
+     "gameVersionTypeId": 64806,
+     "modLoader": 1,
+     "fileId": 3208023
+    },
+    {
+     "filename": "journeymap-1.15.2-5.7.0.jar",
+     "releaseType": 1,
+     "gameVersion": "1.15.2",
+     "gameVersionTypeId": 68722,
+     "modLoader": 1,
+     "fileId": 3208019
+    },
+    {
+     "filename": "journeymap-1.14.4-5.7.0b3.jar",
+     "releaseType": 2,
+     "gameVersion": "1.14.4",
+     "gameVersionTypeId": 64806,
+     "modLoader": 1,
+     "fileId": 2981598
+    },
+    {
+     "filename": "journeymap-1.15.2-5.7.0b3.jar",
+     "releaseType": 2,
+     "gameVersion": "1.15.2",
+     "gameVersionTypeId": 68722,
+     "modLoader": 1,
+     "fileId": 2981594
+    },
+    {
+     "filename": "journeymap-1.12.2-5.7.1.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.2",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2916002
+    },
+    {
+     "filename": "journeymap-1.12.1-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.1",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2498307
+    },
+    {
+     "filename": "journeymap-1.12-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2498305
+    },
+    {
+     "filename": "journeymap-1.11.2-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11.2",
+     "gameVersionTypeId": 599,
+     "modLoader": null,
+     "fileId": 2498301
+    },
+    {
+     "filename": "journeymap-1.10.2-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.10.2",
+     "gameVersionTypeId": 572,
+     "modLoader": null,
+     "fileId": 2498297
+    },
+    {
+     "filename": "journeymap-1.9.4-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9.4",
+     "gameVersionTypeId": 552,
+     "modLoader": null,
+     "fileId": 2498294
+    },
+    {
+     "filename": "journeymap-1.9-5.5.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9",
+     "gameVersionTypeId": 552,
+     "modLoader": null,
+     "fileId": 2498292
+    },
+    {
+     "filename": "journeymap-1.11-5.4.6.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11",
+     "gameVersionTypeId": 599,
+     "modLoader": null,
+     "fileId": 2383113
+    },
+    {
+     "filename": "journeymap-1.7.10-5.1.4p2-unlimited.jar",
+     "releaseType": 1,
+     "gameVersion": "1.7.10",
+     "gameVersionTypeId": 5,
+     "modLoader": null,
+     "fileId": 2367915
+    },
+    {
+     "filename": "journeymap-1.8.9-5.2.4-unlimited.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8.9",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2311867
+    },
+    {
+     "filename": "journeymap-1.8.8-5.1.3-unlimited.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8.8",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2269324
+    },
+    {
+     "filename": "journeymap-1.8-5.1.3-unlimited.jar",
+     "releaseType": 1,
+     "gameVersion": "1.8",
+     "gameVersionTypeId": 4,
+     "modLoader": null,
+     "fileId": 2269316
+    },
+    {
+     "filename": "JourneyMap4.0.3_Unlimited_MC1.7.2.jar",
+     "releaseType": 1,
+     "gameVersion": "1.7.2",
+     "gameVersionTypeId": 5,
+     "modLoader": null,
+     "fileId": 2209904
+    },
+    {
+     "filename": "JourneyMap4.0.3_Unlimited_MC1.6.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.6.4",
+     "gameVersionTypeId": 6,
+     "modLoader": null,
+     "fileId": 2209902
+    },
+    {
+     "filename": "JourneyMap2.6.1_MC1.5.2.zip",
+     "releaseType": 1,
+     "gameVersion": "1.5.2",
+     "gameVersionTypeId": 11,
+     "modLoader": null,
+     "fileId": 717862
+    },
+    {
+     "filename": "JourneyMap1.9.1_MC1.4.6.zip",
+     "releaseType": 1,
+     "gameVersion": "1.4.7",
+     "gameVersionTypeId": 12,
+     "modLoader": null,
+     "fileId": 683238
+    },
+    {
+     "filename": "JourneyMap1.0.1_MC1.1.zip",
+     "releaseType": 1,
+     "gameVersion": "1.1",
+     "gameVersionTypeId": 15,
+     "modLoader": null,
+     "fileId": 568433
+    },
+    {
+     "filename": "JourneyMap1.0.0_MC1.0.0.zip",
+     "releaseType": 1,
+     "gameVersion": "1.0.0",
+     "gameVersionTypeId": 16,
+     "modLoader": null,
+     "fileId": 554368
+    }
+   ],
+   "dateCreated": "2011-09-19T23:49:04.217Z",
+   "logo": {
+    "description": "",
+    "id": 9144,
+    "title": "635421614078544069.png",
+    "modId": 32274,
+    "url": "https://media.forgecdn.net/avatars/9/144/635421614078544069.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/9/144/256/256/635421614078544069.png"
+   },
+   "links": {
+    "sourceUrl": null,
+    "issuesUrl": "https://github.com/TeamJM/journeymap/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap",
+    "wikiUrl": "http://journeymap.info"
+   },
+   "dateReleased": "2022-06-20T20:48:14.253Z",
+   "id": 32274,
+   "categories": [{
+    "gameId": 432,
+    "isClass": false,
+    "classId": 6,
+    "name": "Map and Information",
+    "dateModified": "2014-05-08T17:42:23.74Z",
+    "parentCategoryId": 6,
+    "id": 423,
+    "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+    "slug": "map-information",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+   }],
+   "isFeatured": false,
+   "slug": "journeymap",
+   "gameId": 432,
+   "summary": "Real-time mapping in-game or your browser as you explore.",
+   "latestFiles": [
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.12.2-5.7.1.jar",
+     "gameVersions": ["1.12.2"],
+     "displayName": "journeymap-1.12.2-5.7.1",
+     "sortableGameVersions": [{
+      "gameVersionPadded": "0000000001.0000000012.0000000002",
+      "gameVersion": "1.12.2",
+      "gameVersionReleaseDate": "2017-09-18T05:00:00Z",
+      "gameVersionName": "1.12.2",
+      "gameVersionTypeId": 628
+     }],
+     "downloadUrl": "https://edge.forgecdn.net/files/2916/2/journeymap-1.12.2-5.7.1.jar",
+     "fileDate": "2020-03-29T21:09:22.773Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 1736787495
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 2876717480
+      },
+      {
+       "name": "modinfo",
+       "fingerprint": 3257172988
+      },
+      {
+       "name": "net",
+       "fingerprint": 1429981559
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1383692062
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 3989053437
+      },
+      {
+       "name": "mcmod.info",
+       "fingerprint": 3632965706
+      },
+      {
+       "name": "dummyThing",
+       "fingerprint": 79582461
+      },
+      {
+       "name": "info",
+       "fingerprint": 2511953692
+      },
+      {
+       "name": "LICENSE.txt",
+       "fingerprint": 1185419476
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "org",
+       "fingerprint": 2373182980
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 1076064603,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 1,
+     "hashes": [
+      {
+       "value": "3da4323f71bcadcf140002a9f49578f0cd5ce8a8",
+       "algo": 1
+      },
+      {
+       "value": "8160b970fc14cff30dff2785bb9f964c",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 2916002,
+     "fileLength": 6990968,
+     "downloadCount": 21385254
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.14.4-5.7.0b3.jar",
+     "gameVersions": [
+      "1.14.4",
+      "Forge"
+     ],
+     "displayName": "journeymap-1.14.4-5.7.0b3",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0000000001.0000000014.0000000004",
+       "gameVersion": "1.14.4",
+       "gameVersionReleaseDate": "2019-07-19T00:00:00Z",
+       "gameVersionName": "1.14.4",
+       "gameVersionTypeId": 64806
+      },
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/2981/598/journeymap-1.14.4-5.7.0b3.jar",
+     "fileDate": "2020-06-16T16:35:05.783Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 3169647374
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 76564001
+      },
+      {
+       "name": "modinfo",
+       "fingerprint": 4139118007
+      },
+      {
+       "name": "net",
+       "fingerprint": 3929542358
+      },
+      {
+       "name": "assets",
+       "fingerprint": 455722167
+      },
+      {
+       "name": "journeymap.png",
+       "fingerprint": 3357985534
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 4111769899
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 2930129283
+      },
+      {
+       "name": "render-event-transformer.js",
+       "fingerprint": 2784044465
+      },
+      {
+       "name": "info",
+       "fingerprint": 1640364356
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "org",
+       "fingerprint": 870500181
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 3742153920,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 2,
+     "hashes": [
+      {
+       "value": "d6c5c3070ddeb1f4116a70f263391d92234c2f1b",
+       "algo": 1
+      },
+      {
+       "value": "de57946ca0218bb27b93f519f21d16bf",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 2981598,
+     "fileLength": 6795411,
+     "downloadCount": 184584
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.19-5.8.5-fabric.jar",
+     "gameVersions": [
+      "Fabric",
+      "1.19"
+     ],
+     "displayName": "journeymap-1.19-5.8.5-fabric",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Fabric",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0000000001.0000000019",
+       "gameVersion": "1.19",
+       "gameVersionReleaseDate": "2022-06-07T15:38:07.377Z",
+       "gameVersionName": "1.19",
+       "gameVersionTypeId": 73407
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3821/710/journeymap-1.19-5.8.5-fabric.jar",
+     "fileDate": "2022-06-07T23:45:31.763Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 522326813
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "info",
+       "fingerprint": 754427529
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 3524069904
+      },
+      {
+       "name": "journeymap.png",
+       "fingerprint": 3357985534
+      },
+      {
+       "name": "journeymap.mixins.json",
+       "fingerprint": 1083716314
+      },
+      {
+       "name": "journeymap.accesswidener",
+       "fingerprint": 321536207
+      },
+      {
+       "name": "fabric.mod.json",
+       "fingerprint": 2038039420
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1048018131
+      },
+      {
+       "name": "journeymap-refmap.json",
+       "fingerprint": 349253557
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 3788121684
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 1767337191,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 3,
+     "hashes": [
+      {
+       "value": "a14b64f6789a04fd09c09c16904d70e43ce32666",
+       "algo": 1
+      },
+      {
+       "value": "d14c64bee1da638a74367316033c6a4e",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3821710,
+     "fileLength": 7322385,
+     "downloadCount": 0
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.19-5.8.5alpha1-forge.jar",
+     "gameVersions": [
+      "Forge",
+      "1.19"
+     ],
+     "displayName": "journeymap-1.19-5.8.5alpha1-forge",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0000000001.0000000019",
+       "gameVersion": "1.19",
+       "gameVersionReleaseDate": "2022-06-07T15:38:07.377Z",
+       "gameVersionName": "1.19",
+       "gameVersionTypeId": 73407
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3821/884/journeymap-1.19-5.8.5alpha1-forge.jar",
+     "fileDate": "2022-06-08T01:20:56.247Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 4213845905
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 2910876983
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1048018131
+      },
+      {
+       "name": "journeymap.mixins.json",
+       "fingerprint": 1372557372
+      },
+      {
+       "name": "journeymap.png",
+       "fingerprint": 3357985534
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 3982784621
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 2799814099
+      },
+      {
+       "name": "potion-effects-shift.js",
+       "fingerprint": 4008559736
+      },
+      {
+       "name": "render-event-transformer.js",
+       "fingerprint": 2784044465
+      },
+      {
+       "name": "info",
+       "fingerprint": 459257420
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      },
+      {
+       "name": "journeymap-refmap.json",
+       "fingerprint": 622531570
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 3771477599,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 3,
+     "hashes": [
+      {
+       "value": "c17f3ab12c8794f0ce5349843a3f7693b596722c",
+       "algo": 1
+      },
+      {
+       "value": "d28339167603849ce68534c99fad466d",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3821884,
+     "fileLength": 7025174,
+     "downloadCount": 0
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.19-5.8.5rc2-fabric.jar",
+     "gameVersions": [
+      "Fabric",
+      "1.19"
+     ],
+     "displayName": "journeymap-1.19-5.8.5rc2-fabric",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Fabric",
+       "gameVersionTypeId": 68441
+      },
+      {
+       "gameVersionPadded": "0000000001.0000000019",
+       "gameVersion": "1.19",
+       "gameVersionReleaseDate": "2022-06-07T15:38:07.377Z",
+       "gameVersionName": "1.19",
+       "gameVersionTypeId": 73407
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3830/663/journeymap-1.19-5.8.5rc2-fabric.jar",
+     "fileDate": "2022-06-13T15:57:09.023Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 905243805
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "info",
+       "fingerprint": 754427529
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 2474026580
+      },
+      {
+       "name": "journeymap.png",
+       "fingerprint": 3357985534
+      },
+      {
+       "name": "journeymap.mixins.json",
+       "fingerprint": 1083716314
+      },
+      {
+       "name": "journeymap.accesswidener",
+       "fingerprint": 321536207
+      },
+      {
+       "name": "fabric.mod.json",
+       "fingerprint": 1742983253
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1048018131
+      },
+      {
+       "name": "journeymap-refmap.json",
+       "fingerprint": 349253557
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 4060156290
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 726942616,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 1,
+     "hashes": [
+      {
+       "value": "bb61fa7f02cc1e2f31331869d42967ee3eb3c35e",
+       "algo": 1
+      },
+      {
+       "value": "42cba778e4194989205db15069cf1efb",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3830663,
+     "fileLength": 7322562,
+     "downloadCount": 0
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "journeymap-1.16.5-5.8.5p5.jar",
+     "gameVersions": [
+      "1.16.5",
+      "Forge"
+     ],
+     "displayName": "journeymap-1.16.5-5.8.5p5",
+     "sortableGameVersions": [
+      {
+       "gameVersionPadded": "0000000001.0000000016.0000000005",
+       "gameVersion": "1.16.5",
+       "gameVersionReleaseDate": "2021-01-15T14:14:48.91Z",
+       "gameVersionName": "1.16.5",
+       "gameVersionTypeId": 70886
+      },
+      {
+       "gameVersionPadded": "0",
+       "gameVersion": "",
+       "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+       "gameVersionName": "Forge",
+       "gameVersionTypeId": 68441
+      }
+     ],
+     "downloadUrl": "https://edge.forgecdn.net/files/3841/569/journeymap-1.16.5-5.8.5p5.jar",
+     "fileDate": "2022-06-20T20:48:09.017Z",
+     "modId": 32274,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 2148863565
+      },
+      {
+       "name": "journeymap",
+       "fingerprint": 2908788262
+      },
+      {
+       "name": "net",
+       "fingerprint": 3964265600
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1149078880
+      },
+      {
+       "name": "journeymap.mixins.json",
+       "fingerprint": 3663533361
+      },
+      {
+       "name": "journeymap.png",
+       "fingerprint": 3357985534
+      },
+      {
+       "name": "license.txt",
+       "fingerprint": 3771065200
+      },
+      {
+       "name": "pack.mcmeta",
+       "fingerprint": 2930129283
+      },
+      {
+       "name": "potion-effects-shift.js",
+       "fingerprint": 3423119192
+      },
+      {
+       "name": "render-event-transformer.js",
+       "fingerprint": 3176429306
+      },
+      {
+       "name": "info",
+       "fingerprint": 2351207379
+      },
+      {
+       "name": "NOTICE.txt",
+       "fingerprint": 3411389661
+      },
+      {
+       "name": "about.html",
+       "fingerprint": 1421502970
+      },
+      {
+       "name": "jetty-dir.css",
+       "fingerprint": 4183154058
+      },
+      {
+       "name": "journeymap.refmap.json",
+       "fingerprint": 3437915845
+      }
+     ],
+     "dependencies": [{
+      "relationType": 4,
+      "modId": 226005
+     }],
+     "fileFingerprint": 2223673096,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 1,
+     "hashes": [
+      {
+       "value": "c02a5777619d102ec7495d38b88036037819611b",
+       "algo": 1
+      },
+      {
+       "value": "509dd35762b46c24282f1c1982e79c70",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 3841569,
+     "fileLength": 6693671,
+     "downloadCount": 42
+    }
+   ],
+   "dateModified": "2022-06-28T22:35:24.71Z",
+   "gamePopularityRank": 4,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap",
+   "mainFileId": 3841569,
+   "primaryCategoryId": 423,
+   "downloadCount": 136247049,
+   "status": 4,
+   "authors": [
+    {
+     "name": "techbrew",
+     "id": 9317,
+     "url": "https://www.curseforge.com/members/7577665-techbrew?username=techbrew"
+    },
+    {
+     "name": "Mysticdrew",
+     "id": 218528,
+     "url": "https://www.curseforge.com/members/9422784-mysticdrew?username=mysticdrew"
+    }
+   ]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": null,
+   "screenshots": [{
+    "description": "",
+    "id": 217871,
+    "title": "New Icons",
+    "modId": 278893,
+    "url": "https://media.forgecdn.net/attachments/217/871/2017-09-27_19.png",
+    "thumbnailUrl": "https://media.forgecdn.net/attachments/thumbnails/217/871/310/172/2017-09-27_19.png"
+   }],
+   "classId": 12,
+   "latestFilesIndexes": [
+    {
+     "filename": "Journeymap Mob Icons.zip",
+     "releaseType": 1,
+     "gameVersion": "1.12.1",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2484711
+    },
+    {
+     "filename": "Journeymap Mob Icons.zip",
+     "releaseType": 1,
+     "gameVersion": "1.12",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2484711
+    },
+    {
+     "filename": "Journeymap Mob Icons.zip",
+     "releaseType": 1,
+     "gameVersion": "1.12.2",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2484711
+    }
+   ],
+   "dateCreated": "2017-09-27T09:03:36.75Z",
+   "logo": {
+    "description": "",
+    "id": 124294,
+    "title": "636420818167668189.png",
+    "modId": 278893,
+    "url": "https://media.forgecdn.net/avatars/124/294/636420818167668189.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/124/294/256/256/636420818167668189.png"
+   },
+   "links": {
+    "sourceUrl": null,
+    "issuesUrl": null,
+    "websiteUrl": "https://www.curseforge.com/minecraft/texture-packs/more-mob-icons-for-journeymap",
+    "wikiUrl": null
+   },
+   "dateReleased": "2017-09-27T09:03:36.813Z",
+   "id": 278893,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 12,
+     "name": "Miscellaneous",
+     "dateModified": "2020-06-30T17:54:39.157Z",
+     "parentCategoryId": 12,
+     "id": 405,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/59/635351501101869320.png",
+     "slug": "miscellaneous",
+     "url": "https://www.curseforge.com/minecraft/texture-packs/miscellaneous"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 12,
+     "name": "Mod Support",
+     "dateModified": "2020-06-30T17:54:39.16Z",
+     "parentCategoryId": 12,
+     "id": 4465,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/623/635363922411546592.png",
+     "slug": "mod-support",
+     "url": "https://www.curseforge.com/minecraft/texture-packs/mod-support"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 12,
+     "name": "16x",
+     "dateModified": "2020-06-30T17:54:39.077Z",
+     "parentCategoryId": 12,
+     "id": 393,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/75/635351598555753321.png",
+     "slug": "sixteen-x",
+     "url": "https://www.curseforge.com/minecraft/texture-packs/sixteen-x"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "more-mob-icons-for-journeymap",
+   "gameId": 432,
+   "summary": "Adds more icons for modded mobs to JourneyMap",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "Journeymap Mob Icons.zip",
+    "gameVersions": [
+     "1.12.1",
+     "1.12",
+     "1.12.2"
+    ],
+    "displayName": "Journeymap Mob Icons.zip",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0000000001.0000000012.0000000001",
+      "gameVersion": "1.12.1",
+      "gameVersionReleaseDate": "2017-08-03T05:00:00Z",
+      "gameVersionName": "1.12.1",
+      "gameVersionTypeId": 628
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000012",
+      "gameVersion": "1.12",
+      "gameVersionReleaseDate": "2017-06-07T05:00:00Z",
+      "gameVersionName": "1.12",
+      "gameVersionTypeId": 628
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000012.0000000002",
+      "gameVersion": "1.12.2",
+      "gameVersionReleaseDate": "2017-09-18T05:00:00Z",
+      "gameVersionName": "1.12.2",
+      "gameVersionTypeId": 628
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/2484/711/Journeymap Mob Icons.zip",
+    "fileDate": "2017-09-27T09:03:36.813Z",
+    "modId": 278893,
+    "modules": [
+     {
+      "name": "assets",
+      "fingerprint": 1333816908
+     },
+     {
+      "name": "pack.mcmeta",
+      "fingerprint": 1821229705
+     },
+     {
+      "name": "pack.png",
+      "fingerprint": 1828543519
+     }
+    ],
+    "dependencies": [],
+    "fileFingerprint": 1321185651,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 1,
+    "hashes": [
+     {
+      "value": "2143f057613a8fa5eeb171e78fd7a1f0f6d32f50",
+      "algo": 1
+     },
+     {
+      "value": "452a48415a87bb087e0e167bb7bf094c",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 2484711,
+    "fileLength": 35141,
+    "downloadCount": 3463
+   }],
+   "dateModified": "2017-09-27T16:53:30.097Z",
+   "gamePopularityRank": 29032,
+   "thumbsUpCount": 0,
+   "name": "More Mob Icons for JourneyMap",
+   "mainFileId": 2484711,
+   "primaryCategoryId": 393,
+   "downloadCount": 3543,
+   "status": 4,
+   "authors": [{
+    "name": "MrTrimbly",
+    "id": 176787,
+    "url": "https://www.curseforge.com/members/7837938-mrtrimbly?username=mrtrimbly"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": null,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "JourneyMapStages-1.12.2-2.0.9.jar",
+     "releaseType": 3,
+     "gameVersion": "1.12.2",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2687563
+    },
+    {
+     "filename": "JourneyMapStages-1.12.2-2.0.8.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.2",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2683007
+    }
+   ],
+   "dateCreated": "2018-03-08T20:16:31.387Z",
+   "logo": {
+    "description": "",
+    "id": 145243,
+    "title": "636561369914346686.png",
+    "modId": 289753,
+    "url": "https://media.forgecdn.net/avatars/145/243/636561369914346686.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/145/243/256/256/636561369914346686.png"
+   },
+   "links": {
+    "sourceUrl": "https://github.com/Darkhax-Minecraft/JourneyMapStages",
+    "issuesUrl": "https://github.com/Darkhax-Minecraft/JourneyMapStages/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymapstages",
+    "wikiUrl": ""
+   },
+   "dateReleased": "2019-03-15T15:20:57.277Z",
+   "id": 289753,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Server Utility",
+     "dateModified": "2014-05-08T17:44:55.057Z",
+     "parentCategoryId": 6,
+     "id": 435,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/48/635351498950580836.png",
+     "slug": "server-utility",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/server-utility"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "CraftTweaker",
+     "dateModified": "2018-11-08T17:15:47.06Z",
+     "parentCategoryId": 426,
+     "id": 4773,
+     "iconUrl": "https://media.forgecdn.net/avatars/177/676/636772941470587416.png",
+     "slug": "crafttweaker",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/mc-addons/crafttweaker"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymapstages",
+   "gameId": 432,
+   "summary": "Allows the JourneyMap mod to be staged with GameStages",
+   "latestFiles": [
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "JourneyMapStages-1.12.2-2.0.8.jar",
+     "gameVersions": ["1.12.2"],
+     "displayName": "JourneyMapStages-1.12.2-2.0.8.jar",
+     "sortableGameVersions": [{
+      "gameVersionPadded": "0000000001.0000000012.0000000002",
+      "gameVersion": "1.12.2",
+      "gameVersionReleaseDate": "2017-09-18T05:00:00Z",
+      "gameVersionName": "1.12.2",
+      "gameVersionTypeId": 628
+     }],
+     "downloadUrl": "https://edge.forgecdn.net/files/2683/7/JourneyMapStages-1.12.2-2.0.8.jar",
+     "fileDate": "2019-03-04T02:50:34.71Z",
+     "modId": 289753,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 2354667924
+      },
+      {
+       "name": "LICENSE",
+       "fingerprint": 3634485962
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1015962358
+      },
+      {
+       "name": "mcmod.info",
+       "fingerprint": 882663612
+      },
+      {
+       "name": "net",
+       "fingerprint": 1219015019
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 3,
+       "modId": 239197
+      },
+      {
+       "relationType": 3,
+       "modId": 32274
+      },
+      {
+       "relationType": 3,
+       "modId": 268655
+      }
+     ],
+     "fileFingerprint": 1440991052,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 1,
+     "hashes": [
+      {
+       "value": "0285195f63507f29e52fa7ca87f1ced339eb2441",
+       "algo": 1
+      },
+      {
+       "value": "59500b00588ca02376b7eae59b015c3a",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 2683007,
+     "fileLength": 21603,
+     "downloadCount": 108705
+    },
+    {
+     "gameId": 432,
+     "isAvailable": true,
+     "fileName": "JourneyMapStages-1.12.2-2.0.9.jar",
+     "gameVersions": ["1.12.2"],
+     "displayName": "JourneyMapStages-1.12.2-2.0.9.jar",
+     "sortableGameVersions": [{
+      "gameVersionPadded": "0000000001.0000000012.0000000002",
+      "gameVersion": "1.12.2",
+      "gameVersionReleaseDate": "2017-09-18T05:00:00Z",
+      "gameVersionName": "1.12.2",
+      "gameVersionTypeId": 628
+     }],
+     "downloadUrl": "https://edge.forgecdn.net/files/2687/563/JourneyMapStages-1.12.2-2.0.9.jar",
+     "fileDate": "2019-03-15T15:20:55.713Z",
+     "modId": 289753,
+     "modules": [
+      {
+       "name": "META-INF",
+       "fingerprint": 1499896732
+      },
+      {
+       "name": "LICENSE",
+       "fingerprint": 3634485962
+      },
+      {
+       "name": "assets",
+       "fingerprint": 1015962358
+      },
+      {
+       "name": "mcmod.info",
+       "fingerprint": 284702731
+      },
+      {
+       "name": "net",
+       "fingerprint": 4058174898
+      }
+     ],
+     "dependencies": [
+      {
+       "relationType": 3,
+       "modId": 239197
+      },
+      {
+       "relationType": 3,
+       "modId": 268655
+      },
+      {
+       "relationType": 3,
+       "modId": 32274
+      }
+     ],
+     "fileFingerprint": 60356560,
+     "fileStatus": 4,
+     "isServerPack": false,
+     "releaseType": 3,
+     "hashes": [
+      {
+       "value": "7bf27633a3f56e5518e621bbb2317d9965b0d388",
+       "algo": 1
+      },
+      {
+       "value": "240beccc0078b0ebb99037a8e9416bd0",
+       "algo": 2
+      }
+     ],
+     "alternateFileId": 0,
+     "id": 2687563,
+     "fileLength": 21618,
+     "downloadCount": 2245712
+    }
+   ],
+   "dateModified": "2021-01-29T18:04:30.59Z",
+   "gamePopularityRank": 1451,
+   "thumbsUpCount": 0,
+   "name": "JourneyMapStages",
+   "mainFileId": 2683007,
+   "primaryCategoryId": 423,
+   "downloadCount": 3985264,
+   "status": 4,
+   "authors": [{
+    "name": "DarkhaxDev",
+    "id": 188918,
+    "url": "https://www.curseforge.com/members/6968547-darkhaxdev?username=darkhaxdev"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": null,
+   "screenshots": [{
+    "description": "",
+    "id": 174268,
+    "title": "636749690191841991.jpeg",
+    "modId": 304730,
+    "url": "https://media.forgecdn.net/avatars/174/268/636749690191841991.jpeg",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/174/268/256/256/636749690191841991.jpeg"
+   }],
+   "classId": 6,
+   "latestFilesIndexes": [{
+    "filename": "journeymapdefaults-1.0.jar",
+    "releaseType": 1,
+    "gameVersion": "1.12.2",
+    "gameVersionTypeId": 628,
+    "modLoader": null,
+    "fileId": 2627181
+   }],
+   "dateCreated": "2018-10-12T19:23:39.137Z",
+   "logo": {
+    "description": "",
+    "id": 174269,
+    "title": "636749703904245386.png",
+    "modId": 304730,
+    "url": "https://media.forgecdn.net/avatars/174/269/636749703904245386.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/174/269/256/256/636749703904245386.png"
+   },
+   "links": {
+    "sourceUrl": null,
+    "issuesUrl": null,
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-defaults",
+    "wikiUrl": ""
+   },
+   "dateReleased": "2018-10-12T19:59:18.123Z",
+   "id": 304730,
+   "categories": [{
+    "gameId": 432,
+    "isClass": false,
+    "classId": 6,
+    "name": "Map and Information",
+    "dateModified": "2014-05-08T17:42:23.74Z",
+    "parentCategoryId": 6,
+    "id": 423,
+    "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+    "slug": "map-information",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+   }],
+   "isFeatured": false,
+   "slug": "journeymap-defaults",
+   "gameId": 432,
+   "summary": "A simple mod to allow modpack makers to ship their own default settings for JourneyMap",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "journeymapdefaults-1.0.jar",
+    "gameVersions": ["1.12.2"],
+    "displayName": "journeymapdefaults-1.0.jar",
+    "sortableGameVersions": [{
+     "gameVersionPadded": "0000000001.0000000012.0000000002",
+     "gameVersion": "1.12.2",
+     "gameVersionReleaseDate": "2017-09-18T05:00:00Z",
+     "gameVersionName": "1.12.2",
+     "gameVersionTypeId": 628
+    }],
+    "downloadUrl": "https://edge.forgecdn.net/files/2627/181/journeymapdefaults-1.0.jar",
+    "fileDate": "2018-10-12T19:59:18.123Z",
+    "modId": 304730,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 2058361919
+     },
+     {
+      "name": "uk",
+      "fingerprint": 3469657878
+     },
+     {
+      "name": "mcmod.info",
+      "fingerprint": 3177036948
+     },
+     {
+      "name": "pack.mcmeta",
+      "fingerprint": 3273911401
+     }
+    ],
+    "dependencies": [],
+    "fileFingerprint": 1594059826,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 1,
+    "hashes": [
+     {
+      "value": "0d1f4983ddaa71a39cfcd5a7a7861b32c8e40802",
+      "algo": 1
+     },
+     {
+      "value": "ca31d3265e17ba53644be979be226506",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 2627181,
+    "fileLength": 12166,
+    "downloadCount": 11514
+   }],
+   "dateModified": "2018-10-12T20:01:58.267Z",
+   "gamePopularityRank": 12633,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap Defaults",
+   "mainFileId": 2627181,
+   "primaryCategoryId": 423,
+   "downloadCount": 12389,
+   "status": 4,
+   "authors": [{
+    "name": "GrumpyChunks",
+    "id": 205661,
+    "url": "https://www.curseforge.com/members/7959708-grumpychunks?username=grumpychunks"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": null,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [
+    {
+     "filename": "journeymap-api-1.12-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12.1",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2477604
+    },
+    {
+     "filename": "journeymap-api-1.12-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.12",
+     "gameVersionTypeId": 628,
+     "modLoader": null,
+     "fileId": 2477604
+    },
+    {
+     "filename": "journeymap-api-1.11.2-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.11.2",
+     "gameVersionTypeId": null,
+     "modLoader": null,
+     "fileId": 2477600
+    },
+    {
+     "filename": "journeymap-api-1.10.2-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.10.2",
+     "gameVersionTypeId": null,
+     "modLoader": null,
+     "fileId": 2477595
+    },
+    {
+     "filename": "journeymap-api-1.9.4-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9.4",
+     "gameVersionTypeId": null,
+     "modLoader": null,
+     "fileId": 2477590
+    },
+    {
+     "filename": "journeymap-api-1.9-1.4.jar",
+     "releaseType": 1,
+     "gameVersion": "1.9",
+     "gameVersionTypeId": null,
+     "modLoader": null,
+     "fileId": 2477586
+    }
+   ],
+   "dateCreated": "2016-03-05T05:15:00.47Z",
+   "logo": {
+    "description": "",
+    "id": 35610,
+    "title": "635927301008297331.png",
+    "modId": 242519,
+    "url": "https://media.forgecdn.net/avatars/35/610/635927301008297331.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/35/610/256/256/635927301008297331.png"
+   },
+   "links": {
+    "sourceUrl": "https://bitbucket.org/TeamJM/journeymap-api",
+    "issuesUrl": "https://bitbucket.org/TeamJM/journeymap-api/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-api",
+    "wikiUrl": "http://journeymap.info"
+   },
+   "dateReleased": "2017-09-08T22:28:02.217Z",
+   "id": 242519,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "API and Library",
+     "dateModified": "2014-05-23T03:21:44.06Z",
+     "parentCategoryId": 6,
+     "id": 421,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/36/635351496947765531.png",
+     "slug": "library-api",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/library-api"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymap-api",
+   "gameId": 432,
+   "summary": "A plugin-style (soft dependency) API for mods to integrate with JourneyMap",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "journeymap-api-1.12-1.4.jar",
+    "gameVersions": [
+     "1.12.1",
+     "1.12"
+    ],
+    "displayName": "journeymap-api-1.12-1.4.jar",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0000000001.0000000012.0000000001",
+      "gameVersion": "1.12.1",
+      "gameVersionReleaseDate": "2017-08-03T05:00:00Z",
+      "gameVersionName": "1.12.1",
+      "gameVersionTypeId": 628
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000012",
+      "gameVersion": "1.12",
+      "gameVersionReleaseDate": "2017-06-07T05:00:00Z",
+      "gameVersionName": "1.12",
+      "gameVersionTypeId": 628
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/2477/604/journeymap-api-1.12-1.4.jar",
+    "fileDate": "2017-09-08T22:27:18.943Z",
+    "modId": 242519,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 371721861
+     },
+     {
+      "name": "journeymap",
+      "fingerprint": 1954749426
+     }
+    ],
+    "dependencies": [],
+    "fileFingerprint": 16225134,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 1,
+    "hashes": [
+     {
+      "value": "e5f4d1e06065474d17b12310c665b8db93d47c46",
+      "algo": 1
+     },
+     {
+      "value": "92191d63ce538c21148e73e91f55812b",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 2477604,
+    "fileLength": 41645,
+    "downloadCount": 50147
+   }],
+   "dateModified": "2017-09-08T22:44:02.61Z",
+   "gamePopularityRank": 4810,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap API",
+   "mainFileId": 2477604,
+   "primaryCategoryId": 421,
+   "downloadCount": 212751,
+   "status": 4,
+   "authors": [{
+    "name": "techbrew",
+    "id": 37034,
+    "url": "https://www.curseforge.com/members/7577665-techbrew?username=techbrew"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [{
+    "filename": "Journey_Map_Radar_1.7.10-0.3.4.jar",
+    "releaseType": 2,
+    "gameVersion": "1.7.10",
+    "gameVersionTypeId": 5,
+    "modLoader": 1,
+    "fileId": 3807184
+   }],
+   "dateCreated": "2022-05-10T05:19:37.803Z",
+   "logo": {
+    "description": "",
+    "id": 545040,
+    "title": "637877567778312942.jpeg",
+    "modId": 622252,
+    "url": "https://media.forgecdn.net/avatars/545/40/637877567778312942.jpeg",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/545/40/256/256/637877567778312942.jpeg"
+   },
+   "links": {
+    "sourceUrl": "https://github.com/1whohears/JourneyMapRadar",
+    "issuesUrl": null,
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-waypoint-radar",
+    "wikiUrl": null
+   },
+   "dateReleased": "2022-05-27T19:31:17.39Z",
+   "id": 622252,
+   "categories": [{
+    "gameId": 432,
+    "isClass": false,
+    "classId": 6,
+    "name": "Map and Information",
+    "dateModified": "2014-05-08T17:42:23.74Z",
+    "parentCategoryId": 6,
+    "id": 423,
+    "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+    "slug": "map-information",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+   }],
+   "isFeatured": false,
+   "slug": "journeymap-waypoint-radar",
+   "gameId": 432,
+   "summary": "Uses waypoints as pings for mcheli aircraft and other entities",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "Journey_Map_Radar_1.7.10-0.3.4.jar",
+    "gameVersions": [
+     "Forge",
+     "1.7.10"
+    ],
+    "displayName": "Journey_Map_Radar_1.7.10-0.3.4.jar",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0",
+      "gameVersion": "",
+      "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+      "gameVersionName": "Forge",
+      "gameVersionTypeId": 68441
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000007.0000000010",
+      "gameVersion": "1.7.10",
+      "gameVersionReleaseDate": "2014-06-16T00:00:00Z",
+      "gameVersionName": "1.7.10",
+      "gameVersionTypeId": 5
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/3807/184/Journey_Map_Radar_1.7.10-0.3.4.jar",
+    "fileDate": "2022-05-27T19:31:17.39Z",
+    "modId": 622252,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 2464251221
+     },
+     {
+      "name": "onewhohears",
+      "fingerprint": 3989150382
+     },
+     {
+      "name": "mcmod.info",
+      "fingerprint": 2740213020
+     }
+    ],
+    "dependencies": [
+     {
+      "relationType": 3,
+      "modId": 32274
+     },
+     {
+      "relationType": 3,
+      "modId": 621947
+     }
+    ],
+    "fileFingerprint": 315224557,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 2,
+    "hashes": [
+     {
+      "value": "3fb2680294082b83927c0e5d43b5a6ad614831ac",
+      "algo": 1
+     },
+     {
+      "value": "c139847eec6b0bd0058fd35363b7c7dc",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 3807184,
+    "fileLength": 37309,
+    "downloadCount": 0
+   }],
+   "dateModified": "2022-05-27T19:36:26.253Z",
+   "gamePopularityRank": 38639,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap Waypoint Radar",
+   "mainFileId": 3807184,
+   "primaryCategoryId": 423,
+   "downloadCount": 79,
+   "status": 4,
+   "authors": [{
+    "name": "1whohears",
+    "id": 547886,
+    "url": "https://www.curseforge.com/members/103057076-1whohears?username=1whohears"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": null,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [{
+    "filename": "journeymaptools-0.3.jar",
+    "releaseType": 1,
+    "gameVersion": "1.7.10",
+    "gameVersionTypeId": 5,
+    "modLoader": null,
+    "fileId": 2221312
+   }],
+   "dateCreated": "2014-12-05T16:42:40.557Z",
+   "logo": {
+    "description": "",
+    "id": 12588,
+    "title": "635533736889793918.png",
+    "modId": 226005,
+    "url": "https://media.forgecdn.net/avatars/12/588/635533736889793918.png",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/12/588/256/256/635533736889793918.png"
+   },
+   "links": {
+    "sourceUrl": null,
+    "issuesUrl": "https://bitbucket.org/TeamJM/journeymap-tools/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journeymap-tools",
+    "wikiUrl": "http://journeymap.info/JourneyMapTools"
+   },
+   "dateReleased": "2014-12-05T17:04:25.993Z",
+   "id": 226005,
+   "categories": [
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "API and Library",
+     "dateModified": "2014-05-23T03:21:44.06Z",
+     "parentCategoryId": 6,
+     "id": 421,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/36/635351496947765531.png",
+     "slug": "library-api",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/library-api"
+    },
+    {
+     "gameId": 432,
+     "isClass": false,
+     "classId": 6,
+     "name": "Map and Information",
+     "dateModified": "2014-05-08T17:42:23.74Z",
+     "parentCategoryId": 6,
+     "id": 423,
+     "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+     "slug": "map-information",
+     "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+    }
+   ],
+   "isFeatured": false,
+   "slug": "journeymap-tools",
+   "gameId": 432,
+   "summary": "Command line utilities for manipulating the image tiles generated by the JourneyMap client.",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "journeymaptools-0.3.jar",
+    "gameVersions": ["1.7.10"],
+    "displayName": "journeymaptools-0.3.jar",
+    "sortableGameVersions": [{
+     "gameVersionPadded": "0000000001.0000000007.0000000010",
+     "gameVersion": "1.7.10",
+     "gameVersionReleaseDate": "2014-06-16T00:00:00Z",
+     "gameVersionName": "1.7.10",
+     "gameVersionTypeId": 5
+    }],
+    "downloadUrl": "https://edge.forgecdn.net/files/2221/312/journeymaptools-0.3.jar",
+    "fileDate": "2014-12-05T17:04:25.993Z",
+    "modId": 226005,
+    "modules": [
+     {
+      "name": "meta-inf",
+      "fingerprint": 937178865
+     },
+     {
+      "name": "ar",
+      "fingerprint": 110835930
+     },
+     {
+      "name": "net",
+      "fingerprint": 4269250582
+     }
+    ],
+    "dependencies": [],
+    "fileFingerprint": 4283948361,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 1,
+    "hashes": [
+     {
+      "value": "f66d0bfc26732fdf14d76fa643a35a5b40cc3b00",
+      "algo": 1
+     },
+     {
+      "value": "7388a38dc95c07004f72e4cfa7e43204",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 2221312,
+    "fileLength": 125419,
+    "downloadCount": 108680
+   }],
+   "dateModified": "2016-03-14T15:46:31.77Z",
+   "gamePopularityRank": 5665,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap Tools",
+   "mainFileId": 2221312,
+   "primaryCategoryId": 423,
+   "downloadCount": 118522,
+   "status": 4,
+   "authors": [{
+    "name": "techbrew",
+    "id": 17931,
+    "url": "https://www.curseforge.com/members/7577665-techbrew?username=techbrew"
+   }]
+  },
+  {
+   "isAvailable": true,
+   "allowModDistribution": true,
+   "screenshots": [],
+   "classId": 6,
+   "latestFilesIndexes": [{
+    "filename": "JourneyMapQol_1.7.10-0.8.8.jar",
+    "releaseType": 2,
+    "gameVersion": "1.7.10",
+    "gameVersionTypeId": 5,
+    "modLoader": 1,
+    "fileId": 3807189
+   }],
+   "dateCreated": "2022-05-09T04:17:15.797Z",
+   "logo": {
+    "description": "",
+    "id": 544675,
+    "title": "637876666358261685.jpeg",
+    "modId": 621947,
+    "url": "https://media.forgecdn.net/avatars/544/675/637876666358261685.jpeg",
+    "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/544/675/256/256/637876666358261685.jpeg"
+   },
+   "links": {
+    "sourceUrl": "https://github.com/1whohears/JourneyMapQOL_1.7.10",
+    "issuesUrl": "https://github.com/1whohears/JourneyMapQOL_1.7.10/issues",
+    "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/journey-map-qol",
+    "wikiUrl": ""
+   },
+   "dateReleased": "2022-05-27T19:36:32.13Z",
+   "id": 621947,
+   "categories": [{
+    "gameId": 432,
+    "isClass": false,
+    "classId": 6,
+    "name": "Map and Information",
+    "dateModified": "2014-05-08T17:42:23.74Z",
+    "parentCategoryId": 6,
+    "id": 423,
+    "iconUrl": "https://media.forgecdn.net/avatars/6/38/635351497437388438.png",
+    "slug": "map-information",
+    "url": "https://www.curseforge.com/minecraft/mc-mods/map-information"
+   }],
+   "isFeatured": false,
+   "slug": "journey-map-qol",
+   "gameId": 432,
+   "summary": "Adds Share Waypoint Command, Waypoints as Formatted Chat, and other features to the ancient but wonderful Journeymap Mod",
+   "latestFiles": [{
+    "gameId": 432,
+    "isAvailable": true,
+    "fileName": "JourneyMapQol_1.7.10-0.8.8.jar",
+    "gameVersions": [
+     "Forge",
+     "1.7.10"
+    ],
+    "displayName": "JourneyMapQol_1.7.10-0.8.8.jar",
+    "sortableGameVersions": [
+     {
+      "gameVersionPadded": "0",
+      "gameVersion": "",
+      "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+      "gameVersionName": "Forge",
+      "gameVersionTypeId": 68441
+     },
+     {
+      "gameVersionPadded": "0000000001.0000000007.0000000010",
+      "gameVersion": "1.7.10",
+      "gameVersionReleaseDate": "2014-06-16T00:00:00Z",
+      "gameVersionName": "1.7.10",
+      "gameVersionTypeId": 5
+     }
+    ],
+    "downloadUrl": "https://edge.forgecdn.net/files/3807/189/JourneyMapQol_1.7.10-0.8.8.jar",
+    "fileDate": "2022-05-27T19:36:32.13Z",
+    "modId": 621947,
+    "modules": [
+     {
+      "name": "META-INF",
+      "fingerprint": 2464251221
+     },
+     {
+      "name": "onewhohears",
+      "fingerprint": 2620082203
+     },
+     {
+      "name": "mcmod.info",
+      "fingerprint": 554576022
+     }
+    ],
+    "dependencies": [{
+     "relationType": 3,
+     "modId": 32274
+    }],
+    "fileFingerprint": 407759036,
+    "fileStatus": 4,
+    "isServerPack": false,
+    "releaseType": 2,
+    "hashes": [
+     {
+      "value": "6f4e17687386647e7ac75ad0950a828d7700b5bd",
+      "algo": 1
+     },
+     {
+      "value": "a33a854cd0f7d1c81325a6cfc73207ec",
+      "algo": 2
+     }
+    ],
+    "alternateFileId": 0,
+    "id": 3807189,
+    "fileLength": 27532,
+    "downloadCount": 0
+   }],
+   "dateModified": "2022-05-27T19:41:28.253Z",
+   "gamePopularityRank": 37312,
+   "thumbsUpCount": 0,
+   "name": "JourneyMap QOL Additions",
+   "mainFileId": 3807189,
+   "primaryCategoryId": 423,
+   "downloadCount": 80,
+   "status": 4,
+   "authors": [{
+    "name": "1whohears",
+    "id": 547549,
+    "url": "https://www.curseforge.com/members/103057076-1whohears?username=1whohears"
+   }]
+  }
+ ]
+}

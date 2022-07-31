@@ -13,7 +13,6 @@ import java.nio.file.Path
 @Log(value = "logger")
 class GroovyClassTemplate {
 
-
     GroovyClassTemplate() {
     }
 
@@ -28,7 +27,7 @@ class GroovyClassTemplate {
             Generator.jar(sourceDir.toPath(), target.toPath())
         }
         def params = [ePackage:ePackage, options:options]
-        Generator.getTemplateEngine(target.toPath()).tap { setTrimControlStructures(true) }.render("groovyclass/GroovyGen.jte", params, output)
+        Generator.getTemplateEngine(target.toPath()).tap { setTrimControlStructures(true) }.render(options.jteRenderPath, params, output)
         output.toString().replaceAll(/\n\s+\n/, '\n\n')
     }
 
@@ -36,7 +35,7 @@ class GroovyClassTemplate {
         TemplateOutput output = new StringOutput()
         logger.info('loading ePackage ' + ePackage.name + ' from ' + zipPath.toString() )
         def params = [ePackage:ePackage, options:options]
-        Generator.getTemplateEngine(zipPath).tap { setTrimControlStructures(true) }.render("groovyclass/GroovyGen.jte", params, output)
+        Generator.getTemplateEngine(zipPath).tap { setTrimControlStructures(true) }.render(options.jteRenderPath, params, output)
         output.toString().replaceAll(/\n\s+\n/, '\n\n')
     }
 
@@ -44,7 +43,7 @@ class GroovyClassTemplate {
         TemplateOutput output = new StringOutput()
         logger.info('loading ePackage ' + ePackage.name )
         def params = [ePackage:ePackage, options:options]
-        Generator.getTemplateEngine().tap { setTrimControlStructures(true) }.render("groovyclass/GroovyGen.jte", params, output)
+        Generator.getTemplateEngine().tap { setTrimControlStructures(true) }.render(options.jteRenderPath, params, output)
         output.toString().replaceAll(/\n\s+\n/, '\n\n')
     }
 }

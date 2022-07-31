@@ -1,7 +1,6 @@
 package net.gradleutil.conf.transform
 
-
-import net.gradleutil.conf.transform.json.JsonToSchema
+import net.gradleutil.conf.json.schema.SchemaUtil
 import net.gradleutil.conf.json.schema.Schema
 import net.gradleutil.conf.json.JSONArray
 import net.gradleutil.conf.json.JSONObject
@@ -11,11 +10,11 @@ class Transformer {
     Transformer() {}
 
     static TransformOptions defaultOptions() {
-        new TransformOptions().convertToCamelCase(true)
+        new TransformOptions().convertToCamelCase(true).jteRenderPath('groovyclass/GroovyGen.jte')
     }
 
     static void editor(File path, Schema schema, String json) {
-        path.text = JsonToSchema.editor(schema.toString(), json)
+        path.text = SchemaUtil.editor(schema.toString(), json)
     }
 
     static Map<String, Object> toMap(JSONObject jsonObject, List<String> definitionTypes = []) {

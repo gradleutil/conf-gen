@@ -134,6 +134,23 @@ class GroovyTransformerTest extends AbstractTest {
         (mod as EStructuralFeature).eType == 'Minecraft'
     }
 
+    def "curseforge schema load"() {
+        setup:
+        def jsonSchema = getResourceText('json/CurseForgeModQuery.schema.json')
+        def refName = 'CurseForgeModQuery'
+
+        when:
+        def modelFile = new File(base + refName + '.groovy')
+        SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName.capitalize(), modelFile)
+        println('parsing file:///' + modelFile.absolutePath)
+        def lib = SchemaToEPackage.getEPackage(SchemaUtil.getSchema(jsonSchema), "CurseForgeModQuery", "net.gradle", false)
+        def mod = (lib.eClassifiers.find { it.name == 'SortableGameVersion' } as EClass).eStructuralFeatures.find { it.name == 'gameVersionTypeId' }
+
+        then:
+        mod != null
+        (mod as EStructuralFeature).eType == 'Long'
+    }
+
     def "minecraft create"() {
         setup:
         def data = new File('src/testFixtures/resources/json/MinecraftConfig.json')

@@ -132,6 +132,7 @@ class LoaderTest extends AbstractTest {
 
     }
 
+
     def "test reference"() {
         setup:
         def config

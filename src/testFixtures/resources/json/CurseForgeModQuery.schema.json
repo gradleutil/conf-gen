@@ -1,0 +1,208 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/CurseForgeModQuery",
+  "definitions": {
+    "latestFiles": {
+      "type": "object",
+      "title": "latestFiles",
+      "properties": {
+        "gameId": {"type": "number"},
+        "isAvailable": {"type": "boolean"},
+        "fileName": {"type": "string"},
+        "gameVersions": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "displayName": {"type": "string"},
+        "sortableGameVersions": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/sortableGameVersions"}
+        },
+        "downloadUrl": {"type": "string"},
+        "fileDate": {"type": "string"},
+        "modId": {"type": "number"},
+        "modules": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/modules"}
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/dependencies"}
+        },
+        "fileFingerprint": {"type": "number"},
+        "fileStatus": {"type": "number"},
+        "isServerPack": {"type": "boolean"},
+        "releaseType": {"type": "number"},
+        "hashes": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/hashes"}
+        },
+        "alternateFileId": {"type": "number"},
+        "id": {"type": "number"},
+        "fileLength": {"type": "number"},
+        "downloadCount": {"type": "number"}
+      }
+    },
+    "data": {
+      "type": "object",
+      "title": "data",
+      "properties": {
+        "isAvailable": {"type": "boolean"},
+        "allowModDistribution": { "type": ["boolean","null"] },
+        "screenshots": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/screenShots"}
+        },
+        "classId": {"type": "number"},
+        "latestFilesIndexes": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/latestFilesIndexes"}
+        },
+        "dateCreated": {"type": "string"},
+        "logo": {"$ref": "#/definitions/logo"},
+        "links": {"$ref": "#/definitions/links"},
+        "dateReleased": {"type": "string"},
+        "id": {"type": "number"},
+        "categories": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/categories"}
+        },
+        "isFeatured": {"type": "boolean"},
+        "slug": {"type": "string"},
+        "gameId": {"type": "number"},
+        "summary": {"type": "string"},
+        "latestFiles": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/latestFiles"}
+        },
+        "dateModified": {"type": "string"},
+        "gamePopularityRank": {"type": "number"},
+        "thumbsUpCount": {"type": "number"},
+        "name": {"type": "string"},
+        "mainFileId": {"type": "number"},
+        "primaryCategoryId": {"type": "number"},
+        "downloadCount": {"type": "number"},
+        "status": {"type": "number"},
+        "authors": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/authors"}
+        }
+      }
+    },
+    "sortableGameVersions": {
+      "type": "object",
+      "title": "sortableGameVersions",
+      "properties": {
+        "gameVersionPadded": {"type": "string"},
+        "gameVersion": {"type": "string"},
+        "gameVersionReleaseDate": {"type": "string"},
+        "gameVersionName": {"type": "string"},
+        "gameVersionTypeId": {"type": ["number","null"]}
+      }
+    },
+    "CurseForgeModQuery": {
+      "type": "object",
+      "title": "CurseForgeModQuery",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/data"}
+        }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "title": "modules",
+      "properties": {
+        "name": {"type": "string"},
+        "fingerprint": {"type": "number"}
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "title": "dependencies",
+      "properties": {
+        "relationType": {"type": "number"},
+        "modId": {"type": "number"}
+      }
+    },
+    "latestFilesIndexes": {
+      "type": "object",
+      "title": "latestFilesIndexes",
+      "properties": {
+        "filename": {"type": "string"},
+        "releaseType": {"type": "number"},
+        "gameVersion": {"type": "string"},
+        "gameVersionTypeId": {"type": ["number", "null"]},
+        "modLoader": {"type": ["number", "null"]},
+        "fileId": {"type": "number"}
+      }
+    },
+    "hashes": {
+      "type": "object",
+      "title": "hashes",
+      "properties": {
+        "value": {"type": "string"},
+        "algo": {"type": "number"}
+      }
+    },
+    "logo": {
+      "type": "object",
+      "title": "logo",
+      "properties": {
+        "description": {"type": "string"},
+        "id": {"type": "number"},
+        "title": {"type": "string"},
+        "modId": {"type": "number"},
+        "url": {"type": "string"},
+        "thumbnailUrl": {"type": "string"}
+      }
+    },
+    "links": {
+      "type": "object",
+      "title": "links",
+      "properties": {
+        "sourceUrl": {"type": "string"},
+        "issuesUrl": {"type": "string"},
+        "websiteUrl": {"type": "string"},
+        "wikiUrl": {"type": "string"}
+      }
+    },
+    "categories": {
+      "type": "object",
+      "title": "categories",
+      "properties": {
+        "gameId": {"type": "number"},
+        "isClass": {"type": "boolean"},
+        "classId": {"type": "number"},
+        "name": {"type": "string"},
+        "dateModified": {"type": "string"},
+        "parentCategoryId": {"type": "number"},
+        "id": {"type": "number"},
+        "iconUrl": {"type": "string"},
+        "slug": {"type": "string"},
+        "url": {"type": "string"}
+      }
+    },
+    "screenShots": {
+      "type": "object",
+      "properties": {
+        "description": {"type": "string"},
+        "id": {"type": "number"},
+        "title": {"type": "string"},
+        "modId": {"type": "number"},
+        "url": {"type": "string"},
+        "thumbnailUrl": {"type": "string"}
+      }
+    },
+    "authors": {
+      "type": "object",
+      "title": "authors",
+      "properties": {
+        "name": {"type": "string"},
+        "id": {"type": "number"},
+        "url": {"type": "string"}
+      }
+    }
+  }
+}
