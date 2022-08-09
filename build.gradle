@@ -25,11 +25,11 @@ repositories {
 
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:3.0.11'
-    implementation 'gg.jte:jte:2.0.3'
-    implementation 'gg.jte:jte-runtime:2.0.3'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.12'
+    implementation 'gg.jte:jte:2.1.2'
+    implementation 'gg.jte:jte-runtime:2.1.2'
     implementation project(":template")
-    implementation 'net.gradleutil:conf:1.1.8'
+    implementation 'net.gradleutil:conf:1.1.9'
 
     testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
     testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')

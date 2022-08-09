@@ -11,17 +11,17 @@ class ${eClass.name} @if (eClass.geteSuperTypes().size() > 0) extends ${eClass.g
 @for (EStructuralFeature prop : eClass.getEStructuralFeatures())
     !{String optional = (prop.lowerBound == 0) ? "@Optional" : ""; }
     @if(prop.eType.equalsIgnoreCase("enum"))
-        !{String propCap = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1); }
-        ${ optional }
-        ${propCap} ${prop.name}
+    !{String propCap = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1); }
+    ${ optional }
+    ${propCap} ${prop.name}
 
-        ${ prop.eType.toLowerCase() } ${propCap} ${prop.asEnum()}
+    ${ prop.eType.toLowerCase() } ${propCap} ${prop.asEnum()}
     @elseif (prop.upperBound > 1 || prop.upperBound == -1)
-        ${ optional }
-        List<${ prop.eType }> ${prop.name} = @if(prop.defaultValue != null) ${prop.defaultValue.toString()} @else [] @endif as List<${ prop.eType }>
+    ${ optional }
+    List<${ prop.eType }> ${prop.name} = @if(prop.defaultValue != null) ${prop.defaultValue.toString()} @else [] @endif as List<${ prop.eType }>
     @else
-        ${ optional }
-        ${ prop.eType } ${prop.name} @if(prop.defaultValue != null) = ${prop.defaultValue.toString()} @endif
+    ${ optional }
+    ${ prop.eType } ${prop.name} @if(prop.defaultValue != null) = ${prop.defaultValue.toString()} @endif
     @endif
 @endfor
 }

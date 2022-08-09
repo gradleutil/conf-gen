@@ -2,7 +2,6 @@ package net.gradleutil.gen
 
 import gg.jte.ContentType
 import gg.jte.TemplateEngine
-import gg.jte.compiler.TemplateCompiler
 import gg.jte.html.HtmlPolicy
 import gg.jte.resolve.DirectoryCodeResolver
 import groovy.transform.builder.Builder
@@ -56,7 +55,6 @@ class Generator {
         ContentType contentType
         Boolean trimControlStructures
         String[] htmlTags
-        String[] htmlAttributes
         Boolean htmlCommentsPreserved
         Boolean binaryStaticContent
         File tempDirectory
@@ -137,7 +135,6 @@ class Generator {
 
         templateEngine.setTrimControlStructures(Boolean.TRUE == options.trimControlStructures)
         templateEngine.setHtmlTags(options.htmlTags)
-        templateEngine.setHtmlAttributes(options.htmlAttributes)
         if (options.htmlPolicyClass != null) {
             Class<?> htmlPolicyClass = classLoader.loadClass(options.htmlPolicyClass)
             templateEngine.setHtmlPolicy((HtmlPolicy) htmlPolicyClass.getConstructor().newInstance())
