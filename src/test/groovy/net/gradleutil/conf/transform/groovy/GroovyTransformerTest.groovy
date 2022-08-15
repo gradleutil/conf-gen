@@ -165,7 +165,7 @@ class GroovyTransformerTest extends AbstractTest {
         SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName.capitalize(), modelFile)
         def gcl = new GroovyClassLoader(LoaderTest.classLoader)
         def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
-        def funk = Loader.create(data.text, modelClass, Loader.defaultOptions().silent(false).allowUnresolved(true).useSystemProperties(false))
+        def funk = Loader.create(data.text, modelClass, Loader.defaultOptions().silent(false).allowUnresolved(false).useSystemProperties(false))
 
         then:
         println funk.toString()

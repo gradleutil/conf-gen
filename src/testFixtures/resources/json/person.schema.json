@@ -12,6 +12,11 @@
       "type": "string",
       "description": "The person's last name."
     },
+    "isAwesome": {
+      "type": "boolean",
+      "description": "The person's awesome.",
+      "default": true
+    },
     "age": {
       "description": "Age in years which must be equal to or greater than zero.",
       "type": ["integer", "null"],

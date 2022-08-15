@@ -154,6 +154,8 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
         eAttr.setEType(eBoolean())
         if (schema instanceof TrueSchema) {
             eAttr.defaultValue = true
+        } else if (schema.hasDefaultValue()) {
+            eAttr.defaultValue = schema.defaultValue
         }
         addStructuralFeature eAttr
     }
@@ -234,7 +236,7 @@ class SchemaToEPackageVisitor extends GeneratorVisitor {
     void addStructuralFeature(EStructuralFeature feature) {
         def features = eClassStack.peek().getEStructuralFeatures()
         if(feature.name == 'gameVersionTypeId' && feature.eType == 'SortableGameVersion'){
-            println "fart"
+            println "found SortableGameVersion"
         }
         if (!features.find { it.name == feature.name }) {
             features.add feature
