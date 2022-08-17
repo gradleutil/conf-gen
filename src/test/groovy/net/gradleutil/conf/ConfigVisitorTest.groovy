@@ -15,37 +15,31 @@ class ConfigVisitorTest extends AbstractTest {
             @Override
             void visitObject(String key, ConfigObject configValue) {
                 println("visitObject ${key} : ${configValue.valueType()}")
-                visit(configValue)
             }
 
             @Override
             void visitList(String key, ConfigList list) {
                 println("visitList ${key} : ${list.valueType()}")
-                visit(list)
             }
 
             @Override
             void visitString(String key, ConfigValue configValue) {
                 println("visit ${key} : ${configValue.valueType()}")
-                visit(configValue)
             }
 
             @Override
             void visitNumber(String key, ConfigValue configValue) {
                 println("visit ${key} : ${configValue.valueType()}")
-                visit(configValue)
             }
 
             @Override
             void visitNull(String key, ConfigValue configValue) {
                 println("visit ${key} : ${configValue.valueType()}")
-                visit(configValue)
             }
 
             @Override
             void visitBoolean(String key, ConfigValue configValue) {
                 println("visit ${key} : ${configValue.valueType()}")
-                visit(configValue)
             }
 
         }
