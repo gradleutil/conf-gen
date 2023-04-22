@@ -6,7 +6,6 @@
       "type": "object",
       "title": "latestFiles",
       "properties": {
-        "gameId": {"type": "number"},
         "isAvailable": {"type": "boolean"},
         "fileName": {"type": "string"},
         "gameVersions": {
@@ -19,8 +18,18 @@
           "items": {"$ref": "#/definitions/sortableGameVersions"}
         },
         "downloadUrl": {"type": "string"},
-        "fileDate": {"type": "string"},
+        "exposeAsAlternative": {"type": "boolean"},
         "modId": {"type": "number"},
+        "fileStatus": {"type": "number"},
+        "isServerPack": {"type": "boolean"},
+        "releaseType": {"type": "number"},
+        "parentProjectFileId": {"type": "number"},
+        "alternateFileId": {"type": "number"},
+        "id": {"type": "number"},
+        "fileLength": {"type": "number"},
+        "serverPackFileId": {"type": "number"},
+        "gameId": {"type": "number"},
+        "fileDate": {"type": "string"},
         "modules": {
           "type": "array",
           "items": {"$ref": "#/definitions/modules"}
@@ -30,17 +39,23 @@
           "items": {"$ref": "#/definitions/dependencies"}
         },
         "fileFingerprint": {"type": "number"},
-        "fileStatus": {"type": "number"},
-        "isServerPack": {"type": "boolean"},
-        "releaseType": {"type": "number"},
+        "earlyAccessEndDate": {"type": "string"},
+        "isEarlyAccessContent": {"type": "boolean"},
         "hashes": {
           "type": "array",
           "items": {"$ref": "#/definitions/hashes"}
         },
-        "alternateFileId": {"type": "number"},
-        "id": {"type": "number"},
-        "fileLength": {"type": "number"},
         "downloadCount": {"type": "number"}
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "title": "pagination",
+      "properties": {
+        "resultCount": {"type": "number"},
+        "index": {"type": "number"},
+        "pageSize": {"type": "number"},
+        "totalCount": {"type": "number"}
       }
     },
     "data": {
@@ -48,10 +63,10 @@
       "title": "data",
       "properties": {
         "isAvailable": {"type": "boolean"},
-        "allowModDistribution": { "type": ["boolean","null"] },
+        "allowModDistribution": {"type": "boolean"},
         "screenshots": {
           "type": "array",
-          "items": {"$ref": "#/definitions/screenShots"}
+          "items": {"$ref": "#/definitions/screenshots"}
         },
         "classId": {"type": "number"},
         "latestFilesIndexes": {
@@ -72,6 +87,10 @@
         "gameId": {"type": "number"},
         "summary": {"type": "string"},
         "latestFiles": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/latestFiles"}
+        },
+        "latestEarlyAccessFilesIndexes": {
           "type": "array",
           "items": {"$ref": "#/definitions/latestFiles"}
         },
@@ -97,17 +116,19 @@
         "gameVersion": {"type": "string"},
         "gameVersionReleaseDate": {"type": "string"},
         "gameVersionName": {"type": "string"},
-        "gameVersionTypeId": {"type": ["number","null"]}
+        "gameVersionTypeId": {"type": "number"}
       }
     },
-    "CurseForgeModQuery": {
+    "screenshots": {
       "type": "object",
-      "title": "CurseForgeModQuery",
+      "title": "screenshots",
       "properties": {
-        "data": {
-          "type": "array",
-          "items": {"$ref": "#/definitions/data"}
-        }
+        "description": {"type": "string"},
+        "id": {"type": "number"},
+        "title": {"type": "string"},
+        "modId": {"type": "number"},
+        "url": {"type": "string"},
+        "thumbnailUrl": {"type": "string"}
       }
     },
     "modules": {
@@ -116,6 +137,17 @@
       "properties": {
         "name": {"type": "string"},
         "fingerprint": {"type": "number"}
+      }
+    },
+    "CurseForgeModQuery": {
+      "type": "object",
+      "title": "CurseForgeModQuery",
+      "properties": {
+        "pagination": {"$ref": "#/definitions/pagination"},
+        "data": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/data"}
+        }
       }
     },
     "dependencies": {
@@ -133,8 +165,8 @@
         "filename": {"type": "string"},
         "releaseType": {"type": "number"},
         "gameVersion": {"type": "string"},
-        "gameVersionTypeId": {"type": ["number", "null"]},
-        "modLoader": {"type": ["number", "null"]},
+        "gameVersionTypeId": {"type": "number"},
+        "modLoader": {"type": "number"},
         "fileId": {"type": "number"}
       }
     },
@@ -181,18 +213,8 @@
         "id": {"type": "number"},
         "iconUrl": {"type": "string"},
         "slug": {"type": "string"},
-        "url": {"type": "string"}
-      }
-    },
-    "screenShots": {
-      "type": "object",
-      "properties": {
-        "description": {"type": "string"},
-        "id": {"type": "number"},
-        "title": {"type": "string"},
-        "modId": {"type": "number"},
         "url": {"type": "string"},
-        "thumbnailUrl": {"type": "string"}
+        "displayIndex": {"type": "number"}
       }
     },
     "authors": {

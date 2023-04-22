@@ -12,7 +12,7 @@ plugins {
 }
 
 group = 'net.gradleutil'
-version = '1.1.15'
+version = '1.1.16'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -23,13 +23,12 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
-
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.12'
     implementation 'gg.jte:jte:2.1.2'
     implementation 'gg.jte:jte-runtime:2.1.2'
     implementation project(":template")
-    implementation 'net.gradleutil:conf:1.1.15'
+    implementation 'net.gradleutil:conf:1.1.16'
 
     testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
     testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')

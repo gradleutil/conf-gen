@@ -151,6 +151,30 @@ class GroovyTransformerTest extends AbstractTest {
         (mod as EStructuralFeature).eType == 'Long'
     }
 
+    def "test create curseforge"() {
+        setup:
+        def inflector = new Inflector()
+        def data = new File('src/testFixtures/resources/json/CurseForgeModQuery.json')
+        def refName = inflector.upperCamelCase(data.name.replace('.json', ''), '-_ '.chars)
+        def jsonSchema = GenUtil.configFileToReferenceSchemaJson(data, refName)
+
+        when:
+        def modelFile = new File(base + refName + '.groovy')
+        println('json file:///' + data.absolutePath)
+        println('parsing file:///' + modelFile.absolutePath)
+        SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName.capitalize(), modelFile)
+        println 'file://'+modelFile.absolutePath
+        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
+        def funk = Loader.create(data.text, modelClass, Loader.defaultOptions().silent(false).allowUnresolved(true).useSystemProperties(false))
+
+        then:
+        funk
+        println funk.toString()
+
+    }
+
+
     def "minecraft create"() {
         setup:
         def data = new File('src/testFixtures/resources/json/MinecraftConfig.json')
@@ -184,6 +208,7 @@ class GroovyTransformerTest extends AbstractTest {
         println('json file:///' + data.absolutePath)
         println('parsing file:///' + modelFile.absolutePath)
         SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName.capitalize(), modelFile)
+        println modelFile.absolutePath
         def gcl = new GroovyClassLoader(LoaderTest.classLoader)
         def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
         def funk = Loader.create(data.text, modelClass, Loader.defaultOptions().silent(false).allowUnresolved(true).useSystemProperties(false))
