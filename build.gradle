@@ -28,7 +28,7 @@ dependencies {
     implementation 'gg.jte:jte:2.1.2'
     implementation 'gg.jte:jte-runtime:2.1.2'
     implementation project(":template")
-    implementation 'net.gradleutil:conf:1.1.16'
+    implementation 'net.gradleutil:conf:1.1.17'
 
     testFixturesApi('org.spockframework:spock-core:2.1-groovy-3.0')
     testFixturesImplementation('org.junit.jupiter:junit-jupiter-api')
