@@ -32,4 +32,16 @@ class HoconToSchemaTest extends AbstractTest {
         jsonSchema.text.trim()
     }
 
+    def "server conf"() {
+        setup:
+        def confFile = getResourceText('json/server.json')
+
+        when:
+        def jsonSchema = GenUtil.confToReferenceSchemaFile(confFile, 'server', new File(base, 'objectschema.json'))
+        println "file://${jsonSchema.absolutePath}"
+
+        then:
+        jsonSchema.text.trim()
+    }
+
 }

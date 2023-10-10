@@ -1,12 +1,7 @@
 package net.gradleutil.conf.transform
 
 import net.gradleutil.conf.AbstractTest
-import net.gradleutil.conf.Loader
-import net.gradleutil.conf.LoaderTest
-import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
-import net.gradleutil.conf.util.ConfUtil
-import net.gradleutil.conf.util.GenUtil
-import net.gradleutil.conf.util.Inflector
+
 
 class TransformerTest extends AbstractTest {
 
@@ -21,7 +16,7 @@ class TransformerTest extends AbstractTest {
 */
         when:
         def modelFile = new File(base + 'JsonSchema.groovy')
-        def result = SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, 'JsonSchema', modelFile)
+        def result = Transformer.transform(jsonSchema, packageName, 'JsonSchema', modelFile)
         println "file://${modelFile.absolutePath}"
 
         then:

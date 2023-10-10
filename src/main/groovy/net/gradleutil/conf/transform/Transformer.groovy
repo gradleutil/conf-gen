@@ -1,16 +1,79 @@
 package net.gradleutil.conf.transform
 
-import net.gradleutil.conf.json.schema.SchemaUtil
-import net.gradleutil.conf.json.schema.Schema
 import net.gradleutil.conf.json.JSONArray
 import net.gradleutil.conf.json.JSONObject
+import net.gradleutil.conf.json.schema.Schema
+import net.gradleutil.conf.json.schema.SchemaUtil
+import net.gradleutil.conf.template.EPackage
+import net.gradleutil.gen.Template
+
+import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
+import static net.gradleutil.conf.transform.schema.SchemaToEPackage.getEPackage
 
 class Transformer {
 
     Transformer() {}
 
-    static TransformOptions defaultOptions() {
-        new TransformOptions().convertToCamelCase(true).jteRenderPath('groovyclass/GroovyGen.jte')
+    static TransformOptions transformOptions() {
+        new TransformOptions()
+                .convertToCamelCase(true)
+                .jteRenderPath('groovyclass/GroovyGen.jte')
+                .singleFile(false)
+                .toType(TransformOptions.Type.groovy)
+    }
+
+    static boolean transform(TransformOptions options) throws IOException {
+
+        options.renderParams = options.renderParams ?: [options: options]
+
+        EPackage ePackage = getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
+        options.ePackage = ePackage
+
+        if (options.outputFile?.isDirectory()) {
+            String extension = options.toType == TransformOptions.Type.java ? '.java' : '.groovy'
+            if (options.toType == TransformOptions.Type.java) {
+                options.jteRenderPath('javaclass/EJavaClass.jte')
+            } else {
+                options.jteRenderPath('groovyclass/EGroovyClass.jte')
+            }
+            ePackage.eClassifiers.each {
+                def txt = Template.render(it, options)
+                new File(options.outputFile.absolutePath + '/' + it.name + extension).text = txt
+            }
+        } else {
+            String source
+            source = Template.render(options)
+            FileWriter fileWriter = new FileWriter(options.outputFile)
+            fileWriter.write(source)
+            fileWriter.close()
+        }
+        return true
+    }
+
+    static boolean transform(String jsonSchema, String packageName, String rootClassName, File outputFile, TransformOptions.Type toType = TransformOptions.Type.groovy, Boolean isSingleFile = true) throws IOException {
+        def options = transformOptions()
+                .jsonSchema(jsonSchema)
+                .packageName(packageName)
+                .rootClassName(rootClassName)
+                .toType(toType)
+                .singleFile(isSingleFile)
+                .outputFile(outputFile)
+        transform(options)
+    }
+
+    static List<File> transform(File schemaDirectory, File outputDirectory, String packageName) throws IOException {
+        List<File> generatedFiles = []
+        if (!outputDirectory.exists()) {
+            outputDirectory.mkdirs()
+        }
+        schemaDirectory.listFiles().each {
+            String jsonSchema = it.text
+            String rootClassName = it.name.replace('.schema', '').replace('.json', '')
+            def outputPackageDir = new File(outputDirectory.path + '/' + rootClassName.toLowerCase()).tap { it.mkdir() }
+            def outputFile = new File(outputPackageDir, rootClassName + '.groovy')
+            transform(jsonSchema, packageName, rootClassName, outputFile)
+        }
+        return generatedFiles
     }
 
     static void editor(File path, Schema schema, String json) {

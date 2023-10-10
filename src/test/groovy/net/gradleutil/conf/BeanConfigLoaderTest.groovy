@@ -1,6 +1,6 @@
 package net.gradleutil.conf
 
-import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
+import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.util.GenUtil
 
 class BeanConfigLoaderTest extends AbstractTest {
@@ -16,7 +16,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Manytyped.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = SchemaToGroovyClass.schemaToSimpleGroovyClass(schemaFile.text, packageName, 'Manytyped', modelFile)
+        def result = Transformer.transform(schemaFile.text, packageName, 'Manytyped', modelFile)
 
         then:
         result
@@ -48,7 +48,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Produce.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = SchemaToGroovyClass.schemaToSimpleGroovyClass(schemaFile.text, packageName, 'Produce', modelFile)
+        def result = Transformer.transform(schemaFile.text, packageName, 'Produce', modelFile)
 
         then:
         result
@@ -78,7 +78,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Plugin.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, refName, modelFile)
+        def result = Transformer.transform(jsonSchema, packageName, refName, modelFile)
 
         then:
         result

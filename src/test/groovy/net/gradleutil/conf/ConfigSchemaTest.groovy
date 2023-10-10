@@ -1,7 +1,6 @@
 package net.gradleutil.conf
 
-
-import net.gradleutil.conf.transform.groovy.SchemaToGroovyClass
+import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.GenUtil
 
@@ -106,7 +105,7 @@ class ConfigSchemaTest extends AbstractTest {
 
         when:
         def modelFile = new File(base + 'Produce.groovy')
-        def result = SchemaToGroovyClass.schemaToSimpleGroovyClass(jsonSchema, packageName, 'Produce', modelFile)
+        def result = Transformer.transform(jsonSchema, packageName, 'Produce', modelFile)
         println "file://${modelFile.absolutePath}"
 
         then:

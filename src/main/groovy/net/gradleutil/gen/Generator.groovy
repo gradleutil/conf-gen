@@ -7,6 +7,7 @@ import gg.jte.resolve.DirectoryCodeResolver
 import groovy.transform.builder.Builder
 import groovy.transform.builder.SimpleStrategy
 import groovy.util.logging.Log
+import net.gradleutil.conf.template.EPackage
 import net.gradleutil.conf.util.ChildFirstClassLoader
 import org.codehaus.groovy.control.CompilerConfiguration
 
@@ -37,7 +38,7 @@ class Generator {
         classLoader
     }
 
-    static TemplateEngine getTemplateEngine(GeneratorOptions options = defaultOptions()) {
+    static TemplateEngine getTemplateEngine(GeneratorOptions options = generatorOptions()) {
         logger.info('loading templates with default options: ' + options.dump() )
         TemplateEngine.createPrecompiled(getJarPath(Generator), ContentType.Plain, options.classLoader, options.packageName).
                 tap { setTrimControlStructures(true) }
@@ -45,8 +46,21 @@ class Generator {
 
     static TemplateEngine getTemplateEngine(Path zipPath) {
         logger.info('loading templates from ' + zipPath)
-        TemplateEngine.createPrecompiled(zipPath, ContentType.Plain, getLoader(zipPath), defaultOptions().packageName).
+        TemplateEngine.createPrecompiled(zipPath, ContentType.Plain, getLoader(zipPath), generatorOptions().packageName).
                 tap { setTrimControlStructures(true) }
+    }
+
+
+    static File getJar(EPackage ePackage, File sourceDir) {
+        logger.info('loading ePackage ' + ePackage.name + ' from ' + sourceDir.absoluteFile.toString())
+        def target = new File(sourceDir, 'jte.jar').absoluteFile
+        if (!sourceDir.exists()) {
+            throw new RuntimeException("Source dir $sourceDir.absolutePath does not exist")
+        }
+        if (!target.exists()) {
+            jar(sourceDir.toPath(), target.toPath())
+        }
+        target
     }
 
 
@@ -66,14 +80,14 @@ class Generator {
         String[] compileArgs
     }
 
-    static GeneratorOptions defaultOptions() {
+    static GeneratorOptions generatorOptions() {
         new GeneratorOptions().contentType(ContentType.Plain)
                 .classLoader(Generator.classLoader)
                 .packageName('net.gradleutil.conf.jte')
                 .tempDirectory(File.createTempDir('gen', 'files'))
     }
 
-    static ClassLoader jar(Path sourceDirectory, Path zipPath, GeneratorOptions options = defaultOptions()) {
+    static ClassLoader jar(Path sourceDirectory, Path zipPath, GeneratorOptions options = generatorOptions()) {
         def classLoader = compile(sourceDirectory, options.tempDirectory.toPath(), options)
         def zipped = 0
         new ZipOutputStream(new FileOutputStream(zipPath.toFile())).withCloseable { zipFile ->
@@ -95,7 +109,7 @@ class Generator {
         classLoader
     }
 
-    static ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
+    static ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = generatorOptions()) {
         long start = System.nanoTime()
         logger.info("Compiling jte templates found in " + sourceDirectory)
         TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
@@ -115,7 +129,7 @@ class Generator {
         options.classLoader
     }
 
-    static ClassLoader generate(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
+    static ClassLoader generate(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = generatorOptions()) {
         logger.info("generating jte templates found in " + sourceDirectory)
         TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
         templateEngine.cleanAll()
@@ -124,7 +138,7 @@ class Generator {
         options.classLoader
     }
 
-    static TemplateEngine getTemplateEngine(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = defaultOptions()) {
+    static TemplateEngine getTemplateEngine(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = generatorOptions()) {
         def classLoader = new GroovyClassLoader(options.classLoader, new CompilerConfiguration(targetDirectory: targetDirectory.toFile()))
         options.compilePath.each {
             classLoader.addClasspath(it.absolutePath)

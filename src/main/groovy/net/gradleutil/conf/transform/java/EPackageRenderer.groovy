@@ -1,4 +1,4 @@
-package net.gradleutil.conf.transform.groovy
+package net.gradleutil.conf.transform.java
 
 import net.gradleutil.conf.template.EPackage
 import net.gradleutil.conf.template.EStructuralFeature
@@ -11,12 +11,12 @@ import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
 class EPackageRenderer extends Transformer {
 
-    static boolean schemaToEPackageRender(TransformOptions options) throws IOException {
+    static boolean schemaToJavaRender(TransformOptions options) throws IOException {
 
         EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
         options.ePackage = ePackage
         options.renderParams.put('ePackage', ePackage)
-        options.toType(TransformOptions.Type.groovy)
+        options.toType(TransformOptions.Type.java)
 
         Template.renderEpackage(options).each { fileName, fileContent ->
             File file = new File(options.outputFile.path + File.separator + fileName)
@@ -29,12 +29,12 @@ class EPackageRenderer extends Transformer {
         return true
     }
 
-    static boolean schemaToEPackageRender(String jsonSchema, String packageName, String rootClassName, File outputFile) throws IOException {
+    static boolean schemaToJavaRender(String jsonSchema, String packageName, String rootClassName, File outputFile) throws IOException {
         def options = transformOptions().jsonSchema(jsonSchema).packageName(packageName).rootClassName(rootClassName).outputFile(outputFile)
-        schemaToEPackageRender(options)
+        schemaToJavaRender(options)
     }
 
-    static List<File> schemaToEPackageRender(File schemaDirectory, File outputDirectory, String packageName) throws IOException {
+    static List<File> schemaToJavaRender(File schemaDirectory, File outputDirectory, String packageName) throws IOException {
         List<File> generatedFiles = []
         if (!outputDirectory.exists()) {
             outputDirectory.mkdirs()
@@ -46,32 +46,29 @@ class EPackageRenderer extends Transformer {
             String jsonSchema = it.text
             String rootClassName = it.name.replace('.schema', '').replace('.json', '')
             def outputPackageDir = new File(outputDirectory.path + '/' + rootClassName.toLowerCase()).tap { it.mkdir() }
-            def outputFile = new File(outputPackageDir, rootClassName + '.groovy')
-            schemaToEPackageRender(jsonSchema, packageName, rootClassName, outputFile)
+            def outputFile = new File(outputPackageDir, rootClassName + '.java')
+            schemaToJavaRender(jsonSchema, packageName, rootClassName, outputFile)
         }
         return generatedFiles
     }
-
-    static String featureToClassProp(EStructuralFeature prop, indent = 4) {
-        String optional = (prop.lowerBound == 0) ? "@Optional" : ""
+    
+    static String javaType(EStructuralFeature prop, indent = 4) {
         StringBuilder sb = new StringBuilder()
         String lf = '\n' + (' ' * indent)
         if (prop.eType.equalsIgnoreCase("enum")) {
-            String propCap = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1)
-            sb.append(optional + lf)
-            sb.append "${propCap} ${prop.name}" + lf
-            sb.append "${prop.eType.toLowerCase()} ${propCap} ${prop.asEnum()}"
+            String enumClass = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1)
+            sb.append("${enumClass} ${prop.name};" + lf)
+            sb.append "public ${prop.eType.toLowerCase()} ${enumClass} ${prop.asEnum()}"
+        } else if (prop.eType.equalsIgnoreCase("BigInteger")) {
+            sb.append("java.math.BigInteger ${prop.name}")
         } else if (prop.upperBound > 1 || prop.upperBound == -1) {
-            sb.append optional + lf
-            sb.append "List<${prop.eType}> ${prop.name} = "
+            sb.append("List<${prop.eType}> ${prop.name}")
             if (prop.defaultValue != null) {
                 sb.append "${prop.defaultValue}"
             } else {
-                sb.append "[]"
+                sb.append ""
             }
-            sb.append " as List<${prop.eType}>"
         } else {
-            sb.append optional + lf
             sb.append "${prop.eType} ${prop.name}"
             if (prop.defaultValue != null) {
                 switch (prop.eType) {
@@ -88,5 +85,22 @@ class EPackageRenderer extends Transformer {
         }
         sb.toString()
     }
+
+    static String javaSetter(String className, EStructuralFeature prop, indent = 4) {
+        StringBuilder sb = new StringBuilder()
+        String lf = '\n' + (' ' * indent)
+        if (prop.eType.equalsIgnoreCase("enum")) {
+            String propCap = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1)
+            sb.append("${className} ${prop.name}(${propCap} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
+        } else if (prop.eType.equalsIgnoreCase("BigInteger")) {
+            sb.append("${className} ${prop.name}(java.math.${prop.eType} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
+        } else if (prop.upperBound > 1 || prop.upperBound == -1) {
+            sb.append("${className} ${prop.name}(List<${prop.eType}> ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
+        } else {
+            sb.append("${className} ${prop.name}(${prop.eType} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
+        }
+        sb.toString() + lf
+    }
+
 
 }

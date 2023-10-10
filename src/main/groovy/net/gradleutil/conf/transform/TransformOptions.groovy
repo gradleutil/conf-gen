@@ -7,6 +7,10 @@ import net.gradleutil.conf.template.EPackage
 
 @Builder(builderStrategy = SimpleStrategy, prefix = '')
 class TransformOptions {
+    enum Type{
+        java,
+        groovy
+    }
     Schema schema
     String packageName
     String rootClassName
@@ -17,6 +21,8 @@ class TransformOptions {
     File outputFile
     String jsonSchema
     Boolean convertToCamelCase
+    Boolean singleFile
+    Type toType
     EPackage ePackage
     ClassLoader classLoader = TransformOptions.classLoader
 }

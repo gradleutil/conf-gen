@@ -23,7 +23,7 @@ class SchemaToGroovyDSL extends Transformer {
     }
 
     static boolean schemaToGroovyDSL(String jsonSchema, String packageName, String rootClassName, File outputFile) throws IOException {
-        def options = defaultOptions().jsonSchema(jsonSchema).packageName(packageName).rootClassName(rootClassName).outputFile(outputFile)
+        def options = transformOptions().jsonSchema(jsonSchema).packageName(packageName).rootClassName(rootClassName).outputFile(outputFile)
         schemaToGroovyDSL(options)
     }
 

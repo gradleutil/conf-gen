@@ -134,7 +134,7 @@ class EStructuralFeature extends ETypedElement {
     String asEnum() {
         def enums = valueList.collect { "${toEnumValue(it as String)}(\"${it}\")" }.join(',')
         return """ {
-            ${enums}
+            ${enums};
 
             private final String name;
         
