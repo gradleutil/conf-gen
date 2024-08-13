@@ -8,6 +8,15 @@ plugins {
     id 'java-test-fixtures'
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+}
+
+tasks.compileJava {
+    options.release.set(8)
+}
 
 group = 'net.gradleutil'
 
@@ -15,10 +24,7 @@ repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 dependencies {
     // Use the latest Groovy version for building this library
-    implementation 'org.codehaus.groovy:groovy-all:3.0.10'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.21'
 }

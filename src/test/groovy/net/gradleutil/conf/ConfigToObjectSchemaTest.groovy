@@ -36,7 +36,29 @@ class ConfigToObjectSchemaTest extends AbstractTest {
         setup:
         def objName = 'manytyped'
         def data = getResourceText("conf/${objName}.conf")
-        def jsonSchema = confToSchemaJson(data)
+        def jsonSchema = confToSchemaJson(data, 'manytyped')
+        def jsonRefSchema = confToReferenceSchemaJson(data, objName)
+
+        when:
+        def schemaFile = new File(base + objName + '.schema.json')
+        schemaFile.text = jsonSchema.toString()
+        def refSchemaFile = new File(base + objName + '.ref.schema.json')
+        refSchemaFile.text = jsonRefSchema.toString()
+        println('json file:///' + objName)
+        println('ref file:///' + refSchemaFile.absolutePath)
+        println('parsing file:///' + schemaFile.absolutePath)
+        println()
+
+        then:
+        true
+
+    }
+
+    def "test propertyFile to reference"() {
+        setup:
+        def objName = 'conf'
+        def data = getResourceText("propertyfile/${objName}.properties")
+        def jsonSchema = confToSchemaJson(data, objName)
         def jsonRefSchema = confToReferenceSchemaJson(data, objName)
 
         when:
@@ -58,7 +80,7 @@ class ConfigToObjectSchemaTest extends AbstractTest {
         setup:
         def objName = 'booklist'
         def data = getResourceText("json/${objName}.json")
-        def jsonSchema = confToSchemaJson(data)
+        def jsonSchema = confToSchemaJson(data, objName)
         def jsonRefSchema = confToReferenceSchemaJson(data, objName)
 
         when:

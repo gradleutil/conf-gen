@@ -13,7 +13,7 @@ class EPackageRenderer extends Transformer {
 
     static boolean schemaToEPackageRender(TransformOptions options) throws IOException {
 
-        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
+        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema,options.basePath), options.rootClassName, options.packageName, options.convertToCamelCase)
         options.ePackage = ePackage
         options.renderParams.put('ePackage', ePackage)
         options.toType(TransformOptions.Type.groovy)

@@ -12,11 +12,16 @@ class HoconToSchemaTest extends AbstractTest {
         def confFile = getResourceText('json/booklist.json')
 
         when:
-        def jsonSchema = GenUtil.confToSchemaFile(confFile, new File(base, 'objectschema.json'))
+        def jsonSchema = GenUtil.confToSchemaFile(confFile, 'booklist', new File(base, 'objectschema.json'))
+        def originalSchema = getResourceText('json/booklist.objectschema.json')
+        new File(base, 'objectschema.og.json').tap{
+            text = originalSchema
+            println "file://${it.absolutePath}"
+        }
         println "file://${jsonSchema.absolutePath}"
 
         then:
-        jsonSchema.text.trim() == getResourceText('json/booklist.objectschema.json').trim()
+        jsonSchema.text.trim() == originalSchema.trim()
     }
 
 
@@ -25,7 +30,7 @@ class HoconToSchemaTest extends AbstractTest {
         def confFile = getResourceText('json/produce.json')
 
         when:
-        def jsonSchema = GenUtil.confToSchemaFile(confFile, new File(base, 'objectschema.json'))
+        def jsonSchema = GenUtil.confToSchemaFile(confFile, 'Produce', new File(base, 'objectschema.json'))
         println "file://${jsonSchema.absolutePath}"
 
         then:

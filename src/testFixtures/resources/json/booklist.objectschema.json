@@ -1,29 +1,58 @@
 {
-    "type": "object",
-    "properties": {
-        "books": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "longDescription": {"type": "string"},
-                    "pageCount": {"type": "number"},
-                    "isbn": {"type": "string"},
-                    "shortDescription": {"type": "string"},
-                    "categories": {
-                        "type": "array",
-                        "items": {"type": "string"}
-                    },
-                    "title": {"type": "string"},
-                    "thumbnailUrl": {"type": "string"},
-                    "status": {"type": "string"},
-                    "authors": {
-                        "type": "array",
-                        "items": {"type": "string"}
-                    }
-                }
-            }
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "$ref" : "#/definitions/booklist",
+  "definitions" : {
+    "books" : {
+      "type" : "object",
+      "properties" : {
+        "authors" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
         },
-        "name": {"type": "string"}
+        "categories" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "isbn" : {
+          "type" : "string"
+        },
+        "longDescription" : {
+          "type" : "string"
+        },
+        "pageCount" : {
+          "type" : "number"
+        },
+        "shortDescription" : {
+          "type" : "string"
+        },
+        "status" : {
+          "type" : "string"
+        },
+        "thumbnailUrl" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        }
+      }
+    },
+    "booklist" : {
+      "type" : "object",
+      "properties" : {
+        "books" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/books"
+          }
+        },
+        "name" : {
+          "type" : "string"
+        }
+      }
     }
+  }
 }

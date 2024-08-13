@@ -23,7 +23,7 @@ class Template {
 
     static String render(EClassifier eClassifier, TransformOptions options) {
         TemplateOutput output = new StringOutput()
-        def params = [eClass:eClassifier] << options.renderParams
+        def params = [eClass: eClassifier] << options.renderParams
         getTemplateEngine(options).render(options.jteRenderPath, params, output)
         output.toString().replaceAll(/\n\s+\n/, '\n\n')
     }

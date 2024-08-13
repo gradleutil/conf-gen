@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/personList",
+  "definitions": {
+    "personList": {
+      "properties": {
+        "people": {
+          "type": "array",
+          "items": {
+            "$ref": "file:./src/testFixtures/resources/json/person.schema.json"
+          },
+          "default": []
+        }
+      }
+    }
+  }
+}

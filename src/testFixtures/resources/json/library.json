@@ -1,0 +1,36 @@
+{
+	"library": {
+		"name": "Our Awesome Library",
+		"books": [
+			{
+				"title": "Always ask a Man: The Key to Femininity",
+        "description": "Some great book",
+				"pages": 330,
+				"authors": [
+					{
+						"firstName": "Suzy",
+						"lastName": "Smith"
+					},
+					{
+						"firstName": "John",
+						"lastName": "Smith"
+					}
+				],
+				"ISBN": "978-3-16-148410-0"
+			},
+			{
+				"title": "CatFlexing: A CatLover’s guide to weightlifting, aerobics & stretching",
+				"description": "Another fine book for our ${library.name}",
+				"pages": "${library.books[0].pages}",
+				"authors": [
+					{
+						"firstName": "Stephanie",
+						"lastName": "Jackson ${library.books[0].authors[0].firstName}"
+					}
+				],
+				"ISBN": "978-3-16-148410-0"
+			}
+		]
+	}
+}
+

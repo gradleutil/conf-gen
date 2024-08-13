@@ -13,7 +13,7 @@ class SchemaToGroovyDSL extends Transformer {
 
     static boolean schemaToGroovyDSL(TransformOptions options) throws IOException {
 
-        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
+        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema,""), options.rootClassName, options.packageName, options.convertToCamelCase)
         String source = GroovyDSLTemplate.render(ePackage)
 
         FileWriter fileWriter = new FileWriter(options.outputFile)

@@ -1,6 +1,7 @@
 package net.gradleutil.conf.transform.groovy
 
-import net.gradleutil.conf.json.schema.Schema
+import com.fasterxml.jackson.databind.JsonNode
+import com.networknt.schema.JsonSchema
 
 class GroovyConfig {
 
@@ -17,7 +18,7 @@ class GroovyConfig {
      * @param packageName
      * @return
      */
-    static String toGroovyDsl(Schema schema, String schemaName, String packageName) {
+    static String toGroovyDsl(JsonSchema schema, String schemaName, String packageName) {
 
         illegalIfNull(schema, "schema is required")
         StringBuilder groovy = new StringBuilder()
@@ -92,14 +93,18 @@ class GroovyConfig {
                 }
             }
         '''.stripIndent() + '\n\n')
-        schema.unprocessedProperties['definitions'].each { name, info ->
-            groovy.append("class ${name.capitalize()} extends Block {\n")
-            info.properties.each { propName, propInfo ->
-                if(!propInfo){
-                    println 'no prop info'
+        schema.schemaNode.get('definitions').fields().each { field ->
+            def node = field.value
+            def name = field.key
+            groovy.append("class ${name} extends Block {\n")
+            node.fieldNames().each { propName ->
+                JsonNode propInfo = node.get(propName)
+                if(propInfo == null){
+                    println 'no prop info: ' + propName
                 }
                 def propInfoMap = propInfo as Map<String, Object>
-                def type = propInfoMap?.type?.toString()?.capitalize() ?: propInfoMap['$ref'].toString().replace('#/definitions/', '').capitalize()
+                def type = (propInfoMap?.type ?: propInfo.textValue()).toString()?.capitalize() ?: propInfoMap['$ref'].toString().replace('#/definitions/', '').capitalize()
+                if(type == "Null") { type = "Object"}
                 if (propInfoMap['$ref']) {
                     groovy.append("""
                         ${type} ${propName}

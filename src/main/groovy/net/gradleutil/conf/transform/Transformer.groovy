@@ -1,8 +1,8 @@
 package net.gradleutil.conf.transform
 
+import com.networknt.schema.JsonSchema
 import net.gradleutil.conf.json.JSONArray
 import net.gradleutil.conf.json.JSONObject
-import net.gradleutil.conf.json.schema.Schema
 import net.gradleutil.conf.json.schema.SchemaUtil
 import net.gradleutil.conf.template.EPackage
 import net.gradleutil.gen.Template
@@ -17,6 +17,7 @@ class Transformer {
     static TransformOptions transformOptions() {
         new TransformOptions()
                 .convertToCamelCase(true)
+                .basePath("")
                 .jteRenderPath('groovyclass/GroovyGen.jte')
                 .singleFile(false)
                 .toType(TransformOptions.Type.groovy)
@@ -26,19 +27,30 @@ class Transformer {
 
         options.renderParams = options.renderParams ?: [options: options]
 
-        EPackage ePackage = getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
+        JsonSchema schema = getSchema(options.jsonSchema, options.basePath ?: "")
+        schema.walk(null, false)
+        EPackage ePackage = getEPackage(schema, options.rootClassName, options.packageName, options.convertToCamelCase)
         options.ePackage = ePackage
 
         if (options.outputFile?.isDirectory()) {
-            String extension = options.toType == TransformOptions.Type.java ? '.java' : '.groovy'
+            String extension = options.toType == TransformOptions.Type.groovy ? '.groovy' : '.java'
             if (options.toType == TransformOptions.Type.java) {
                 options.jteRenderPath('javaclass/EJavaClass.jte')
+            } else if (options.toType == TransformOptions.Type.jpa) {
+                options.jteRenderPath('jpa/JPAClass.jte')
+            } else if (options.toType == TransformOptions.Type.cli) {
+                options.jteRenderPath('cli/ECLIClass.jte')
             } else {
                 options.jteRenderPath('groovyclass/EGroovyClass.jte')
             }
             ePackage.eClassifiers.each {
-                def txt = Template.render(it, options)
-                new File(options.outputFile.absolutePath + '/' + it.name + extension).text = txt
+                // skip any external package refs as they will be rendered in their own file
+                if (!it.name.contains("\\.")) {
+                    def txt = Template.render(it, options)
+                    new File(options.outputFile.absolutePath + '/' + it.name + extension).text = txt
+                } else {
+                    println "Skipping ${it.name}"
+                }
             }
         } else {
             String source
@@ -50,11 +62,12 @@ class Transformer {
         return true
     }
 
-    static boolean transform(String jsonSchema, String packageName, String rootClassName, File outputFile, TransformOptions.Type toType = TransformOptions.Type.groovy, Boolean isSingleFile = true) throws IOException {
+    static boolean transform(String jsonSchema, String packageName, String rootClassName, String basePath, File outputFile, TransformOptions.Type toType = TransformOptions.Type.java, Boolean isSingleFile = true) throws IOException {
         def options = transformOptions()
                 .jsonSchema(jsonSchema)
                 .packageName(packageName)
                 .rootClassName(rootClassName)
+                .basePath(basePath)
                 .toType(toType)
                 .singleFile(isSingleFile)
                 .outputFile(outputFile)
@@ -71,12 +84,12 @@ class Transformer {
             String rootClassName = it.name.replace('.schema', '').replace('.json', '')
             def outputPackageDir = new File(outputDirectory.path + '/' + rootClassName.toLowerCase()).tap { it.mkdir() }
             def outputFile = new File(outputPackageDir, rootClassName + '.groovy')
-            transform(jsonSchema, packageName, rootClassName, outputFile)
+            transform(jsonSchema, packageName, rootClassName, schemaDirectory.absolutePath, outputFile)
         }
         return generatedFiles
     }
 
-    static void editor(File path, Schema schema, String json) {
+    static void editor(File path, JsonSchema schema, String json) {
         path.text = SchemaUtil.editor(schema.toString(), json)
     }
 

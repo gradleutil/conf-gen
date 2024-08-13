@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BuildingList",
+  "$ref": "#/definitions/ContractorInvoice",
+  "definitions": {
+    "ContractorType": {
+      "title": "Contractor Type",
+      "enum": [
+        "PestControl",
+        "Plumbing",
+        "Electricity",
+        "Internet"
+      ]
+    },
+    "ContractorInvoice": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "type": "string"
+        },
+        "invoiceNumber": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        },
+        "serviceAddress": {
+          "type": "string"
+        },
+        "contractorType": {
+          "title": "Type",
+          "$ref": "#/definitions/ContractorType"
+        },
+        "invoiceDate": {
+          "type": "string"
+        },
+        "dueDate": {
+          "type": "string"
+        },
+        "amountDue": {
+          "type": "number"
+        },
+        "ocrText": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fileName"
+      ],
+      "title": "Contractor Invoice"
+    }
+  },
+  "ContractorReceipt": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "fileName": {
+        "type": "string"
+      },
+      "contractorName": {
+        "type": "string"
+      },
+      "contractorType": {
+        "$ref": "#/definitions/ContractorType"
+      },
+      "paymentNumber": {
+        "type": "string"
+      },
+      "invoiceNumber": {
+        "type": "string"
+      },
+      "accountNumber": {
+        "type": "string"
+      },
+      "serviceAddress": {
+        "type": "string"
+      },
+      "receiptDate": {
+        "type": "string"
+      },
+      "paymentDate": {
+        "type": "string"
+      },
+      "remainingAmountDue": {
+        "type": "number"
+      },
+      "amountPaid": {
+        "type": "number"
+      },
+      "ocrText": {
+        "type": "string"
+      },
+      "path": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "fileName"
+    ],
+    "title": "Contractor Invoice"
+  }
+}

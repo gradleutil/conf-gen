@@ -2,9 +2,9 @@
 @import net.gradleutil.conf.transform.TransformOptions
 
 @param TransformOptions options
-package ${ options.getePackage().name }
+package ${ options.ePackage().name }
 
 @template.groovyclass.EGroovyClassImports()
-@for (EClassifier configClass : options.getePackage().eClassifiers)
-    @template.groovyclass.EGroovyClass(eClass=(EClass)configClass, ePackage = options.getePackage(), options = options)
+@for (EClassifier configClass : options.ePackage().eClassifiers)
+    @template.groovyclass.EGroovyClass(eClass=(EClass)configClass, ePackage = options.ePackage(), options = options)
 @endfor

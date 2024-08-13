@@ -1,0 +1,26 @@
+{
+  "$id": "https://example.com/cat.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Cat",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The person's first name."
+    },
+    "breed": {
+      "type": "string",
+      "description": "The person's last name."
+    },
+    "isAwesome": {
+      "type": "boolean",
+      "description": "The person's awesome.",
+      "default": true
+    },
+    "age": {
+      "description": "Age in years which must be equal to or greater than zero.",
+      "type": ["integer", "null"],
+      "minimum": 0
+    }
+  }
+}

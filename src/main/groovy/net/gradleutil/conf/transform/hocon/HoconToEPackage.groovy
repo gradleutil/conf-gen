@@ -1,8 +1,8 @@
 package net.gradleutil.conf.transform.hocon
 
+import com.networknt.schema.JsonSchema
 import net.gradleutil.conf.config.Config
 import net.gradleutil.conf.json.JSONObject
-import net.gradleutil.conf.json.schema.Schema
 import net.gradleutil.conf.template.EPackage
 import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.util.ConfUtil
@@ -13,7 +13,7 @@ class HoconToEPackage {
     static String rootClassName
     static Boolean convertToCamelCase
 
-    static Map<String, Object> toMap(Schema schema) {
+    static Map<String, Object> toMap(JsonSchema schema) {
         Transformer.toMap(new JSONObject(schema.toString()))
     }
 

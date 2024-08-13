@@ -37,7 +37,7 @@
           }
         },
         "git": {
-          "$ref": "#/definitions/Git",
+          "$ref": "#/definitions/Git"
         },
         "publishing": {
           "type": "array",

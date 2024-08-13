@@ -6,12 +6,13 @@
       "type": "object",
       "title": "booklist",
       "properties": {
+        "name": {"type": "string"},
         "books": {
           "type": "array",
           "items": {"$ref": "#/definitions/books"}
-        },
-        "name": {"type": "string"}
-      }
+        }
+      },
+      "required": ["name"]
     },
     "books": {
       "type": "object",

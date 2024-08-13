@@ -3,3 +3,4 @@
 .idea
 # Ignore Gradle build output directory
 build
+src/test/groovy/net/gradleutil/conf/temp/

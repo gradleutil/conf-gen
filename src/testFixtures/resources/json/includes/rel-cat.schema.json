@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/catList",
+  "definitions": {
+    "catList": {
+      "properties": {
+        "cats": {
+          "type": "array",
+          "items": {
+            "$ref": "../bundle/pet.schema.json#/definitions/cat"
+          },
+          "default": []
+        },
+        "cows": {
+          "type": "array",
+          "items": {
+            "$ref": "../bundle/cattle.schema.json#/definitions/cow"
+          },
+          "default": []
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,9 @@
 package net.gradleutil.conf.transform.schema
 
+import com.networknt.schema.JsonSchema
+import com.networknt.schema.JsonSchemaFactory
+import com.networknt.schema.SchemaValidatorsConfig
+import com.networknt.schema.SpecVersion
 import net.gradleutil.conf.json.schema.*
 import net.gradleutil.conf.template.*
 import net.gradleutil.conf.transform.Transformer
@@ -19,27 +23,15 @@ import net.gradleutil.conf.json.JSONObject
 
 class SchemaToEPackage {
 
-    static Map<String, Object> toMap(Schema schema) {
+    static Map<String, Object> toMap(JsonSchema schema) {
         Transformer.toMap(new JSONObject(schema.toString()))
     }
 
-    static EPackage getEPackage(Schema sourceSchema,String rootName, String packageName, Boolean safeStuff) {
-        def visitor = new SchemaToEPackageVisitor(packageName)
-        if(sourceSchema instanceof ReferenceSchema || sourceSchema instanceof CombinedSchema){
-            visitor.visit(sourceSchema)
-        } else if(sourceSchema instanceof ObjectSchema){
-            def name = rootName ?: sourceSchema.propertySchemas.entrySet()?.find()?.key
-            visitor.visit(SchemaToReferenceSchema.toReferenceSchema(sourceSchema, name, null))
-        }
+    static EPackage getEPackage(JsonSchema sourceSchema,String rootName, String packageName, Boolean singularizeClassNames) {
+        def visitor = new SchemaToEPackageVisitor(packageName, rootName, singularizeClassNames)
+        visitor.visit(sourceSchema, rootName)
         return visitor.ePackage
     }
-
-    static EPackage getEPackage(ObjectSchema sourceSchema, String rootName, String packageName, Boolean safeStuff) {
-        def visitor = new SchemaToEPackageVisitor(packageName)
-        visitor.visit(SchemaToReferenceSchema.toReferenceSchema(sourceSchema, rootName, null))
-        return visitor.ePackage
-    }
-
 
 }
 

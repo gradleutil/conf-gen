@@ -2,6 +2,12 @@ package net.gradleutil.conf
 
 import spock.lang.Specification
 
+import javax.tools.Diagnostic
+import javax.tools.DiagnosticCollector
+import javax.tools.JavaCompiler
+import javax.tools.JavaFileObject
+import javax.tools.StandardJavaFileManager
+import javax.tools.ToolProvider
 import java.nio.file.*
 
 class AbstractTest extends Specification {
@@ -84,6 +90,33 @@ class AbstractTest extends Specification {
             }
         }
         contents
+    }
+
+
+    protected void compileTarget(File targetDir) throws IOException {
+        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler()
+        DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector()
+        StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, null, null)
+        Collection allFiles = targetDir.listFiles().findAll { it.name.endsWith('.java') }.collect()
+        println '-------------------------------------------------'
+        println '--------  COMPILE                ----------------'
+        println '-------------------------------------------------'
+
+        List<String> optionList = new ArrayList<String>()
+        allFiles.each {
+            println("Compiling file://" + it.absolutePath)
+        }
+
+        Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromFiles(allFiles)
+        JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, diagnostics, optionList, null, compilationUnits)
+
+        boolean status = task.call()
+        if (!status) {
+            for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {
+                printf("Error on line %s in %s", diagnostic.getLineNumber(), diagnostic)
+            }
+        }
+        fileManager.close()
     }
 
 }

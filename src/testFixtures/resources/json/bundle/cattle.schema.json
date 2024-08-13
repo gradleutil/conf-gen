@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/cow",
+  "definitions": {
+    "cow": {
+      "title": "Cow",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The cat's first name."
+        },
+        "breed": {
+          "type": "string",
+          "description": "The cat's last name."
+        },
+        "isAwesome": {
+          "type": "boolean",
+          "description": "The cat's awesome.",
+          "default": true
+        },
+        "age": {
+          "description": "Age in years which must be equal to or greater than zero.",
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      }
+    },
+    "goat": {
+      "title": "Goat",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The dog's first name."
+        },
+        "breed": {
+          "type": "string",
+          "description": "The dog's last name."
+        },
+        "isAwesome": {
+          "type": "boolean",
+          "description": "The dog's awesome.",
+          "default": true
+        },
+        "age": {
+          "description": "Age in years which must be equal to or greater than zero.",
+          "type": ["integer", "null"],
+          "minimum": 0
+        }
+      }
+    }
+  }
+}
+

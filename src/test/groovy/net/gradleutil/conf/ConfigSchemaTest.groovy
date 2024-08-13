@@ -16,7 +16,7 @@ class ConfigSchemaTest extends AbstractTest {
         def modelFile = new File(base + 'Royalty.schema.json')
         def dataFile = new File(base + 'Royalty.json')
         dataFile.text = ConfUtil.configToJson(config)
-        GenUtil.confToSchemaFile(configFile, modelFile)
+        GenUtil.confToSchemaFile(configFile, "Royalty", modelFile)
         println "file://${modelFile.absolutePath}"
         println "file://${dataFile.absolutePath}"
 
@@ -53,7 +53,7 @@ class ConfigSchemaTest extends AbstractTest {
         def modelFile = new File(base + 'Produce.schema.json')
         def dataFile = new File(base + 'Produce.json')
         dataFile.text = ConfUtil.configToJson(config)
-        GenUtil.confToSchemaFile(configFile, modelFile)
+        GenUtil.confToSchemaFile(configFile, 'Produce', modelFile)
         println "file://${modelFile.absolutePath}"
         println "file://${dataFile.absolutePath}"
 
@@ -90,7 +90,7 @@ class ConfigSchemaTest extends AbstractTest {
         def modelFile = new File(base + 'One.schema.json')
         def dataFile = new File(base + 'One.json')
         dataFile.text = ConfUtil.configToJson(config)
-        GenUtil.confToSchemaFile(configFile, modelFile)
+        GenUtil.confToSchemaFile(configFile, "One", modelFile)
         println "file://${modelFile.absolutePath}"
         println "file://${dataFile.absolutePath}"
 
@@ -100,12 +100,12 @@ class ConfigSchemaTest extends AbstractTest {
 
     def "produce configFile to schema json"() {
         setup:
-        def jsonSchema = GenUtil.confToSchemaJson(getResourceText('json/produce.json'))
+        def jsonSchema = GenUtil.confToSchemaJson(getResourceText('json/produce.json'), "Produce")
         println(jsonSchema)
 
         when:
         def modelFile = new File(base + 'Produce.groovy')
-        def result = Transformer.transform(jsonSchema, packageName, 'Produce', modelFile)
+        def result = Transformer.transform(jsonSchema, packageName, 'Produce', "",modelFile)
         println "file://${modelFile.absolutePath}"
 
         then:

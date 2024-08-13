@@ -13,7 +13,10 @@ class EPackageRenderer extends Transformer {
 
     static boolean schemaToJavaRender(TransformOptions options) throws IOException {
 
-        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema), options.rootClassName, options.packageName, options.convertToCamelCase)
+        EPackage ePackage = SchemaToEPackage.getEPackage(getSchema(options.jsonSchema, options.basePath), options.rootClassName, options.packageName, options.convertToCamelCase)
+        if(!ePackage.name) {
+            ePackage.name = options.rootClassName
+        }
         options.ePackage = ePackage
         options.renderParams.put('ePackage', ePackage)
         options.toType(TransformOptions.Type.java)
@@ -66,7 +69,7 @@ class EPackageRenderer extends Transformer {
             if (prop.defaultValue != null) {
                 sb.append "${prop.defaultValue}"
             } else {
-                sb.append ""
+                sb.append " = new ArrayList<>()"
             }
         } else {
             sb.append "${prop.eType} ${prop.name}"
@@ -89,13 +92,18 @@ class EPackageRenderer extends Transformer {
     static String javaSetter(String className, EStructuralFeature prop, indent = 4) {
         StringBuilder sb = new StringBuilder()
         String lf = '\n' + (' ' * indent)
+        if(!prop.name || prop.name == 'null'){
+            println("prop name null for class: " + className)
+            println(prop.dump())
+        }
         if (prop.eType.equalsIgnoreCase("enum")) {
             String propCap = prop.name.substring(0, 1).toUpperCase() + prop.name.substring(1)
             sb.append("${className} ${prop.name}(${propCap} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
         } else if (prop.eType.equalsIgnoreCase("BigInteger")) {
             sb.append("${className} ${prop.name}(java.math.${prop.eType} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
         } else if (prop.upperBound > 1 || prop.upperBound == -1) {
-            sb.append("${className} ${prop.name}(List<${prop.eType}> ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
+            sb.append("${className} ${prop.name}(List<${prop.eType}> ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }\n")
+            sb.append("    public ${className} add${prop.name.capitalize()}(${prop.eType} ${prop.name}){ this.${prop.name}.add(${prop.name}); return this; }")
         } else {
             sb.append("${className} ${prop.name}(${prop.eType} ${prop.name}){ this.${prop.name} = ${prop.name}; return this; }")
         }

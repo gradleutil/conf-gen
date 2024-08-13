@@ -1,14 +1,5 @@
 package net.gradleutil.conf.template
 
-import groovy.transform.AnnotationCollector
-import groovy.transform.EqualsAndHashCode
-import groovy.transform.ToString
-import jdk.nashorn.internal.ir.annotations.Immutable
-
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
-
-
 @interface Optional {}
 
 @SimpleStringAnnotation
@@ -132,36 +123,10 @@ class EStructuralFeature extends ETypedElement {
 
 
     String asEnum() {
-        def enums = valueList.collect { "${toEnumValue(it as String)}(\"${it}\")" }.join(',')
-        return """ {
-            ${enums};
-
-            private final String name;
-        
-            private ${name.capitalize()}(String s) {
-                name = s;
-            }
-        
-            public boolean equalsName(String otherName) {
-                return name.equals(otherName);
-            }
-        
-            public String toString() {
-               return this.name;
-            }
-        }
-        """
+        def enumText = EEnum.toEnum(name.capitalize(), valueList)
+        return enumText
     }
 
-    static String toEnumValue(String string) {
-        string.replaceAll("[^A-Za-z0-9]+", '_').toUpperCase().with {
-            if (Character.isDigit(string.charAt(0))) {
-                'V' + it
-            } else {
-                it
-            }
-        }
-    }
 }
 
 
@@ -201,6 +166,38 @@ class EEnum extends EDataType {
 
     EEnum() {}
 
+    static String toEnum(String name, List<Object> valueList) {
+        def enums = valueList.collect { "${toEnumValue(it as String)}(\"${it}\")" }.join(',')
+        return """
+        {
+            ${enums.trim()};
+
+            private final String name;
+        
+            private ${name}(String s) {
+                name = s;
+            }
+        
+            public boolean equalsName(String otherName) {
+                return name.equals(otherName);
+            }
+        
+            public String toString() {
+               return this.name;
+            }
+        }""".stripIndent().trim()
+    }
+
+    static String toEnumValue(String string) {
+        string.replaceAll("[^A-Za-z0-9]+", '_').toUpperCase().with {
+            if (Character.isDigit(string.charAt(0))) {
+                'V' + it
+            } else {
+                it
+            }
+        }
+    }
+
 }
 
 @SimpleStringAnnotation
@@ -223,7 +220,7 @@ class EPackage extends ENamedElement {
 
     public String nsURI
 
-    public List<EClassifier> eClassifiers = [] as List<EClassifier>
+    public List<EClassifier> eClassifiers = [] as LinkedList<EClassifier>
 
     public List<EPackage> eSubpackages
 
@@ -258,6 +255,9 @@ class EBoolean extends EDataType {
 }
 
 class EBigInteger extends EDataType {
+}
+
+class EBigDecimal extends EDataType {
 }
 
 class ELong extends EDataType {
@@ -297,6 +297,10 @@ class ECorePackage {
         return new EBigInteger(name: 'BigInteger')
     }
 
+    static def getEBigDecimal() {
+        return new EBigDecimal(name: 'BigDecimal')
+    }
+
     static def getEBoolean() {
         return new EBoolean(name: 'Boolean')
     }
@@ -325,7 +329,7 @@ class EAttribute extends EStructuralFeature {
 @SimpleStringAnnotation
 class EClass extends EClassifier {
 
-    List<EStructuralFeature> eStructuralFeatures = [] as List<EStructuralFeature>
+    List<EStructuralFeature> eStructuralFeatures = [] as LinkedList<EStructuralFeature>
 
     List<String> eAllAttributes = []
 
@@ -355,7 +359,7 @@ class EClass extends EClassifier {
 
     List<String> eAllGenericSuperTypes = []
 
-    List<EOperation> eOperations = [] as List<EOperation>
+    List<EOperation> eOperations = [] as LinkedList<EOperation>
 
     List<EStructuralFeature> getEStructuralFeatures() {
         return eStructuralFeatures

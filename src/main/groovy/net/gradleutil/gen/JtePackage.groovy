@@ -18,7 +18,6 @@ class JtePackage {
 
     static List<File> getUrls(ClassLoader classLoader) {
         List<File> urls = []
-        println "$classLoader"
         if (classLoader instanceof URLClassLoader) {
             urls.addAll classLoader.getURLs().collect { new File(it.file) }
         }
@@ -44,7 +43,7 @@ class JtePackage {
 
         def jsonSchema = GenUtil.configFileToReferenceSchemaJson(mhf, modelName)
         def modelFile = new File(sourceDirectory.toFile(), modelName + '.groovy')
-        Transformer.transform(jsonSchema, packageName, modelName, modelFile)
+        Transformer.transform(jsonSchema, packageName, modelName,"", modelFile)
         logger.info("groovy file:///" + modelFile.absolutePath)
 
         def jarPath = new File(targetDirectory.toFile(), "${modelName}.jar").toPath()

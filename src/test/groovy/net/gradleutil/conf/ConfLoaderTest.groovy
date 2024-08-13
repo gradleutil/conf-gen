@@ -1,13 +1,15 @@
 package net.gradleutil.conf
 
+import net.gradleutil.conf.transform.TransformOptions
 import net.gradleutil.conf.transform.Transformer
 import net.gradleutil.conf.util.ConfUtil
 import net.gradleutil.conf.util.Inflector
 import net.gradleutil.conf.util.GenUtil
 
 import static net.gradleutil.conf.Loader.loaderOptions
+import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
-class LoaderTest extends AbstractTest {
+class ConfLoaderTest extends AbstractTest {
 
     def "test create all"() {
         setup:
@@ -27,8 +29,8 @@ class LoaderTest extends AbstractTest {
         println('json file:///' + data.absolutePath)
         println('parsing file:///' + modelFile.absolutePath)
         Loader.invalidateCaches()
-        Transformer.transform(jsonSchema, packageName, refName.capitalize(), modelFile)
-        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        Transformer.transform(jsonSchema, packageName, refName.capitalize(),"src/testFixtures/resources/json/", modelFile)
+        def gcl = new GroovyClassLoader(ConfLoaderTest.classLoader)
         def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
         def funk = Loader.create(data.text, modelClass, loaderOptions().classLoader(gcl).silent(false).allowUnresolved(true))
 
@@ -48,13 +50,51 @@ class LoaderTest extends AbstractTest {
 
         when:
         def modelFile = new File(base + '/' + refName.toLowerCase() + '/' + refName + '.groovy')
-        println('parsing file:///' + modelFile.absolutePath)
+        println('writing file:///' + modelFile.absolutePath)
         def pkg = packageName + '.' + refName.toLowerCase()
         modelFile.parentFile.mkdir()
         Loader.invalidateCaches()
-        Transformer.transform(jsonSchema, pkg, refName.capitalize(), modelFile)
-        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        Transformer.transform(jsonSchema, pkg, refName.capitalize(),"", modelFile)
+        def gcl = new GroovyClassLoader(ConfLoaderTest.classLoader)
         def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(pkg + '.' + refName.capitalize())
+        def funk = Loader.create(data, modelClass, loaderOptions().classLoader(gcl).silent(false).allowUnresolved(true))
+
+        then:
+        funk
+
+    }
+    
+    def "test create included references"() {
+        setup:
+        def resourceName = 'json/includes/PersonList.json'
+        def data = getResourceText(resourceName)
+        def refName = 'PersonList'
+        def fileRefSchema = new File('src/testFixtures/resources/json/includes/ref-file.schema.json').tap{
+            println('schema file:///' + it.absolutePath)
+        }.text
+        def relativeRefSchema = new File('src/testFixtures/resources/json/includes/relative.schema.json').tap{
+            println('schema file:///' + it.absolutePath)
+        }.text
+        def schemaFileRef = getSchema(fileRefSchema, "")
+        def schemaRelativeRef = getSchema(relativeRefSchema, "./src/testFixtures/resources/json/includes/")
+        //println(schemaFileRef.schemaNode.toPrettyString())
+
+        when:
+        def modelFile = new File(base + '/' + refName.toLowerCase() + '/').tap {it.mkdir()}
+        println('writing file:///' + modelFile.absolutePath)
+        def pkg = packageName + '.' + refName.toLowerCase()
+        modelFile.parentFile.mkdir()
+        Loader.invalidateCaches()
+        def ops = Transformer.transformOptions()
+        ops.jsonSchema(fileRefSchema).packageName(pkg)
+                .rootClassName(refName.capitalize())
+                .basePath("")
+                .outputFile(modelFile)
+        .toType(TransformOptions.Type.java)
+        Transformer.transform(ops)
+        def gcl = new GroovyClassLoader(ConfLoaderTest.classLoader)
+        modelFile.listFiles().each{ file -> gcl.parseClass(file) }
+        def modelClass = gcl.loadClass(pkg + '.' + refName.capitalize())
         def funk = Loader.create(data, modelClass, loaderOptions().classLoader(gcl).silent(false).allowUnresolved(true))
 
         then:
@@ -77,8 +117,8 @@ class LoaderTest extends AbstractTest {
         println('schema file:///' + schemaFile.absolutePath)
         println('parsing file:///' + modelFile.absolutePath)
         Loader.invalidateCaches()
-        Transformer.transform(jsonSchema, packageName, refName.capitalize(), modelFile)
-        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        Transformer.transform(jsonSchema, packageName, refName.capitalize(),"", modelFile)
+        def gcl = new GroovyClassLoader(ConfLoaderTest.classLoader)
         def modelClass = gcl.parseClass(modelFile).classLoader.loadClass(packageName + '.' + refName.capitalize())
         def funk = Loader.create(data, modelClass, loaderOptions().classLoader(gcl).silent(false).allowUnresolved(true))
 
@@ -95,15 +135,13 @@ class LoaderTest extends AbstractTest {
         def modelFile = new File(base + refName + '.groovy')
         println('schema file:///' + data.absolutePath)
         println('parsing file:///' + modelFile.absolutePath)
-        Transformer.transform(data.text, packageName, refName.capitalize(), modelFile)
+        Transformer.transform(data.text, packageName, refName.capitalize(), "src/testFixtures/resources/json/", modelFile)
 
         then:
         modelFile.exists()
 
         where:
-        data << new File('src/testFixtures/resources/json/').listFiles().findAll {
-            it.name.endsWith('schema.json')
-        }
+        data << new File('src/testFixtures/resources/json/').listFiles().findAll { !it.directory && it.name.endsWith('schema.json')&& !it.name.endsWith('json-schema.json') }
     }
 
     def "test override"() {
@@ -156,7 +194,7 @@ class LoaderTest extends AbstractTest {
 
         when:
         config = Loader.load(loaderOptions().conf(conf).useSystemProperties(true))
-        println ConfUtil.configToJson(config)
+        //println ConfUtil.configToJson(config)
 
         then:
         config.root().unwrapped().java != null
@@ -210,7 +248,6 @@ class LoaderTest extends AbstractTest {
         System.setProperty('car.doors.number', '2')
         Loader.invalidateCaches()
         config = Loader.load(loaderOptions().conf(conf).useSystemProperties(true).reference(ref).confOverride(confOverride).silent(false))
-        println ConfUtil.configToJson(config)
 
 
         then:

@@ -16,7 +16,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Manytyped.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = Transformer.transform(schemaFile.text, packageName, 'Manytyped', modelFile)
+        def result = Transformer.transform(schemaFile.text, packageName, 'Manytyped', "",modelFile)
 
         then:
         result
@@ -48,7 +48,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Produce.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = Transformer.transform(schemaFile.text, packageName, 'Produce', modelFile)
+        def result = Transformer.transform(schemaFile.text, packageName, 'Produce', "",modelFile)
 
         then:
         result
@@ -63,7 +63,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         then:
         method instanceof List
         def list = method as List
-        list.toString() == '[Vegetable(veggieName:potato, veggieLike:true), Vegetable(veggieName:broccoli, veggieLike:false)]'
+        list.toString() == '[Vegetable(veggieLike:true, veggieName:potato), Vegetable(veggieLike:false, veggieName:broccoli)]'
     }
 
 
@@ -78,7 +78,7 @@ class BeanConfigLoaderTest extends AbstractTest {
         when:
         def modelFile = new File(base + 'Plugin.groovy')
         println('file:///' + modelFile.absolutePath)
-        def result = Transformer.transform(jsonSchema, packageName, refName, modelFile)
+        def result = Transformer.transform(jsonSchema, packageName, refName,"", modelFile)
 
         then:
         result

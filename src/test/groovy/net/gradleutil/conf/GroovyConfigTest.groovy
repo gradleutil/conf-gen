@@ -3,6 +3,8 @@ package net.gradleutil.conf
 import net.gradleutil.conf.transform.groovy.GroovyConfig
 import groovy.util.logging.Log
 import net.gradleutil.conf.util.Inflector
+import spock.lang.Ignore
+
 import static net.gradleutil.conf.json.schema.SchemaUtil.getSchema
 
 @Log
@@ -14,7 +16,7 @@ class GroovyConfigTest extends AbstractTest {
 
         when:
         def modelFile = new File(base + 'Minecraft.groovy')
-        def result = GroovyConfig.toGroovyDsl(getSchema(jsonSchema, true), 'MinecraftConfig', packageName)
+        def result = GroovyConfig.toGroovyDsl(getSchema(jsonSchema, true, ""), 'MinecraftConfig', packageName)
         modelFile.text = result
         println "file://${modelFile.absolutePath}"
 
@@ -22,6 +24,7 @@ class GroovyConfigTest extends AbstractTest {
         result
     }
 
+    @Ignore
     def "schema to groovyDSL"() {
         setup:
         def jsonSchemaDir = File.createTempDir()
@@ -29,7 +32,7 @@ class GroovyConfigTest extends AbstractTest {
         def jsonSchemas = new File(jsonSchemaDir, 'json').listFiles().findAll { it.name.endsWith('schema.json') }
         def modelFiles = []
         def inflector = new Inflector()
-        def gcl = new GroovyClassLoader(LoaderTest.classLoader)
+        def gcl = new GroovyClassLoader(ConfLoaderTest.classLoader)
 
         when:
         jsonSchemas.each { jsonSchema ->

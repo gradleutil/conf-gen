@@ -7,12 +7,16 @@
 @param EPackage ePackage
 @param TransformOptions options
 
-@if (!options.getSingleFile()) @template.groovyclass.EGroovyClassImports() @endif
+@if (!options.singleFile()) @template.groovyclass.EGroovyClassImports() @endif
 
+@if(!eClass.geteSuperTypes().isEmpty() && eClass.geteSuperTypes().get(0).toLowerCase() == "enum")
+enum ${eClass.name} ${eClass.getEStructuralFeatures().get(0).asEnum()}
+@else
 @ToStringIncludeNames
-class ${eClass.name} @if (eClass.geteSuperTypes().size() > 0) extends ${eClass.geteSuperTypes().get(0)} @endif implements Serializable {
+class ${eClass.name} @if (!eClass.geteSuperTypes().isEmpty()) extends ${eClass.geteSuperTypes().get(0)} @endif implements Serializable {
 @template.groovyclass.EGroovyClassConstructor(eClass=eClass, options = options)
 @for (EStructuralFeature prop : eClass.getEStructuralFeatures())
     ${featureToClassProp(prop)}
 @endfor
 }
+@endif

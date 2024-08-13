@@ -1,42 +1,42 @@
 package net.gradleutil.conf.util
 
+import com.networknt.schema.JsonSchema
 import net.gradleutil.conf.Loader
-import net.gradleutil.conf.json.schema.ReferenceSchema
-import net.gradleutil.conf.json.schema.Schema
 import net.gradleutil.conf.json.JSONObject
+import net.gradleutil.conf.json.schema.SchemaUtil
 import net.gradleutil.conf.transform.hocon.HoconToSchema
-import net.gradleutil.conf.json.schema.SchemaToReferenceSchema
+import net.gradleutil.conf.transform.schema.SchemaToReferenceSchema
 
 
 class GenUtil {
 
 
-    static Schema configFileToSchema(File configFile) {
-        def config = Loader.resolveWithSystem(configFile).root()
-        HoconToSchema.toObjectSchema(config)
+    static JsonSchema configFileToSchema(File configFile) {
+        def config = Loader.resolveWithSystem(configFile)
+        SchemaUtil.getSchema(config,'conf', configFile.parentFile.absolutePath)
     }
 
-    static Schema confToSchema(String conf) {
-        def config = Loader.resolveStringWithSystem(conf).root()
-        HoconToSchema.toObjectSchema(config)
+    static JsonSchema confToSchema(String conf, String ref) {
+        def config = Loader.resolveStringWithSystem(conf)
+        SchemaUtil.getSchema(config,ref, "")
     }
 
-    static ReferenceSchema configFileToReferenceSchema(File configFile, String ref) {
-        def config = Loader.resolveWithSystem(configFile).root()
-        SchemaToReferenceSchema.schemaToReferenceSchema(HoconToSchema.toObjectSchema(ref, config), ref)
+    static JsonSchema configFileToReferenceSchema(File configFile, String ref) {
+        def config = Loader.resolveWithSystem(configFile)
+        SchemaUtil.getSchema(config,ref, "")
     }
 
-    static ReferenceSchema confToReferenceSchema(String conf, String ref) {
-        def config = Loader.resolveStringWithSystem(conf).root()
-        SchemaToReferenceSchema.schemaToReferenceSchema(HoconToSchema.toObjectSchema(ref, config), ref)
+    static JsonSchema confToReferenceSchema(String conf, String ref) {
+        def config = Loader.resolveStringWithSystem(conf)
+        SchemaUtil.getSchema(config,ref, "")
     }
 
     static String configFileToSchemaJson(File configFile) {
-        return new JSONObject(configFileToSchema(configFile).toString()).toString(4)
+        return configFileToSchema(configFile).schemaNode.toPrettyString()
     }
 
-    static String confToSchemaJson(String conf) {
-        return new JSONObject(confToSchema(conf).toString()).toString(4)
+    static String confToSchemaJson(String conf, String ref) {
+        return confToSchema(conf, ref).schemaNode.toPrettyString()
     }
 
     static File configFileToSchemaFile(File configFile, File schemaFile) {
@@ -44,17 +44,17 @@ class GenUtil {
         schemaFile
     }
 
-    static File confToSchemaFile(String conf, File schemaFile) {
-        schemaFile.text = confToSchemaJson(conf)
+    static File confToSchemaFile(String conf, String ref, File schemaFile) {
+        schemaFile.text = confToSchemaJson(conf, ref)
         schemaFile
     }
 
     static String configFileToReferenceSchemaJson(File configFile, String ref) {
-        new JSONObject(configFileToReferenceSchema(configFile, ref).toString()).toString(2)
+        configFileToReferenceSchema(configFile, ref).schemaNode.toPrettyString()
     }
 
     static String confToReferenceSchemaJson(String conf, String ref) {
-        new JSONObject(confToReferenceSchema(conf, ref).toString()).toString(2)
+        confToReferenceSchema(conf, ref).schemaNode.toPrettyString()
     }
 
     static File configFileToReferenceSchemaFile(File configFile, String ref, File schemaFile) {

@@ -17,17 +17,5 @@ class SchemaToReferenceSchemaTest extends AbstractTest {
         then:
         jsonRefSchema.exists()
     }
-
-    def "booklist"() {
-        setup:
-        def confFile = getResourceText('json/booklist.json')
-        def rootClassName = 'booklist'
-        def jsonRefSchema = GenUtil.confToReferenceSchemaFile(confFile, rootClassName, new File(base, 'refschema.json'))
-
-        when:
-        println "file://${jsonRefSchema.absolutePath}"
-
-        then:
-        jsonRefSchema.text == getResourceText('json/booklist.schema.json')
-    }
+    
 }

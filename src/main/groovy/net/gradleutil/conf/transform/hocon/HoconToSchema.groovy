@@ -1,14 +1,22 @@
 package net.gradleutil.conf.transform.hocon
 
+import com.fasterxml.jackson.databind.JsonNode
+import com.networknt.schema.JsonSchema
 import net.gradleutil.conf.config.ConfigObject
 import net.gradleutil.conf.config.ConfigValue
 import net.gradleutil.conf.config.ConfigValueType
+import net.gradleutil.conf.transform.schema.ArraySchema
+import net.gradleutil.conf.transform.schema.BooleanSchema
+import net.gradleutil.conf.transform.schema.NullSchema
+import net.gradleutil.conf.transform.schema.NumberSchema
+import net.gradleutil.conf.transform.schema.ObjectSchema
+import net.gradleutil.conf.transform.schema.StringSchema
 import net.gradleutil.conf.util.GenUtil
 import net.gradleutil.conf.json.schema.*
 
 class HoconToSchema {
 
-    static ObjectSchema toObjectSchema(ConfigObject config, String schemaProperty = null, Boolean toSingularNames = false) {
+    static JsonNode toObjectSchema(ConfigObject config, String schemaProperty = null, Boolean toSingularNames = false) {
         def objectBuilder = ObjectSchema.builder()
         if (schemaProperty) {
             objectBuilder.unprocessedProperties.put('$schema', schemaProperty)
@@ -41,7 +49,7 @@ class HoconToSchema {
         toObjectSchema(refConfig, null, toSingularNames)
     }
 
-    static Schema toSchema(ConfigValue configValue) {
+    static JsonSchema toSchema(ConfigValue configValue) {
         assert configValue != null
         switch (configValue.valueType()) {
             case ConfigValueType.STRING:

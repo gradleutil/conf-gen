@@ -7,7 +7,7 @@
         "people": {
           "type": "array",
           "items": {
-            "$ref": "file:./src/testFixtures/resources/json/person.schema.json"
+            "$ref": "person.schema.json"
           },
           "default": []
         }

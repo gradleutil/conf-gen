@@ -6,7 +6,7 @@
 
     ${ eClass.name }(){ }
 
-@if (eClass.equals(options.getePackage().eClassifiers.get(0)))
+@if (eClass.equals(options.ePackage().eClassifiers.get(0)))
     ${ eClass.name }(File conf, File confOverride){
         setBeanFromConfigFile(this, conf, confOverride)
     }

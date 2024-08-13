@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BuildingList",
+  "$ref": "#/definitions/Buildings",
+  "definitions": {
+    "Buildings": {
+      "title": "Buildings",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "file": {"type": "string"},
+        "buildingGroups": {
+          "title": "Building Groups",
+          "type": "array",
+          "items": {"$ref": "#/definitions/buildingGroup"}
+        }
+      }
+    },
+    "buildingGroup": {
+      "title": "BuildingGroup",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "buildings": {
+          "title": "Buildings",
+          "type": "array",
+          "items": {"$ref": "#/definitions/building"}
+        }
+      }
+    },
+    "building": {
+      "title": "Building",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "buildingType": {
+          "title": "Type",
+          "enum": [
+            "commercial",
+            "residential"
+          ]
+        },
+        "units": {
+          "title": "Units",
+          "type": "array",
+          "items": {"$ref": "#/definitions/unit"}
+        },
+        "address": {"$ref": "#/definitions/address"}
+      },
+      "required": ["name"]
+    },
+    "unit": {
+      "title": "Unit",
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"}
+      },
+      "required": ["name"]
+    },
+    "address": {
+      "title": "Address",
+      "type": "object",
+      "properties": {
+        "street": {"type": "string"},
+        "city": {"type": "string"},
+        "state": {"type": "string"},
+        "zip": {"type": "number"}
+      },
+      "required": ["street", "city", "state"]
+    }
+  }
+}

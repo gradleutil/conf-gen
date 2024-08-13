@@ -109,7 +109,7 @@ class Generator {
         classLoader
     }
 
-    static ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = generatorOptions()) {
+    static synchronized ClassLoader compile(Path sourceDirectory, Path targetDirectory, GeneratorOptions options = generatorOptions()) {
         long start = System.nanoTime()
         logger.info("Compiling jte templates found in " + sourceDirectory)
         TemplateEngine templateEngine = getTemplateEngine(sourceDirectory, targetDirectory, options)
