@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: 11
+          distribution: 'temurin'
 
       - name: Setup build cache
         uses: actions/cache@v4
